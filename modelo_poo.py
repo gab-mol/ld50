@@ -1,6 +1,7 @@
 '''
 modelo_poo.py:
     Este es el modelo correspondiente a ld50_app
+    :Entrega Diplomatura Python - Nivel Intermedio:
 '''
 __author__ = "Gabriel Molina"
 __maintainer__ = "Gabriel Molina"
@@ -67,6 +68,9 @@ class Arbol():
 
 
 class Grafico(FigureCanvasTkAgg):
+    '''
+    Para crear el grafico de regresion.
+    '''
     @staticmethod         
     def graf(ax, lista_logdosis, lista_probit_un, b, a, canvas):
         x = lista_logdosis
@@ -81,7 +85,9 @@ class Grafico(FigureCanvasTkAgg):
         canvas.draw()
 
 class Utilidades():
-    '''Herramientas varias para CRUD y parte matematica'''    
+    '''
+    Herramientas varias para CRUD y parte matematica
+    '''    
     def __init__(self, vista_ensayos) -> None: # 
         self.vista_ensayos = vista_ensayos
         #self.canvas = canvas
@@ -128,7 +134,8 @@ class Utilidades():
         
 class Crud_ORM(): 
     '''Alta baja y modificacion. Ingresar variables de tkinter'''
-    def __init__(self, vista_ensayos, dosis_var, muert_var, n_var, uni_var):
+    def __init__(self, vista_ensayos, dosis_var, muert_var, 
+                 n_var, uni_var):
         self.vista_ensayos = vista_ensayos
         self.dosis_var = dosis_var
         self.muert_var = muert_var

@@ -1,6 +1,8 @@
 '''
 vista_poo.py:
     Este es la vista correspondiente a ld50_app
+    :Entrega Diplomatura Python - Nivel Intermedio:
+
 '''
 #cambio prueba git
 
@@ -20,12 +22,18 @@ class Ventana():
 
     '''
     def __init__(self, principal):
-        #Instanciacion de clases modelo y maquetacion
+        '''
+        Instanciacion de clases declaradas en modelo y maquetacion
+        '''
         self.vista_ensayos = Vista_arbol(principal)
         self.cargador_arbol = modelo_poo.Arbol(self.vista_ensayos.vista_ensayos)
         self.entradas = Entr(principal)
-        self.datos = modelo_poo.Crud_ORM(self.vista_ensayos.vista_ensayos, self.entradas.dosis_var, 
-        self.entradas.muert_var, self.entradas.n_var, self.entradas.uni_var)
+        self.datos = modelo_poo.Crud_ORM(self.vista_ensayos.vista_ensayos, 
+                                        self.entradas.dosis_var, 
+                                        self.entradas.muert_var, 
+                                        self.entradas.n_var, 
+                                        self.entradas.uni_var
+                                        )
 
         #Formateo y maquetacion de ventana
         col_fond = "#BFBFBF"
@@ -36,80 +44,251 @@ class Ventana():
 
 
         # Instruccion superior
-        font_instrucc = ("Lucida Console", 12, "underline")
-        instrucc = Label(principal, text="Ingrese dosis ensayada \
-y respuesta (muertos): ", bd=8, font=font_instrucc)
+        font_instrucc = (
+            "Lucida Console", 12, "underline"
+        )
+        instrucc = Label(
+            principal,
+            text="Ingrese dosis ensayada \
+y respuesta (muertos): ", 
+            bd=8, font=font_instrucc
+        )
         instrucc.grid(row=0, column=0, sticky="w", columnspan=2)
 
         # Botones
-        font_botones1 = ("Arial", 11, "bold")
-        font_botones2 = ("Arial", 11)
+        font_botones1 = (
+            "Arial",11, "bold"
+        )
 
-        calcular = Button(principal, text="Calcular>>", font=font_botones1, 
-        command=lambda:modelo_poo.ver_100_0(ax, self.vista_ensayos.vista_ensayos, sal_ld50, 
-        sal_inter_ld50, equ_reg, canvas), padx=30, pady=10, width=10)
-        calcular.grid(row=1, column=2, rowspan=2, pady=8, sticky="n")
+        font_botones2 = (
+            "Arial", 11
+        )
 
-        guard_ensy = Button(principal, text=">>Guardar ensayo", font=font_botones2, 
-        command=lambda:self.datos.alta_ensay(), padx=30, pady=10, width=10)
-        guard_ensy.grid(row=3, column=2, rowspan=2)
+        calcular = Button(
+            principal, 
+            text="Calcular>>", 
+            font=font_botones1,
+            command=lambda:modelo_poo.ver_100_0(
+                ax,
+                self.vista_ensayos.vista_ensayos,
+                sal_ld50,
+                sal_inter_ld50,
+                equ_reg, canvas
+            ),
+            adx=30,
+            pady=10,
+            width=10
+        )
+        calcular.grid(
+            row=1,
+            column=2,
+            rowspan=2,
+            pady=8,
+            sticky="n"
+        )
 
-        borr = Button(principal, text="Borrar", font=font_botones2, 
-        command=lambda:self.datos.borr_ensay(), padx=30, pady=10, width=10)
-        borr.grid(row=6, column=2, rowspan=2, sticky="s", pady=7)
+        guard_ensy = Button(
+            principal,
+            text=">>Guardar ensayo",
+            font=font_botones2,
+            command=lambda:self.datos.alta_ensay(),
+            padx=30,
+            pady=10,
+            width=10
+        )
+        guard_ensy.grid(
+            row=3,
+            column=2,
+            rowspan=2
+        )
 
-        modif = Button(principal, text="Modificar", font=font_botones2,
-        command=lambda:self.datos.modif_ensay(), 
-        padx=30, pady=10, width=10)
-        modif.grid(row=7, column=2, rowspan=2, sticky="s")
+        borr = Button(
+            principal,
+            text="Borrar",
+            font=font_botones2,
+            command=lambda:self.datos.borr_ensay(), padx=30, pady=10, width=10
+        )
+        borr.grid(
+            row=6,
+            column=2,
+            rowspan=2,
+            sticky="s",
+            pady=7
+        )
+
+        modif = Button(
+            principal,
+            text="Modificar",
+            font=font_botones2,
+            command=lambda:self.datos.modif_ensay(), 
+            padx=30, pady=10, width=10
+        )
+        modif.grid(
+            row=7,
+            column=2,
+            rowspan=2,
+            sticky="s"
+        )
 
         # Salida de valores ######
         # GRAFICO Logdosisxprobit
-        fig = Figure(figsize=(4.2, 4.5), dpi=100)
-        ax = fig.add_subplot(1, 1, 1)
-        canvas = FigureCanvasTkAgg(fig, master=principal) 
+        fig = Figure(
+            figsize=(
+            4.2, 4.5
+            ), 
+            dpi=100
+        )
+
+        ax = fig.add_subplot(
+            1, 
+            1, 
+            1
+        )
+
+        canvas = FigureCanvasTkAgg(
+            fig, 
+            master=principal
+        ) 
+
         canvas.draw()
-        canvas.get_tk_widget().grid(row=6, column=4, pady=5, columnspan=2, 
-        rowspan=7, padx=10, sticky="n")
+        canvas.get_tk_widget().grid(
+            row=6, 
+            column=4,
+            pady=5,
+            columnspan=2,
+            rowspan=7,
+            padx=10,
+            sticky="n"
+        )
 
         # LD50 salida
-        font_et_ld50 = ("Lucida Console", 9, "bold")
-        font_et_ld502 = ("Lucida Console", 11, "underline")
-        et_ld50 = Label(principal, text="Resultado LD50:", justify="center", 
-        bg="#857b7b", font=font_et_ld502, pady=5, padx=50, width=35, height=1)
-        et_ld50.grid(row=1, column=4, columnspan=2, rowspan=1, padx=10, sticky="n")
+        font_et_ld50 = (
+            "Lucida Console", 9, "bold"
+        )
+
+        font_et_ld502 = (
+            "Lucida Console", 11, "underline"
+        )
+
+        et_ld50 = Label(
+            principal,
+            text="Resultado LD50:",
+            justify="center",
+            bg="#857b7b",
+            font=font_et_ld502,
+            pady=5,
+            padx=50,
+            width=35,
+            height=1
+        )
+
+        et_ld50.grid(
+            row=1,
+            column=4,
+            columnspan=2,
+            rowspan=1,
+            padx=10,
+            sticky="n"
+        )
+
         # salida LD50
-        sal_ld50 = Label(principal, text="Dosis Letal 50%: <...>", padx=36, 
-        bg="#DECDCD", justify="center", font=font_et_ld50, pady=15, 
-        width=43, height=1)
-        sal_ld50.grid(row=2, column=4, columnspan=3, rowspan = 2, padx=5, 
-        sticky="n")
+        sal_ld50 = Label(
+            principal,
+            text="Dosis Letal 50%: <...>",
+            padx=36,
+            bg="#DECDCD",
+            justify="center",
+            font=font_et_ld50,
+            pady=15,
+            width=43,
+            height=1
+        )
+        sal_ld50.grid(
+            row=2,
+            column=4,
+            columnspan=3,
+            rowspan = 2,
+            padx=5,
+            sticky="n"
+        )
 
         # salida intervalo
-        et_int =Label(principal, 
-        text="Intervalo de confianza 95%:", pady=5, padx=4, 
-        bg="#DECDCD", justify="center", font=font_et_ld50, width=51, height=1)
-        et_int.grid(row=3, column=4, columnspan=3, rowspan = 3, 
-        padx=5, sticky="n")
+        et_int =Label(
+            principal,
+            text="Intervalo de confianza 95%:",
+            pady=5, padx=4,
+            bg="#DECDCD",
+            justify="center",
+            font=font_et_ld50,
+            width=51,
+            height=1
+        )
+        et_int.grid(
+            row=3,
+            column=4,
+            columnspan=3,
+            rowspan = 3,
+            padx=5,
+            sticky="n"
+        )
 
-        sal_inter_ld50 = Label(principal, 
-        text="<...>", pady=6, padx=4, 
-        bg="#DECDCD", justify="center", font=font_et_ld50, width=51, height=1)
-        sal_inter_ld50.grid(row=4, column=4, columnspan=3, rowspan = 2, 
-        padx=9, sticky="s")
+        sal_inter_ld50 = Label(
+            principal, 
+            text="<...>", pady=6, padx=4,
+            bg="#DECDCD",
+            justify="center",
+            font=font_et_ld50,
+            width=51,
+            height=1
+        )
+        sal_inter_ld50.grid(
+            row=4,
+            column=4,
+            columnspan=3,
+            rowspan = 2,
+            padx=9,
+            sticky="s"
+        )
 
         # ecuacion regresion
-        font_ecu1 = ("Arial", 9, "bold")
-        font_ecu2 = ("Arial", 9)
-        et_equ_reg =Label(principal, 
-        text="Línea de regresión:", pady=5, padx=4, 
-        bg="#DECDCD", justify="center", font=font_ecu1, width=15, height=1)
-        et_equ_reg.grid(row=9, column=2, rowspan=2)
+        font_ecu1 = (
+            "Arial", 9, "bold"
+        )
+        font_ecu2 = (
+            "Arial", 9
+        )
+        et_equ_reg =Label(
+            principal,
+            text="Línea de regresión:",
+            pady=5,
+            padx=4,
+            bg="#DECDCD",
+            justify="center",
+            font=font_ecu1,
+            width=15,
+            height=1
+        )
+        et_equ_reg.grid(
+            row=9,
+            column=2,
+            rowspan=2
+        )
 
-        equ_reg =Label(principal, 
-        text="Pendiente= ... | Ordenada= ...", 
-        bg="#DECDCD", justify="center", font=font_ecu2, width=25, height=1)
-        equ_reg.grid(row=10, column=2, rowspan=1, sticky="e")
+        equ_reg =Label(
+            principal, 
+            text="Pendiente= ... | Ordenada= ...",
+            bg="#DECDCD",
+            justify="center",
+            font=font_ecu2,
+            width=25,
+            height=1
+        )
+        equ_reg.grid(
+            row=10,
+            column=2,
+            rowspan=1,
+            sticky="e"
+        )
 
 class Entr():
     '''Entradas y sus etiquetas'''
