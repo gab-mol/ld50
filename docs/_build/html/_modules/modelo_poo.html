@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>modelo_poo &mdash; EntregaFinal 0.0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            EntregaFinal
+          </a>
+              <div class="version">
+                0.0.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../controlador_poo.html">controlador_poo module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modelo_poo.html">modelo_poo module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../vista_poo.html">vista_poo module</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">EntregaFinal</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Module code</a></li>
+      <li class="breadcrumb-item active">modelo_poo</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for modelo_poo</h1><div class="highlight"><pre>
+<span></span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">modelo_poo.py:</span>
+<span class="sd">    Este es el modelo correspondiente a ld50_app</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">__author__</span> <span class="o">=</span> <span class="s2">&quot;Gabriel Molina&quot;</span>
+<span class="n">__maintainer__</span> <span class="o">=</span> <span class="s2">&quot;Gabriel Molina&quot;</span>
+<span class="n">__email__</span> <span class="o">=</span> <span class="s2">&quot;gabrielmolina149@gmail.com&quot;</span>
+<span class="n">__copyright__</span> <span class="o">=</span> <span class="s2">&quot;Copyright 2023&quot;</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s2">&quot;0.0.1&quot;</span>
+
+<span class="kn">from</span> <span class="nn">peewee</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">log10</span><span class="p">,</span> <span class="n">sqrt</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">polyfit</span><span class="p">,</span> <span class="n">array</span>
+<span class="kn">from</span> <span class="nn">statistics</span> <span class="kn">import</span> <span class="n">NormalDist</span><span class="p">,</span> <span class="n">mean</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">from</span> <span class="nn">matplotlib.backends.backend_tkagg</span> <span class="kn">import</span> <span class="n">FigureCanvasTkAgg</span>
+<span class="kn">import</span> <span class="nn">vista_poo</span>
+
+<span class="n">db</span> <span class="o">=</span> <span class="n">SqliteDatabase</span><span class="p">(</span><span class="s2">&quot;dosisld50.db&quot;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="BaseModel"><a class="viewcode-back" href="../modelo_poo.html#modelo_poo.BaseModel">[docs]</a><span class="k">class</span> <span class="nc">BaseModel</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">database</span> <span class="o">=</span> <span class="n">db</span></div>
+
+<div class="viewcode-block" id="Ld50"><a class="viewcode-back" href="../modelo_poo.html#modelo_poo.Ld50">[docs]</a><span class="k">class</span> <span class="nc">Ld50</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;Construccion de tabla&#39;&#39;&#39;</span>
+    <span class="n">dosis</span> <span class="o">=</span> <span class="n">FloatField</span><span class="p">()</span>
+    <span class="n">muertos</span> <span class="o">=</span> <span class="n">FloatField</span><span class="p">()</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">IntegerField</span><span class="p">()</span>
+    <span class="n">unid</span> <span class="o">=</span> <span class="n">CharField</span><span class="p">()</span></div>
+
+<span class="c1"># Base de datos: Conexion y creacion de tablas</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">db</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+    <span class="n">db</span><span class="o">.</span><span class="n">create_tables</span><span class="p">([</span><span class="n">Ld50</span><span class="p">])</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;error de Conexión&quot;</span><span class="p">)</span>
+<span class="c1">#</span>
+
+<div class="viewcode-block" id="Arbol"><a class="viewcode-back" href="../modelo_poo.html#modelo_poo.Arbol">[docs]</a><span class="k">class</span> <span class="nc">Arbol</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;Carga el arbol con info almacenada en base de datos. Depende de Clase Conex()&#39;&#39;&#39;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">treeview</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">treeview</span> <span class="o">=</span> <span class="n">treeview</span>
+
+<div class="viewcode-block" id="Arbol.cargador_bd"><a class="viewcode-back" href="../modelo_poo.html#modelo_poo.Arbol.cargador_bd">[docs]</a>    <span class="k">def</span> <span class="nf">cargador_bd</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">global</span> <span class="n">lista_dosis</span><span class="p">,</span> <span class="n">lista_logdosis</span><span class="p">,</span> <span class="n">lista_muertos</span><span class="p">,</span> <span class="n">lista_n</span><span class="p">,</span>\
+            <span class="n">lista_prop_muer</span><span class="p">,</span> <span class="n">lista_probit_un</span><span class="p">,</span> <span class="n">lista_un</span>
+        <span class="c1"># limpieza del arbol</span>
+        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">treeview</span><span class="o">.</span><span class="n">get_children</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">treeview</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+
+        <span class="n">lista_dosis</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">lista_logdosis</span> <span class="o">=</span><span class="p">[]</span>
+        <span class="n">lista_muertos</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">lista_n</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">lista_un</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">lista_prop_muer</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">lista_probit_un</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">for</span> <span class="n">fila</span> <span class="ow">in</span> <span class="n">Ld50</span><span class="o">.</span><span class="n">select</span><span class="p">():</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">fila</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">treeview</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="n">fila</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="p">(</span><span class="n">fila</span><span class="o">.</span><span class="n">dosis</span><span class="p">,</span> <span class="n">fila</span><span class="o">.</span><span class="n">muertos</span><span class="p">,</span> <span class="n">fila</span><span class="o">.</span><span class="n">n</span><span class="p">,</span> <span class="n">fila</span><span class="o">.</span><span class="n">unid</span><span class="p">))</span>
+            <span class="n">lista_dosis</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">fila</span><span class="o">.</span><span class="n">dosis</span><span class="p">)</span>
+            <span class="n">lista_muertos</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">fila</span><span class="o">.</span><span class="n">muertos</span><span class="p">)</span>
+            <span class="n">lista_n</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">fila</span><span class="o">.</span><span class="n">n</span><span class="p">)</span>
+            <span class="n">lista_un</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">fila</span><span class="o">.</span><span class="n">unid</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="Grafico"><a class="viewcode-back" href="../modelo_poo.html#modelo_poo.Grafico">[docs]</a><span class="k">class</span> <span class="nc">Grafico</span><span class="p">(</span><span class="n">FigureCanvasTkAgg</span><span class="p">):</span>
+<div class="viewcode-block" id="Grafico.graf"><a class="viewcode-back" href="../modelo_poo.html#modelo_poo.Grafico.graf">[docs]</a>    <span class="nd">@staticmethod</span>         
+    <span class="k">def</span> <span class="nf">graf</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">lista_logdosis</span><span class="p">,</span> <span class="n">lista_probit_un</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">canvas</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">lista_logdosis</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">lista_probit_un</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Regresión PROBIT:&quot;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;PROBIT&quot;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Log Dosis&quot;</span><span class="p">)</span>
+        <span class="n">canvas</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">array</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">b</span><span class="o">*</span><span class="n">array</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">+</span><span class="n">a</span><span class="p">)</span>
+        <span class="n">canvas</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span></div></div>
+
+<div class="viewcode-block" id="Utilidades"><a class="viewcode-back" href="../modelo_poo.html#modelo_poo.Utilidades">[docs]</a><span class="k">class</span> <span class="nc">Utilidades</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;Herramientas varias para CRUD y parte matematica&#39;&#39;&#39;</span>    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vista_ensayos</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span> <span class="c1"># </span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vista_ensayos</span> <span class="o">=</span> <span class="n">vista_ensayos</span>
+        <span class="c1">#self.canvas = canvas</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">arbol</span> <span class="o">=</span> <span class="n">Arbol</span><span class="p">(</span><span class="n">vista_ensayos</span><span class="p">)</span>     
+        <span class="bp">self</span><span class="o">.</span><span class="n">grafico</span> <span class="o">=</span> <span class="n">Grafico</span><span class="p">()</span>  
+
+<div class="viewcode-block" id="Utilidades.verif_campos"><a class="viewcode-back" href="../modelo_poo.html#modelo_poo.Utilidades.verif_campos">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">verif_campos</span><span class="p">(</span><span class="n">dosis_var</span><span class="p">,</span> <span class="n">muert_var</span><span class="p">,</span> <span class="n">n_var</span><span class="p">,</span> <span class="n">uni_var</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;uso de Re para controlar campos&#39;&#39;&#39;</span>
+        <span class="n">pat_campos</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">&quot;[a-zA-Z,]&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">pat_campos</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">dosis_var</span><span class="o">.</span><span class="n">get</span><span class="p">(),</span> 
+        <span class="p">)</span> <span class="ow">or</span> <span class="n">pat_campos</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">muert_var</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+        <span class="p">)</span> <span class="ow">or</span> <span class="n">pat_campos</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">n_var</span><span class="o">.</span><span class="n">get</span><span class="p">()):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;no match caracter válido&quot;</span><span class="p">)</span>
+            <span class="n">vista_poo</span><span class="o">.</span><span class="n">Avisos</span><span class="o">.</span><span class="n">formato_error</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">dosis_var</span><span class="o">.</span><span class="n">get</span><span class="p">()),</span> <span class="nb">float</span><span class="p">(</span><span class="n">muert_var</span><span class="o">.</span><span class="n">get</span><span class="p">()),</span> 
+            <span class="nb">float</span><span class="p">(</span><span class="n">n_var</span><span class="o">.</span><span class="n">get</span><span class="p">()),</span> <span class="n">uni_var</span><span class="o">.</span><span class="n">get</span><span class="p">(),)</span>
+            <span class="k">return</span> <span class="n">data</span></div>
+
+<div class="viewcode-block" id="Utilidades.operaciones"><a class="viewcode-back" href="../modelo_poo.html#modelo_poo.Utilidades.operaciones">[docs]</a>    <span class="k">def</span> <span class="nf">operaciones</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">canvas</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">arbol</span><span class="o">.</span><span class="n">cargador_bd</span><span class="p">()</span>
+        <span class="k">global</span> <span class="n">ld50</span><span class="p">,</span> <span class="n">lim_sup</span><span class="p">,</span> <span class="n">lim_inf</span><span class="p">,</span> <span class="n">a</span> <span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">lista_dosis</span><span class="p">,</span> <span class="n">lista_logdosis</span><span class="p">,</span> <span class="n">lista_muertos</span><span class="p">,</span> <span class="n">lista_n</span><span class="p">,</span> <span class="n">lista_prop_muer</span><span class="p">,</span> <span class="n">lista_probit_un</span><span class="p">,</span> <span class="n">lista_un</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">lista_dosis</span><span class="p">)):</span>
+            <span class="n">prop_muet</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">lista_muertos</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">lista_n</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+            <span class="n">lista_prop_muer</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">prop_muet</span><span class="p">)</span>
+            <span class="n">logdosis</span> <span class="o">=</span> <span class="n">log10</span><span class="p">(</span><span class="n">lista_dosis</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+            <span class="n">lista_logdosis</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">logdosis</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">lista_prop_muer</span><span class="p">:</span>
+            <span class="n">probit_un</span> <span class="o">=</span> <span class="mi">5</span> <span class="o">+</span> <span class="n">NormalDist</span><span class="p">(</span><span class="n">mu</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">inv_cdf</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+            <span class="n">lista_probit_un</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">probit_un</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="n">polyfit</span><span class="p">(</span><span class="n">lista_logdosis</span><span class="p">,</span> <span class="n">lista_probit_un</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="n">vista_poo</span><span class="o">.</span><span class="n">Avisos</span><span class="o">.</span><span class="n">error_sin_datos</span><span class="p">()</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Error: sin datos para modelar&quot;</span><span class="p">)</span>
+        <span class="n">ld50</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="p">((</span><span class="mi">5</span><span class="o">-</span><span class="n">a</span><span class="p">)</span><span class="o">/</span><span class="n">b</span><span class="p">),</span> <span class="n">ndigits</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">menos_sd</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="p">((</span><span class="mi">4</span><span class="o">-</span><span class="n">a</span><span class="p">)</span><span class="o">/</span><span class="n">b</span><span class="p">)</span>
+        <span class="n">mas_sd</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="p">((</span><span class="mi">6</span><span class="o">-</span><span class="n">a</span><span class="p">)</span><span class="o">/</span><span class="n">b</span><span class="p">)</span>
+        <span class="n">sd_ld50</span> <span class="o">=</span> <span class="p">(</span><span class="n">mas_sd</span><span class="o">-</span><span class="n">menos_sd</span><span class="p">)</span><span class="o">/</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mean</span><span class="p">(</span><span class="n">lista_n</span><span class="p">))</span>
+        <span class="n">lim_sup</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">ld50</span><span class="o">+</span><span class="n">sd_ld50</span><span class="p">,</span> <span class="n">ndigits</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">lim_inf</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">ld50</span><span class="o">-</span><span class="n">sd_ld50</span><span class="p">,</span> <span class="n">ndigits</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">grafico</span><span class="o">.</span><span class="n">graf</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">lista_logdosis</span><span class="p">,</span> <span class="n">lista_probit_un</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">canvas</span><span class="p">)</span></div></div>
+        
+<div class="viewcode-block" id="Crud_ORM"><a class="viewcode-back" href="../modelo_poo.html#modelo_poo.Crud_ORM">[docs]</a><span class="k">class</span> <span class="nc">Crud_ORM</span><span class="p">():</span> 
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;Alta baja y modificacion. Ingresar variables de tkinter&#39;&#39;&#39;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vista_ensayos</span><span class="p">,</span> <span class="n">dosis_var</span><span class="p">,</span> <span class="n">muert_var</span><span class="p">,</span> <span class="n">n_var</span><span class="p">,</span> <span class="n">uni_var</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vista_ensayos</span> <span class="o">=</span> <span class="n">vista_ensayos</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dosis_var</span> <span class="o">=</span> <span class="n">dosis_var</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">muert_var</span> <span class="o">=</span> <span class="n">muert_var</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_var</span> <span class="o">=</span> <span class="n">n_var</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">uni_var</span> <span class="o">=</span> <span class="n">uni_var</span>
+        <span class="c1">#self.con = Conex()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">arbol</span> <span class="o">=</span> <span class="n">Arbol</span><span class="p">(</span><span class="n">vista_ensayos</span><span class="p">)</span>
+<div class="viewcode-block" id="Crud_ORM.alta_ensay"><a class="viewcode-back" href="../modelo_poo.html#modelo_poo.Crud_ORM.alta_ensay">[docs]</a>    <span class="k">def</span> <span class="nf">alta_ensay</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;Guarda en bd y suma al arbol&#39;&#39;&#39;</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">Utilidades</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vista_ensayos</span><span class="p">)</span><span class="o">.</span><span class="n">verif_campos</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dosis_var</span><span class="p">,</span> 
+                                                           <span class="bp">self</span><span class="o">.</span><span class="n">muert_var</span><span class="p">,</span> 
+                                                           <span class="bp">self</span><span class="o">.</span><span class="n">n_var</span><span class="p">,</span> 
+                                                           <span class="bp">self</span><span class="o">.</span><span class="n">uni_var</span><span class="p">)</span>
+        <span class="n">nuevo_ensayo</span> <span class="o">=</span> <span class="n">Ld50</span><span class="p">()</span>
+        <span class="n">nuevo_ensayo</span><span class="o">.</span><span class="n">dosis</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">nuevo_ensayo</span><span class="o">.</span><span class="n">muertos</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">nuevo_ensayo</span><span class="o">.</span><span class="n">n</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+        <span class="n">nuevo_ensayo</span><span class="o">.</span><span class="n">unid</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+        <span class="n">nuevo_ensayo</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+        <span class="n">IDtree</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">con</span><span class="o">.</span><span class="n">cursor</span><span class="o">.</span><span class="n">lastrowid</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vista_ensayos</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;end&quot;</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">IDtree</span><span class="p">),</span> 
+        <span class="n">values</span><span class="o">=</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dosis_var</span><span class="o">.</span><span class="n">get</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">muert_var</span><span class="o">.</span><span class="n">get</span><span class="p">(),</span> 
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_var</span><span class="o">.</span><span class="n">get</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">uni_var</span><span class="o">.</span><span class="n">get</span><span class="p">(),))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;GUARDADO&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dosis_var</span><span class="o">.</span><span class="n">get</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">uni_var</span><span class="o">.</span><span class="n">get</span><span class="p">())</span></div>
+
+<div class="viewcode-block" id="Crud_ORM.modif_ensay"><a class="viewcode-back" href="../modelo_poo.html#modelo_poo.Crud_ORM.modif_ensay">[docs]</a>    <span class="k">def</span> <span class="nf">modif_ensay</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">            </span><span class="sd">&#39;&#39;&#39;Modifica el item seleccionado en arbol y bd&#39;&#39;&#39;</span>
+            <span class="n">selec</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vista_ensayos</span><span class="o">.</span><span class="n">focus</span><span class="p">()</span>
+            <span class="n">item</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vista_ensayos</span><span class="o">.</span><span class="n">item</span><span class="p">(</span><span class="n">selec</span><span class="p">)</span>
+            <span class="n">verf</span> <span class="o">=</span> <span class="n">Utilidades</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vista_ensayos</span><span class="p">)</span><span class="o">.</span><span class="n">verif_campos</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dosis_var</span><span class="p">,</span> 
+                                                               <span class="bp">self</span><span class="o">.</span><span class="n">muert_var</span><span class="p">,</span> 
+                                                               <span class="bp">self</span><span class="o">.</span><span class="n">n_var</span><span class="p">,</span> 
+                                                               <span class="bp">self</span><span class="o">.</span><span class="n">uni_var</span><span class="p">)</span>
+            <span class="n">actualizar</span><span class="o">=</span><span class="n">Ld50</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">dosis</span><span class="o">=</span><span class="n">verf</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> 
+                                     <span class="n">muertos</span><span class="o">=</span><span class="n">verf</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> 
+                                     <span class="n">n</span> <span class="o">=</span> <span class="n">verf</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> 
+                                     <span class="n">unid</span> <span class="o">=</span> <span class="n">verf</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">Ld50</span><span class="o">.</span><span class="n">id</span><span class="o">==</span><span class="n">item</span><span class="p">[</span><span class="s2">&quot;text&quot;</span><span class="p">])</span>
+            <span class="n">actualizar</span><span class="o">.</span><span class="n">execute</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">vista_ensayos</span><span class="o">.</span><span class="n">get_children</span><span class="p">():</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">vista_ensayos</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">arbol</span><span class="o">.</span><span class="n">cargador_bd</span><span class="p">()</span>
+            <span class="n">vista_poo</span><span class="o">.</span><span class="n">Avisos</span><span class="o">.</span><span class="n">aviso_modif</span><span class="p">(</span><span class="n">verf</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">verf</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">verf</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">verf</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">verf</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Crud_ORM.borr_ensay"><a class="viewcode-back" href="../modelo_poo.html#modelo_poo.Crud_ORM.borr_ensay">[docs]</a>    <span class="k">def</span> <span class="nf">borr_ensay</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&#39;&#39;&#39;Baja del árbol y de la base&#39;&#39;&#39;</span>
+        <span class="n">selec</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vista_ensayos</span><span class="o">.</span><span class="n">focus</span><span class="p">()</span>
+        <span class="n">item</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vista_ensayos</span><span class="o">.</span><span class="n">item</span><span class="p">(</span><span class="n">selec</span><span class="p">)</span>
+        <span class="n">borrar</span><span class="o">=</span><span class="n">Ld50</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">Ld50</span><span class="o">.</span><span class="n">id</span><span class="o">==</span><span class="n">item</span><span class="p">[</span><span class="s2">&quot;text&quot;</span><span class="p">])</span>
+        <span class="n">borrar</span><span class="o">.</span><span class="n">delete_instance</span><span class="p">()</span>
+        <span class="n">item_bd</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s2">&quot;values&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">item_bu</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="s2">&quot;values&quot;</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">arbol</span><span class="o">.</span><span class="n">cargador_bd</span><span class="p">()</span>
+        <span class="n">vista_poo</span><span class="o">.</span><span class="n">Avisos</span><span class="o">.</span><span class="n">aviso_borr</span><span class="p">(</span><span class="n">item_bd</span><span class="p">,</span> <span class="n">item_bu</span><span class="p">)</span></div></div>
+
+ 
+<div class="viewcode-block" id="ver_100_0"><a class="viewcode-back" href="../modelo_poo.html#modelo_poo.ver_100_0">[docs]</a><span class="k">class</span> <span class="nc">ver_100_0</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;Eventos para el boton &quot;Calcular&quot;&#39;&#39;&#39;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">vista_ensayos</span><span class="p">,</span> <span class="n">sal_ld50</span><span class="p">,</span> <span class="n">sal_inter_ld50</span><span class="p">,</span> <span class="n">equ_reg</span><span class="p">,</span> <span class="n">canvas</span><span class="p">):</span>
+        <span class="k">global</span> <span class="n">ld50</span><span class="p">,</span> <span class="n">lista_dosis</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">arbol</span> <span class="o">=</span> <span class="n">Arbol</span><span class="p">(</span><span class="n">vista_ensayos</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">op</span> <span class="o">=</span> <span class="n">Utilidades</span><span class="p">(</span><span class="n">vista_ensayos</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">arbol</span><span class="o">.</span><span class="n">cargador_bd</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">lista_dosis</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="nb">float</span><span class="p">(</span><span class="n">lista_muertos</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">==</span> <span class="nb">float</span><span class="p">(</span><span class="n">lista_n</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="p">)</span> <span class="ow">or</span> <span class="nb">float</span><span class="p">(</span><span class="n">lista_muertos</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">==</span> <span class="mf">0.0</span><span class="p">:</span>
+                <span class="n">vista_poo</span><span class="o">.</span><span class="n">Avisos</span><span class="o">.</span><span class="n">error_estadistico</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">op</span><span class="o">.</span><span class="n">operaciones</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">canvas</span><span class="p">)</span>
+        <span class="n">sal_ld50</span><span class="p">[</span><span class="s2">&quot;text&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">((</span><span class="s2">&quot;Dosis Letal </span><span class="se">\</span>
+<span class="s2">50%: &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">ld50</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot; &quot;</span> <span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">lista_un</span><span class="p">[</span><span class="mi">0</span><span class="p">])))</span>
+        <span class="n">sal_inter_ld50</span><span class="p">[</span><span class="s2">&quot;text&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">((</span><span class="s2">&quot;SUP: &quot;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">lim_sup</span><span class="p">),</span> <span class="s2">&quot;| </span><span class="se">\</span>
+<span class="s2">INF: &quot;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">lim_inf</span><span class="p">)))</span>
+        <span class="n">equ_reg</span><span class="p">[</span><span class="s2">&quot;text&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Pendiente= </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2"> | Ordenada= </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Gabriel.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
