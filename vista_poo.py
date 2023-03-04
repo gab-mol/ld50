@@ -2,7 +2,7 @@
 vista_poo.py:
     Este es la vista correspondiente a ld50_app
 '''
-
+#cambio prueba git
 
 from tkinter import Label, Entry, StringVar, Button, ttk
 from matplotlib.figure import Figure
