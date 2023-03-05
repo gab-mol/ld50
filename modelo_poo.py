@@ -9,7 +9,7 @@ __email__ = "gabrielmolina149@gmail.com"
 __copyright__ = "Copyright 2023"
 __version__ = "0.0.1"
 
-from peewee import *
+from peewee import SqliteDatabase, Model, FloatField, IntegerField, CharField
 from math import log10, sqrt
 from numpy import polyfit, array
 from statistics import NormalDist, mean
@@ -72,7 +72,14 @@ class Grafico(FigureCanvasTkAgg):
     Para crear el grafico de regresion.
     '''
     @staticmethod         
-    def graf(ax, lista_logdosis, lista_probit_un, b, a, canvas):
+    def graf(
+            ax,
+            lista_logdosis,
+            lista_probit_un,
+            b,
+            a,
+            canvas
+        ):
         x = lista_logdosis
         y = lista_probit_un
         ax.clear()
@@ -88,17 +95,30 @@ class Utilidades():
     '''
     Herramientas varias para CRUD y parte matematica
     '''    
-    def __init__(self, vista_ensayos) -> None: # 
+    def __init__(
+            self, 
+            vista_ensayos
+            ) -> None:
         self.vista_ensayos = vista_ensayos
         #self.canvas = canvas
         self.arbol = Arbol(vista_ensayos)     
         self.grafico = Grafico()  
 
     @staticmethod
-    def verif_campos(dosis_var, muert_var, n_var, uni_var):
-        '''uso de Re para controlar campos'''
-        pat_campos = re.compile("[a-zA-Z,]")
-        if pat_campos.search(dosis_var.get(), 
+    def verif_campos(
+            dosis_var,
+            muert_var,
+            n_var,
+            uni_var
+        ):
+        '''
+        uso de Re para controlar campos
+        '''
+        pat_campos = re.compile(
+            "[a-zA-Z,]"
+        )
+        if pat_campos.search(
+            dosis_var.get(), 
         ) or pat_campos.search(muert_var.get()
         ) or pat_campos.search(n_var.get()):
             print("no match caracter válido")
@@ -110,7 +130,8 @@ class Utilidades():
 
     def operaciones(self, ax, canvas):
         self.arbol.cargador_bd()
-        global ld50, lim_sup, lim_inf, a ,b,lista_dosis, lista_logdosis, lista_muertos, lista_n, lista_prop_muer, lista_probit_un, lista_un
+        global ld50, lim_sup, lim_inf, a ,b,lista_dosis, lista_logdosis
+        lista_muertos, lista_n, lista_prop_muer, lista_probit_un, lista_un
         for i in range(0, len(lista_dosis)):
             prop_muet = float(lista_muertos[i])/float(lista_n[i])
             lista_prop_muer.append(prop_muet)
@@ -120,7 +141,11 @@ class Utilidades():
             probit_un = 5 + NormalDist(mu=0, sigma=1).inv_cdf(i)
             lista_probit_un.append(probit_un)
         try:
-            b, a = polyfit(lista_logdosis, lista_probit_un, 1)
+            b, a = polyfit(
+                lista_logdosis,
+                lista_probit_un,
+                1
+            )
         except:
             vista_poo.Avisos.error_sin_datos()
             raise Exception("Error: sin datos para modelar")
@@ -132,23 +157,32 @@ class Utilidades():
         lim_inf = round(ld50-sd_ld50, ndigits=2)
         self.grafico.graf(ax, lista_logdosis, lista_probit_un, b, a, canvas)
         
-class Crud_ORM(): 
+class Crud(): 
     '''Alta baja y modificacion. Ingresar variables de tkinter'''
-    def __init__(self, vista_ensayos, dosis_var, muert_var, 
-                 n_var, uni_var):
+    def __init__(
+            self,
+            vista_ensayos,
+            dosis_var,
+            muert_var, 
+            n_var,
+            uni_var
+        ):
         self.vista_ensayos = vista_ensayos
         self.dosis_var = dosis_var
         self.muert_var = muert_var
         self.n_var = n_var
         self.uni_var = uni_var
-        #self.con = Conex()
         self.arbol = Arbol(vista_ensayos)
     def alta_ensay(self):
         '''Guarda en bd y suma al arbol'''
-        data = Utilidades(self.vista_ensayos).verif_campos(self.dosis_var, 
-                                                           self.muert_var, 
-                                                           self.n_var, 
-                                                           self.uni_var)
+        data = Utilidades(
+            self.vista_ensayos
+            ).verif_campos(
+                self.dosis_var, 
+                self.muert_var, 
+                self.n_var, 
+                self.uni_var
+            )
         nuevo_ensayo = Ld50()
         nuevo_ensayo.dosis = data[0]
         nuevo_ensayo.muertos = data[1]
@@ -156,23 +190,34 @@ class Crud_ORM():
         nuevo_ensayo.unid = data[3]
         nuevo_ensayo.save()
         IDtree = str(self.con.cursor.lastrowid)
-        self.vista_ensayos.insert("", "end", text=str(IDtree), 
-        values=(self.dosis_var.get(), self.muert_var.get(), 
-        self.n_var.get(), self.uni_var.get(),))
+        self.vista_ensayos.insert(
+            "",
+            "end",
+            text=str(IDtree),
+            values=(self.dosis_var.get(),
+                    self.muert_var.get(),
+                    self.n_var.get(),
+                    self.uni_var.get(),
+            ))
         print("GUARDADO", self.dosis_var.get(), self.uni_var.get())
 
     def modif_ensay(self):
-            '''Modifica el item seleccionado en arbol y bd'''
+            '''
+            Modifica el item seleccionado en arbol y bd
+            '''
             selec = self.vista_ensayos.focus()
             item = self.vista_ensayos.item(selec)
-            verf = Utilidades(self.vista_ensayos).verif_campos(self.dosis_var, 
-                                                               self.muert_var, 
-                                                               self.n_var, 
-                                                               self.uni_var)
-            actualizar=Ld50.update(dosis=verf[0], 
-                                     muertos=verf[1], 
-                                     n = verf[2], 
-                                     unid = verf[3]).where(Ld50.id==item["text"])
+            verf = Utilidades(self.vista_ensayos).verif_campos(
+                self.dosis_var, 
+                self.muert_var, 
+                self.n_var, 
+                self.uni_var
+            )
+            actualizar=Ld50.update(
+                dosis=verf[0], 
+                muertos=verf[1], 
+                n = verf[2], 
+                unid = verf[3]).where(Ld50.id==item["text"])
             actualizar.execute()
             for item in self.vista_ensayos.get_children():
                 self.vista_ensayos.delete(item)
@@ -193,16 +238,31 @@ class Crud_ORM():
  
 class ver_100_0():
     '''Eventos para el boton "Calcular"'''
-    def __init__(self, ax, vista_ensayos, sal_ld50, sal_inter_ld50, equ_reg, canvas):
+    def __init__(
+            self, 
+            ax, 
+            vista_ensayos, 
+            sal_ld50, 
+            sal_inter_ld50, 
+            equ_reg, 
+            canvas
+        ):
         global ld50, lista_dosis
-        self.arbol = Arbol(vista_ensayos)
-        self.op = Utilidades(vista_ensayos)
+        self.arbol = Arbol(
+            vista_ensayos
+        )
+        self.op = Utilidades(
+            vista_ensayos
+        )
         self.arbol.cargador_bd()
         for i in range(0, len(lista_dosis)):
             if float(lista_muertos[i]) == float(lista_n[i]
             ) or float(lista_muertos[i]) == 0.0:
                 vista_poo.Avisos.error_estadistico()
-        self.op.operaciones(ax, canvas)
+        self.op.operaciones(
+            ax, 
+            canvas
+        )
         sal_ld50["text"] = "".join(("Dosis Letal \
 50%: "+str(ld50)+" " +str(lista_un[0])))
         sal_inter_ld50["text"] = " ".join(("SUP: "+ str(lim_sup), "| \

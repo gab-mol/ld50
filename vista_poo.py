@@ -28,7 +28,7 @@ class Ventana():
         self.vista_ensayos = Vista_arbol(principal)
         self.cargador_arbol = modelo_poo.Arbol(self.vista_ensayos.vista_ensayos)
         self.entradas = Entr(principal)
-        self.datos = modelo_poo.Crud_ORM(self.vista_ensayos.vista_ensayos, 
+        self.datos = modelo_poo.Crud(self.vista_ensayos.vista_ensayos, 
                                         self.entradas.dosis_var, 
                                         self.entradas.muert_var, 
                                         self.entradas.n_var, 
@@ -293,103 +293,273 @@ y respuesta (muertos): ",
 class Entr():
     '''Entradas y sus etiquetas'''
     def __init__(self, principal):
-        font_etiqs = ("Arial", 10)
-        font_entr = ("Arial", 11)
+        font_etiqs = (
+            "Arial", 10
+        )
+        font_entr = (
+            "Arial", 11
+        )
 
         # dosis ETIQUETA
-        instrucc_dosis = Label(principal, text="Dosis:", pady=2, 
-        padx=4, justify="left", font=font_etiqs)
-        instrucc_dosis.grid(row=1, column=0, pady=5, columnspan=1, 
-        rowspan = 2, padx=10, sticky="w")
+        instrucc_dosis = Label(
+            principal,
+            text="Dosis:",
+            pady=2,
+            padx=4,
+            justify="left",
+            font=font_etiqs
+        )
+        instrucc_dosis.grid(
+            row=1,
+            column=0,
+            pady=5,
+            columnspan=1,
+            rowspan = 2,
+            padx=10,
+            sticky="w"
+        )
 
         # dosis CAMPOR ENTR
         self.dosis_var = StringVar()
-        dosis_ent = Entry(principal, textvariable=self.dosis_var, width=25, 
-        justify="left", font=font_entr)
-        dosis_ent.grid(row=2, column=0, pady=5, columnspan=1, 
-        rowspan = 2, padx=10, sticky="w")
+        dosis_ent = Entry(
+            principal,
+            textvariable=self.dosis_var,
+            width=25,
+            justify="left",
+            font=font_entr
+        )
+        dosis_ent.grid(
+            row=2,
+            column=0,
+            pady=5,
+            columnspan=1,
+            rowspan = 2,
+            padx=10,
+            sticky="w"
+        )
 
         # unidad ETIQUETA
-        unid = Label(principal, text="Unidades usadas: ", pady=2, 
-        padx=4, justify="left", font=font_etiqs)
-        unid.grid(row=4, column=0, pady=5, columnspan=1, rowspan = 2, 
-        padx=10, sticky="sw")
+        unid = Label(
+            principal,
+            text="Unidades usadas: ",
+            pady=2,
+            padx=4,
+            justify="left",
+            font=font_etiqs
+        )
+        unid.grid(
+            row=4,
+            column=0,
+            pady=5,
+            columnspan=1,
+            rowspan = 2,
+            padx=10,
+            sticky="sw"
+        )
 
         # unidad CAMPOR ENTR
         self.uni_var = StringVar()
-        uni_var_ent = Entry(principal, textvariable=self.uni_var, 
-        width=25, justify="left", font=font_entr)
-        uni_var_ent.grid(row=6, column=0, pady=5, columnspan=1, 
-        rowspan = 1, padx=10, sticky="w")
+        uni_var_ent = Entry(
+            principal,
+            textvariable=self.uni_var,
+            width=25,
+            justify="left",
+            font=font_entr
+        )
+        uni_var_ent.grid(
+            row=6,
+            column=0,
+            pady=5,
+            columnspan=1,
+            rowspan = 1,
+            padx=10,
+            sticky="w"
+        )
 
         # muertos ETIQUETA
-        instrucc_muer = Label(principal, text="Muertos:", 
-        pady=2, padx=4, justify="left", font=font_etiqs)
-        instrucc_muer.grid(row=1, column=1, pady=5, columnspan=1,
-        rowspan = 2, padx=10, sticky="w")
+        instrucc_muer = Label(
+            principal,
+            text="Muertos:",
+            pady=2,
+            padx=4,
+            justify="left",
+            font=font_etiqs
+        )
+        instrucc_muer.grid(
+            row=1,
+            column=1,
+            pady=5,
+            columnspan=1,
+            rowspan = 2,
+            padx=10,
+            sticky="w"
+        )
 
         # muertos CAMPOR ENTR
         self.muert_var = StringVar()
-        muert_ent = Entry(principal, textvariable=self.muert_var, width=25, 
-        justify="left", font=font_entr)
-        muert_ent.grid(row=2, column=1, pady=5, columnspan=1, rowspan = 2, 
-        padx=10, sticky="w")
+        muert_ent = Entry(
+            principal,
+            textvariable=self.muert_var,
+            width=25,
+            justify="left",
+            font=font_entr
+        )
+        muert_ent.grid(
+            row=2,
+            column=1,
+            pady=5,
+            columnspan=1,
+            rowspan = 2,
+            padx=10,
+            sticky="w"
+        )
 
         # N ETIQUETA
-        instrucc_n = Label(principal, text="n del ensayo (Dosis):", 
-        justify="left", font=font_etiqs)
-        instrucc_n.grid(row=4, column=1, pady=5, columnspan=1, rowspan = 2, 
-        padx=10, sticky="sw")
+        instrucc_n = Label(
+            principal,
+            text="n del ensayo (Dosis):",
+            justify="left",
+            font=font_etiqs
+        )
+        instrucc_n.grid(
+            row=4,
+            column=1,
+            pady=5,
+            columnspan=1,
+            rowspan = 2,
+            padx=10,
+            sticky="sw"
+        )
 
         #  N CAMPOR ENTR
         self.n_var = StringVar()
-        n_ent = Entry(principal, textvariable=self.n_var, width=25, 
-        justify="left", font=font_entr)
-        n_ent.grid(row=6, column=1, pady=5, columnspan=1, rowspan = 1, 
-        padx=10, sticky="w")
+        n_ent = Entry(
+            principal,
+            textvariable=self.n_var,
+            width=25,
+            justify="left",
+            font=font_entr
+        )
+        n_ent.grid(
+            row=6,
+            column=1,
+            pady=5,
+            columnspan=1,
+            rowspan = 1,
+            padx=10,
+            sticky="w"
+        )
 
 class Vista_arbol(ttk.Treeview):
-    '''Registro dosis (self.vista_ensayos treeview)'''
+    '''
+    Registro dosis (self.vista_ensayos treeview)
+    '''
     def __init__(self, principal) -> None:
         anch = 110
-        self.vista_ensayos = ttk.Treeview(principal, height=18)
-        self.vista_ensayos["columns"] = ("Dosis", "Muertos", "n", "Unid")
-        self.vista_ensayos.column("#0", width=0, minwidth=0, anchor="n")
-        self.vista_ensayos.heading("Dosis", text="Dosis")
-        self.vista_ensayos.column("Dosis", width=anch, anchor="n")
-        self.vista_ensayos.heading("Muertos", text="Muertos")
-        self.vista_ensayos.column("Muertos", width=anch, anchor="n")
-        self.vista_ensayos.heading("n", text="n")
-        self.vista_ensayos.column("n", width=anch, anchor="n")
-        self.vista_ensayos.heading("Unid", text="Unid")
-        self.vista_ensayos.column("Unid", width=anch, anchor="n")
-        self.vista_ensayos.grid(row=7, column=0, pady=5, columnspan=2, rowspan=7, 
-        padx=10, sticky="nw")        
+        self.vista_ensayos = ttk.Treeview(
+            principal, 
+            height=18
+        )
+        self.vista_ensayos["columns"] = (
+            "Dosis", 
+            "Muertos",
+            "n",
+            "Unid"
+        )
+        self.vista_ensayos.column(
+            "#0",
+            width=0,
+            minwidth=0,
+            anchor="n"
+        )
+        self.vista_ensayos.heading(
+            "Dosis",
+            text="Dosis"
+        )
+        self.vista_ensayos.column(
+            "Dosis",
+            width=anch,
+            anchor="n"
+        )
+        self.vista_ensayos.heading(
+            "Muertos",
+            text="Muertos"
+        )
+        self.vista_ensayos.column(
+            "Muertos",
+            width=anch,
+            anchor="n"
+        )
+        self.vista_ensayos.heading(
+            "n",
+            text="n"
+        )
+        self.vista_ensayos.column(
+            "n",
+            width=anch,
+            anchor="n"
+        )
+        self.vista_ensayos.heading(
+            "Unid",
+            text="Unid"
+        )
+        self.vista_ensayos.column(
+            "Unid",
+            width=anch,
+            anchor="n"
+        )
+        self.vista_ensayos.grid(
+            row=7,
+            column=0,
+            pady=5,
+            columnspan=2,
+            rowspan=7,
+            padx=10,
+            sticky="nw"
+        )        
 
 class Avisos():
     '''Mensajes emergentes de error y aviso de eventos'''
     @staticmethod
     def formato_error():
-        messagebox.showwarning("Formato \
-incorrecto", "Solo números(Dosis, muertos, n). Decimales con punto (.)")
+        messagebox.showwarning(
+            "Formato incorrecto",
+            "Solo números(Dosis, muertos, n). Decimales con punto (.)"
+        )
 
     @staticmethod
-    def aviso_modif(item_1, item_2, item_3, item_4, verf):
-        messagebox.showinfo("Aviso. Se Modificó ensayo:", f" Dos.: {item_1},\
+    def aviso_modif(
+        item_1,
+        item_2,
+        item_3,
+        item_4,
+        verf
+    ):
+        messagebox.showinfo(
+            "Aviso. Se Modificó ensayo:",
+            f" Dos.: {item_1},\
 Muer.: {item_2}, n: {item_3}, Uni.: {item_4}, > A > Dos.: {verf[0]}, \
-Muer.: {verf[1]}, n: {verf[2]}, Uni.: {verf[3]}")
+Muer.: {verf[1]}, n: {verf[2]}, Uni.: {verf[3]}"
+        )
 
     @staticmethod
     def aviso_borr(item_bd, item_bu):
-        messagebox.showinfo("Aviso:", f"Se borró Dosis: {item_bd} {item_bu}")
+        messagebox.showinfo(
+            "Aviso:", f"Se borró Dosis: {item_bd} {item_bu}"
+        )
 
     @staticmethod
     def error_estadistico():
-        messagebox.showerror("Error estadístico:", "Imposible modelar \
-con mortalidad del 100% y/o 0% (elimine dichos ensayos)")
+        messagebox.showerror(
+            "Error estadístico:",
+            "Imposible modelar \
+con mortalidad del 100% y/o 0% (elimine dichos ensayos)"
+        )
         
     @staticmethod  
     def error_sin_datos():
-        messagebox.showerror("Error:", "No se ingresaron datos")
+        messagebox.showerror(
+            "Error:", "No se ingresaron datos"
+        )
 
 
