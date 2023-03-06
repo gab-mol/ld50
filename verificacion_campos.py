@@ -33,7 +33,7 @@ class Verificador():
             n_var.get()
         ):
             print(
-                "no match caracter válido"
+                "caracter(es) no válido(s)"
             )
             vista.Avisos.formato_error()
         else:
@@ -45,3 +45,4 @@ class Verificador():
             )
 
             return data
+        
