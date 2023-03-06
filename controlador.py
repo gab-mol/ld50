@@ -1,13 +1,13 @@
 '''
-controlador_poo.py:
-    Controlador que lanza vista_poo correspondiente a ld50_app
+controlador.py:
+    Controlador que lanza vista correspondiente a ld50_app
     :Entrega Diplomatura Python - Nivel Intermedio:
 '''
 
 
 
 from tkinter import Tk
-import vista_poo
+import vista
 
 class Controlador:
     '''
@@ -15,7 +15,7 @@ class Controlador:
     '''
     def __init__(self, root):
         self.root_controler=root
-        self.objeto_vista=vista_poo.Ventana(self.root_controler)
+        self.objeto_vista=vista.Ventana(self.root_controler)
 
 
 if __name__=="__main__":

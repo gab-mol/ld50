@@ -1,5 +1,5 @@
 '''
-modelo_poo.py:
+modelo.py:
     Este es el modelo correspondiente a ld50_app
     :Entrega Diplomatura Python - Nivel Intermedio:
 '''
@@ -16,7 +16,7 @@ from numpy import polyfit, array
 from statistics import NormalDist, mean
 import verificacion_campos
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
-import vista_poo
+import vista
 
 db = SqliteDatabase("dosisld50.db")
 
@@ -127,7 +127,7 @@ class Mat():
                 1
             )
         except:
-            vista_poo.Avisos.error_sin_datos()
+            vista.Avisos.error_sin_datos()
             raise Exception("Error: sin datos para modelar")
         ld50 = round(10**((5-a)/b), ndigits=2)
         menos_sd = 10**((4-a)/b)
@@ -218,7 +218,7 @@ class Crud():
             for item in self.vista_ensayos.get_children():
                 self.vista_ensayos.delete(item)
             self.arbol.cargador_bd()
-            vista_poo.Avisos.aviso_modif(
+            vista.Avisos.aviso_modif(
                 verf[0],
                 verf[1],
                 verf[2],
@@ -235,7 +235,7 @@ class Crud():
         item_bd = item["values"][0]
         item_bu = item["values"][3]
         self.arbol.cargador_bd()
-        vista_poo.Avisos.aviso_borr(
+        vista.Avisos.aviso_borr(
             item_bd,
             item_bu
         )
@@ -263,7 +263,7 @@ class ver_100_0():
         for i in range(0, len(lista_dosis)):
             if float(lista_muertos[i]) == float(lista_n[i]
             ) or float(lista_muertos[i]) == 0.0:
-                vista_poo.Avisos.error_estadistico()
+                vista.Avisos.error_estadistico()
         self.op.operaciones(
             ax, 
             canvas

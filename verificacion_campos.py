@@ -3,10 +3,11 @@ Modulo con funcionalidad de verificacion de campos
 '''
 
 import re
-import vista_poo
+import vista
 class Verificador():
     '''
     Contiene el metodo estatico de verificacion de campos.
+    :verif_campos:
     '''
     @staticmethod
     def verif_campos(
@@ -29,7 +30,7 @@ class Verificador():
             n_var.get()
         ):
             print("no match caracter válido")
-            vista_poo.Avisos.formato_error()
+            vista.Avisos.formato_error()
         else:
             data = (
                 float(dosis_var.get()),

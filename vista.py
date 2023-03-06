@@ -1,5 +1,5 @@
 '''
-vista_poo.py:
+vista.py:
     Este es la vista correspondiente a ld50_app
     :Entrega Diplomatura Python - Nivel Intermedio:
 
@@ -10,7 +10,7 @@ from tkinter import Label, Entry, StringVar, Button, ttk
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from tkinter import messagebox
-import modelo_poo
+import modelo
 
 
 class Ventana():
@@ -21,39 +21,62 @@ class Ventana():
     :param principal: Recibe el objeto tkinter.Tk para el lanzamiento.
 
     '''
-    def __init__(self, principal):
+    def __init__(
+            self,
+            principal
+        ):
         '''
         Instanciacion de clases declaradas en modelo y maquetacion
         '''
         self.vista_ensayos = Vista_arbol(principal)
-        self.cargador_arbol = modelo_poo.Arbol(self.vista_ensayos.vista_ensayos)
+        self.cargador_arbol = modelo.Arbol(
+            self.vista_ensayos.vista_ensayos
+        )
         self.entradas = Entr(principal)
-        self.datos = modelo_poo.Crud(self.vista_ensayos.vista_ensayos, 
-                                        self.entradas.dosis_var, 
-                                        self.entradas.muert_var, 
-                                        self.entradas.n_var, 
-                                        self.entradas.uni_var
-                                        )
+        self.datos = modelo.Crud(
+            self.vista_ensayos.vista_ensayos, 
+            self.entradas.dosis_var, 
+            self.entradas.muert_var, 
+            self.entradas.n_var, 
+            self.entradas.uni_var
+        )
 
         #Formateo y maquetacion de ventana
         col_fond = "#BFBFBF"
-        principal.geometry("1210x620")
-        principal.configure(bg=col_fond)
-        principal.title("Calculadora de DL50 - Método PROBIT")
-        principal.after(1, lambda: self.cargador_arbol.cargador_bd())
+        principal.geometry(
+            "1210x620"
+        )
 
+        principal.configure(
+            bg=col_fond
+        )
+
+        principal.title(
+            "Calculadora de DL50 - Método PROBIT"
+        )
+
+        principal.after(
+            1,
+            lambda: self.cargador_arbol.cargador_bd()
+        )
 
         # Instruccion superior
         font_instrucc = (
             "Lucida Console", 12, "underline"
         )
+
         instrucc = Label(
             principal,
             text="Ingrese dosis ensayada \
 y respuesta (muertos): ", 
             bd=8, font=font_instrucc
         )
-        instrucc.grid(row=0, column=0, sticky="w", columnspan=2)
+        instrucc.grid(
+            row=0,
+            column=0,
+            sticky="w",
+            columnspan=2
+        )
 
         # Botones
         font_botones1 = (
@@ -68,14 +91,15 @@ y respuesta (muertos): ",
             principal, 
             text="Calcular>>", 
             font=font_botones1,
-            command=lambda:modelo_poo.ver_100_0(
+            command=lambda:modelo.ver_100_0(
                 ax,
                 self.vista_ensayos.vista_ensayos,
                 sal_ld50,
                 sal_inter_ld50,
-                equ_reg, canvas
+                equ_reg,
+                canvas
             ),
-            adx=30,
+            padx=30,
             pady=10,
             width=10
         )
@@ -131,7 +155,7 @@ y respuesta (muertos): ",
         )
 
         # Salida de valores ######
-        # GRAFICO Logdosisxprobit
+        ## GRAFICO Logdosis x probit.
         fig = Figure(
             figsize=(
             4.2, 4.5
@@ -161,7 +185,7 @@ y respuesta (muertos): ",
             sticky="n"
         )
 
-        # LD50 salida
+        # LD50 salida.
         font_et_ld50 = (
             "Lucida Console", 9, "bold"
         )
@@ -191,7 +215,7 @@ y respuesta (muertos): ",
             sticky="n"
         )
 
-        # salida LD50
+        # salida LD50.
         sal_ld50 = Label(
             principal,
             text="Dosis Letal 50%: <...>",
