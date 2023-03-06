@@ -3,7 +3,10 @@ Modulo con funcionalidad de verificacion de campos
 '''
 
 import re
+
 import vista
+
+
 class Verificador():
     '''
     Contiene el metodo estatico de verificacion de campos.
@@ -29,7 +32,9 @@ class Verificador():
         ) or pat_campos.search(
             n_var.get()
         ):
-            print("no match caracter válido")
+            print(
+                "no match caracter válido"
+            )
             vista.Avisos.formato_error()
         else:
             data = (

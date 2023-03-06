@@ -4,12 +4,12 @@ vista.py:
     :Entrega Diplomatura Python - Nivel Intermedio:
 
 '''
-#cambio prueba git
 
 from tkinter import Label, Entry, StringVar, Button, ttk
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from tkinter import messagebox
+
 import modelo
 
 
@@ -25,14 +25,14 @@ class Ventana():
             self,
             principal
         ):
-        '''
-        Instanciacion de clases declaradas en modelo y maquetacion
-        '''
         self.vista_ensayos = Vista_arbol(principal)
+
         self.cargador_arbol = modelo.Arbol(
             self.vista_ensayos.vista_ensayos
         )
+
         self.entradas = Entr(principal)
+
         self.datos = modelo.Crud(
             self.vista_ensayos.vista_ensayos, 
             self.entradas.dosis_var, 
@@ -41,7 +41,7 @@ class Ventana():
             self.entradas.uni_var
         )
 
-        #Formateo y maquetacion de ventana
+        #Formateo y maquetación de ventana
         col_fond = "#BFBFBF"
         principal.geometry(
             "1210x620"
@@ -71,6 +71,7 @@ class Ventana():
 y respuesta (muertos): ", 
             bd=8, font=font_instrucc
         )
+
         instrucc.grid(
             row=0,
             column=0,
@@ -103,6 +104,7 @@ y respuesta (muertos): ",
             pady=10,
             width=10
         )
+
         calcular.grid(
             row=1,
             column=2,
@@ -120,6 +122,7 @@ y respuesta (muertos): ",
             pady=10,
             width=10
         )
+
         guard_ensy.grid(
             row=3,
             column=2,
@@ -147,6 +150,7 @@ y respuesta (muertos): ",
             command=lambda:self.datos.modif_ensay(), 
             padx=30, pady=10, width=10
         )
+
         modif.grid(
             row=7,
             column=2,
@@ -175,6 +179,7 @@ y respuesta (muertos): ",
         ) 
 
         canvas.draw()
+
         canvas.get_tk_widget().grid(
             row=6, 
             column=4,
@@ -185,7 +190,7 @@ y respuesta (muertos): ",
             sticky="n"
         )
 
-        # LD50 salida.
+        # LD50 salida
         font_et_ld50 = (
             "Lucida Console", 9, "bold"
         )
@@ -215,7 +220,7 @@ y respuesta (muertos): ",
             sticky="n"
         )
 
-        # salida LD50.
+        # salida LD50
         sal_ld50 = Label(
             principal,
             text="Dosis Letal 50%: <...>",
@@ -227,6 +232,7 @@ y respuesta (muertos): ",
             width=43,
             height=1
         )
+
         sal_ld50.grid(
             row=2,
             column=4,
@@ -236,7 +242,7 @@ y respuesta (muertos): ",
             sticky="n"
         )
 
-        # salida intervalo
+        # Salida intervalo
         et_int =Label(
             principal,
             text="Intervalo de confianza 95%:",
@@ -247,6 +253,7 @@ y respuesta (muertos): ",
             width=51,
             height=1
         )
+
         et_int.grid(
             row=3,
             column=4,
@@ -265,6 +272,7 @@ y respuesta (muertos): ",
             width=51,
             height=1
         )
+
         sal_inter_ld50.grid(
             row=4,
             column=4,
@@ -274,13 +282,15 @@ y respuesta (muertos): ",
             sticky="s"
         )
 
-        # ecuacion regresion
+        # Ecuación regresión
         font_ecu1 = (
             "Arial", 9, "bold"
         )
+
         font_ecu2 = (
             "Arial", 9
         )
+
         et_equ_reg =Label(
             principal,
             text="Línea de regresión:",
@@ -292,6 +302,7 @@ y respuesta (muertos): ",
             width=15,
             height=1
         )
+
         et_equ_reg.grid(
             row=9,
             column=2,
@@ -307,6 +318,7 @@ y respuesta (muertos): ",
             width=25,
             height=1
         )
+
         equ_reg.grid(
             row=10,
             column=2,
@@ -314,17 +326,21 @@ y respuesta (muertos): ",
             sticky="e"
         )
 
+
 class Entr():
-    '''Entradas y sus etiquetas'''
+    '''
+    Entradas y sus etiquetas
+    '''
     def __init__(self, principal):
         font_etiqs = (
             "Arial", 10
         )
+
         font_entr = (
             "Arial", 11
         )
 
-        # dosis ETIQUETA
+        # Etiqueta: "dosis"
         instrucc_dosis = Label(
             principal,
             text="Dosis:",
@@ -333,6 +349,7 @@ class Entr():
             justify="left",
             font=font_etiqs
         )
+        
         instrucc_dosis.grid(
             row=1,
             column=0,
@@ -343,8 +360,9 @@ class Entr():
             sticky="w"
         )
 
-        # dosis CAMPOR ENTR
+        # Campo de entrada: "dosis"
         self.dosis_var = StringVar()
+
         dosis_ent = Entry(
             principal,
             textvariable=self.dosis_var,
@@ -352,6 +370,7 @@ class Entr():
             justify="left",
             font=font_entr
         )
+
         dosis_ent.grid(
             row=2,
             column=0,
@@ -362,7 +381,7 @@ class Entr():
             sticky="w"
         )
 
-        # unidad ETIQUETA
+        # Etiqueta: unidad
         unid = Label(
             principal,
             text="Unidades usadas: ",
@@ -371,6 +390,7 @@ class Entr():
             justify="left",
             font=font_etiqs
         )
+
         unid.grid(
             row=4,
             column=0,
@@ -381,8 +401,9 @@ class Entr():
             sticky="sw"
         )
 
-        # unidad CAMPOR ENTR
+        # Campo de entrada: "unidad"
         self.uni_var = StringVar()
+
         uni_var_ent = Entry(
             principal,
             textvariable=self.uni_var,
@@ -390,6 +411,7 @@ class Entr():
             justify="left",
             font=font_entr
         )
+
         uni_var_ent.grid(
             row=6,
             column=0,
@@ -400,7 +422,7 @@ class Entr():
             sticky="w"
         )
 
-        # muertos ETIQUETA
+        # Etiqueta: "muertos"
         instrucc_muer = Label(
             principal,
             text="Muertos:",
@@ -409,6 +431,7 @@ class Entr():
             justify="left",
             font=font_etiqs
         )
+
         instrucc_muer.grid(
             row=1,
             column=1,
@@ -419,8 +442,9 @@ class Entr():
             sticky="w"
         )
 
-        # muertos CAMPOR ENTR
+        # Campo de entrada: "muertos"
         self.muert_var = StringVar()
+
         muert_ent = Entry(
             principal,
             textvariable=self.muert_var,
@@ -428,6 +452,7 @@ class Entr():
             justify="left",
             font=font_entr
         )
+
         muert_ent.grid(
             row=2,
             column=1,
@@ -438,13 +463,14 @@ class Entr():
             sticky="w"
         )
 
-        # N ETIQUETA
+        # Etiqueta: "n"
         instrucc_n = Label(
             principal,
             text="n del ensayo (Dosis):",
             justify="left",
             font=font_etiqs
         )
+
         instrucc_n.grid(
             row=4,
             column=1,
@@ -455,8 +481,9 @@ class Entr():
             sticky="sw"
         )
 
-        #  N CAMPOR ENTR
+        # Campo de entrada: "n"
         self.n_var = StringVar()
+
         n_ent = Entry(
             principal,
             textvariable=self.n_var,
@@ -464,6 +491,7 @@ class Entr():
             justify="left",
             font=font_entr
         )
+
         n_ent.grid(
             row=6,
             column=1,
@@ -473,6 +501,7 @@ class Entr():
             padx=10,
             sticky="w"
         )
+
 
 class Vista_arbol(ttk.Treeview):
     '''
@@ -541,6 +570,7 @@ class Vista_arbol(ttk.Treeview):
             padx=10,
             sticky="nw"
         )        
+
 
 class Avisos():
     '''Mensajes emergentes de error y aviso de eventos'''
