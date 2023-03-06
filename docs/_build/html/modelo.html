@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>modelo module &mdash; EntregaFinal 0.0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="verificacion_campos module" href="verificacion_campos.html" />
+    <link rel="prev" title="controlador module" href="controlador.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            EntregaFinal
+          </a>
+              <div class="version">
+                0.0.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="conex_bd.html">conex_bd module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlador.html">controlador module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">modelo module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#modelo.Arbol"><code class="docutils literal notranslate"><span class="pre">Arbol</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#modelo.Arbol.cargador_bd"><code class="docutils literal notranslate"><span class="pre">Arbol.cargador_bd()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#modelo.Crud"><code class="docutils literal notranslate"><span class="pre">Crud</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#modelo.Crud.alta_ensay"><code class="docutils literal notranslate"><span class="pre">Crud.alta_ensay()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo.Crud.borr_ensay"><code class="docutils literal notranslate"><span class="pre">Crud.borr_ensay()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo.Crud.modif_ensay"><code class="docutils literal notranslate"><span class="pre">Crud.modif_ensay()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#modelo.Grafico"><code class="docutils literal notranslate"><span class="pre">Grafico</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#modelo.Grafico.graf"><code class="docutils literal notranslate"><span class="pre">Grafico.graf()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#modelo.Mat"><code class="docutils literal notranslate"><span class="pre">Mat</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#modelo.Mat.operaciones"><code class="docutils literal notranslate"><span class="pre">Mat.operaciones()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#modelo.ver_100_0"><code class="docutils literal notranslate"><span class="pre">ver_100_0</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="verificacion_campos.html">verificacion_campos module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vista.html">vista module</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">EntregaFinal</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">modelo module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/modelo.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-modelo">
+<span id="modelo-module"></span><h1>modelo module<a class="headerlink" href="#module-modelo" title="Permalink to this heading"></a></h1>
+<dl class="simple">
+<dt>modelo.py:</dt><dd><p>Este es el modelo correspondiente a ld50_app
+:Entrega Diplomatura Python - Nivel Intermedio:</p>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="modelo.Arbol">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">modelo.</span></span><span class="sig-name descname"><span class="pre">Arbol</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">treeview</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo.html#Arbol"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelo.Arbol" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Carga el arbol con info almacenada en base de datos.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="modelo.Arbol.cargador_bd">
+<span class="sig-name descname"><span class="pre">cargador_bd</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo.html#Arbol.cargador_bd"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelo.Arbol.cargador_bd" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="modelo.Crud">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">modelo.</span></span><span class="sig-name descname"><span class="pre">Crud</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vista_ensayos</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dosis_var</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">muert_var</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_var</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uni_var</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo.html#Crud"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelo.Crud" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Alta baja y modificacion. Ingresar variables de tkinter</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="modelo.Crud.alta_ensay">
+<span class="sig-name descname"><span class="pre">alta_ensay</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo.html#Crud.alta_ensay"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelo.Crud.alta_ensay" title="Permalink to this definition"></a></dt>
+<dd><p>Guarda en bd y suma al arbol</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="modelo.Crud.borr_ensay">
+<span class="sig-name descname"><span class="pre">borr_ensay</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo.html#Crud.borr_ensay"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelo.Crud.borr_ensay" title="Permalink to this definition"></a></dt>
+<dd><p>Baja del árbol y de la base</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="modelo.Crud.modif_ensay">
+<span class="sig-name descname"><span class="pre">modif_ensay</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo.html#Crud.modif_ensay"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelo.Crud.modif_ensay" title="Permalink to this definition"></a></dt>
+<dd><p>Modifica el item seleccionado en arbol y bd.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="modelo.Grafico">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">modelo.</span></span><span class="sig-name descname"><span class="pre">Grafico</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">figure=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">master=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resize_callback=&lt;deprecated</span> <span class="pre">parameter&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo.html#Grafico"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelo.Grafico" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">FigureCanvasTkAgg</span></code></p>
+<p>Para crear el grafico de regresion.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="modelo.Grafico.graf">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">graf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lista_logdosis</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lista_probit_un</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">canvas</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo.html#Grafico.graf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelo.Grafico.graf" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="modelo.Mat">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">modelo.</span></span><span class="sig-name descname"><span class="pre">Mat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vista_ensayos</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo.html#Mat"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelo.Mat" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Herramientas varias para CRUD y parte matematica</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="modelo.Mat.operaciones">
+<span class="sig-name descname"><span class="pre">operaciones</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">canvas</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo.html#Mat.operaciones"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelo.Mat.operaciones" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="modelo.ver_100_0">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">modelo.</span></span><span class="sig-name descname"><span class="pre">ver_100_0</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vista_ensayos</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sal_ld50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sal_inter_ld50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">equ_reg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">canvas</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo.html#ver_100_0"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#modelo.ver_100_0" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Eventos para el boton “Calcular”</p>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="controlador.html" class="btn btn-neutral float-left" title="controlador module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="verificacion_campos.html" class="btn btn-neutral float-right" title="verificacion_campos module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Gabriel.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
