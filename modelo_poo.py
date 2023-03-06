@@ -9,11 +9,12 @@ __email__ = "gabrielmolina149@gmail.com"
 __copyright__ = "Copyright 2023"
 __version__ = "0.0.1"
 
-from peewee import SqliteDatabase, Model, FloatField, IntegerField, CharField
+from peewee import SqliteDatabase, Model, FloatField, \
+    IntegerField, CharField
 from math import log10, sqrt
 from numpy import polyfit, array
 from statistics import NormalDist, mean
-import re
+import verificacion_campos
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import vista_poo
 
@@ -91,7 +92,7 @@ class Grafico(FigureCanvasTkAgg):
         ax.plot(array(x), b*array(x)+a)
         canvas.draw()
 
-class Utilidades():
+class Mat():
     '''
     Herramientas varias para CRUD y parte matematica
     '''    
@@ -100,37 +101,16 @@ class Utilidades():
             vista_ensayos
             ) -> None:
         self.vista_ensayos = vista_ensayos
-        #self.canvas = canvas
         self.arbol = Arbol(vista_ensayos)     
         self.grafico = Grafico()  
 
-    @staticmethod
-    def verif_campos(
-            dosis_var,
-            muert_var,
-            n_var,
-            uni_var
+    def operaciones(
+            self,
+            ax,
+            canvas
         ):
-        '''
-        uso de Re para controlar campos
-        '''
-        pat_campos = re.compile(
-            "[a-zA-Z,]"
-        )
-        if pat_campos.search(
-            dosis_var.get(), 
-        ) or pat_campos.search(muert_var.get()
-        ) or pat_campos.search(n_var.get()):
-            print("no match caracter válido")
-            vista_poo.Avisos.formato_error()
-        else:
-            data = (float(dosis_var.get()), float(muert_var.get()), 
-            float(n_var.get()), uni_var.get(),)
-            return data
-
-    def operaciones(self, ax, canvas):
         self.arbol.cargador_bd()
-        global ld50, lim_sup, lim_inf, a ,b,lista_dosis, lista_logdosis
+        global ld50, lim_sup, lim_inf, a ,b,lista_dosis, lista_logdosis, \
         lista_muertos, lista_n, lista_prop_muer, lista_probit_un, lista_un
         for i in range(0, len(lista_dosis)):
             prop_muet = float(lista_muertos[i])/float(lista_n[i])
@@ -155,10 +135,19 @@ class Utilidades():
         sd_ld50 = (mas_sd-menos_sd)/sqrt(mean(lista_n))
         lim_sup = round(ld50+sd_ld50, ndigits=2)
         lim_inf = round(ld50-sd_ld50, ndigits=2)
-        self.grafico.graf(ax, lista_logdosis, lista_probit_un, b, a, canvas)
+        self.grafico.graf(
+            ax,
+            lista_logdosis,
+            lista_probit_un,
+            b,
+            a,
+            canvas
+        )
         
 class Crud(): 
-    '''Alta baja y modificacion. Ingresar variables de tkinter'''
+    '''
+    Alta baja y modificacion. Ingresar variables de tkinter
+    '''
     def __init__(
             self,
             vista_ensayos,
@@ -175,7 +164,7 @@ class Crud():
         self.arbol = Arbol(vista_ensayos)
     def alta_ensay(self):
         '''Guarda en bd y suma al arbol'''
-        data = Utilidades(
+        data = verificacion_campos.Verificador(
             self.vista_ensayos
             ).verif_campos(
                 self.dosis_var, 
@@ -189,25 +178,32 @@ class Crud():
         nuevo_ensayo.n = data[2]
         nuevo_ensayo.unid = data[3]
         nuevo_ensayo.save()
-        IDtree = str(self.con.cursor.lastrowid)
+        IDtree = str(
+            self.con.cursor.lastrowid
+        )
         self.vista_ensayos.insert(
             "",
             "end",
             text=str(IDtree),
-            values=(self.dosis_var.get(),
-                    self.muert_var.get(),
-                    self.n_var.get(),
-                    self.uni_var.get(),
-            ))
-        print("GUARDADO", self.dosis_var.get(), self.uni_var.get())
+            values=(
+                self.dosis_var.get(),
+                self.muert_var.get(),
+                self.n_var.get(),
+                self.uni_var.get(),
+        ))
+        print(
+            "GUARDADO",
+            self.dosis_var.get(),
+            self.uni_var.get()
+        )
 
     def modif_ensay(self):
             '''
-            Modifica el item seleccionado en arbol y bd
+            Modifica el item seleccionado en arbol y bd.
             '''
             selec = self.vista_ensayos.focus()
             item = self.vista_ensayos.item(selec)
-            verf = Utilidades(self.vista_ensayos).verif_campos(
+            verf = verificacion_campos.Verificador(self.vista_ensayos).verif_campos(
                 self.dosis_var, 
                 self.muert_var, 
                 self.n_var, 
@@ -222,7 +218,13 @@ class Crud():
             for item in self.vista_ensayos.get_children():
                 self.vista_ensayos.delete(item)
             self.arbol.cargador_bd()
-            vista_poo.Avisos.aviso_modif(verf[0], verf[1], verf[2], verf[3], verf)
+            vista_poo.Avisos.aviso_modif(
+                verf[0],
+                verf[1],
+                verf[2],
+                verf[3],
+                verf
+            )
 
     def borr_ensay(self):
         '''Baja del árbol y de la base'''
@@ -233,7 +235,10 @@ class Crud():
         item_bd = item["values"][0]
         item_bu = item["values"][3]
         self.arbol.cargador_bd()
-        vista_poo.Avisos.aviso_borr(item_bd, item_bu)
+        vista_poo.Avisos.aviso_borr(
+            item_bd,
+            item_bu
+        )
 
  
 class ver_100_0():
@@ -251,7 +256,7 @@ class ver_100_0():
         self.arbol = Arbol(
             vista_ensayos
         )
-        self.op = Utilidades(
+        self.op = Mat(
             vista_ensayos
         )
         self.arbol.cargador_bd()
@@ -263,8 +268,11 @@ class ver_100_0():
             ax, 
             canvas
         )
-        sal_ld50["text"] = "".join(("Dosis Letal \
-50%: "+str(ld50)+" " +str(lista_un[0])))
-        sal_inter_ld50["text"] = " ".join(("SUP: "+ str(lim_sup), "| \
-INF: "+ str(lim_inf)))
-        equ_reg["text"] = f"Pendiente= {round(b,1)} | Ordenada= {round(a,1)}"
+        sal_ld50["text"] = "".join(
+            "Dosis Letal 50%: "+str(ld50)+" "+str(lista_un[0])
+        )
+        sal_inter_ld50["text"] = " ".join(
+            "SUP: "+ str(lim_sup), "| INF: "+ str(lim_inf)
+        )
+        equ_reg["text"] = f"Pendiente= {round(b,1)} | \
+Ordenada= {round(a,1)}"
