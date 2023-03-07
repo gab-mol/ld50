@@ -22,13 +22,15 @@ from conex_bd import Ld50
 
 class Arbol():
     '''
-    Carga el arbol con info almacenada en \
-base de datos.
+    Gestiona el treeview con los ensayos.
     '''
     def __init__(self, treeview):
         self.treeview = treeview
 
     def cargador_bd(self):
+        '''
+        Carga el arbol con info almacenada en base de datos.
+        '''
         global lista_dosis, lista_logdosis, lista_muertos, lista_n,\
             lista_prop_muer, lista_probit_un, lista_un
         # limpieza del arbol
@@ -84,6 +86,9 @@ class Grafico(FigureCanvasTkAgg):
             a,
             canvas
         ):
+        '''
+        
+        '''
         x = lista_logdosis
         y = lista_probit_un
         ax.clear()
@@ -112,7 +117,7 @@ class Grafico(FigureCanvasTkAgg):
 
 class Mat():
     '''
-    Herramientas varias para CRUD y parte matematica
+    Realiza los cálculos para obtener la LD50.
     '''    
     def __init__(
             self, 
@@ -127,6 +132,10 @@ class Mat():
             ax,
             canvas
         ):
+        '''
+        Modela a partir de los ensayos guardados. 
+        Calcula la LD50 y su intervalo de confianza.
+        '''
         self.arbol.cargador_bd()
         global ld50, lim_sup, lim_inf, a ,b,lista_dosis, lista_logdosis, \
         lista_muertos, lista_n, lista_prop_muer, lista_probit_un, lista_un
@@ -153,11 +162,18 @@ class Mat():
                 "Error: sin datos para modelar"
             )
         
-        ld50 = round(10**((5-a)/b), ndigits=2)
+        ld50 = round(
+            10**((5-a)/b),
+            ndigits = 2
+        )
         menos_sd = 10**((4-a)/b)
         mas_sd = 10**((6-a)/b)
         sd_ld50 = (mas_sd-menos_sd)/sqrt(mean(lista_n))
-        lim_sup = round(ld50+sd_ld50, ndigits=2)
+        lim_sup = round(
+            ld50
+            + sd_ld50,
+            ndigits = 2
+        )
         lim_inf = round(ld50-sd_ld50, ndigits=2)
         self.grafico.graf(
             ax,
@@ -204,7 +220,6 @@ class Crud():
         nuevo_ensayo.n = data[2]
         nuevo_ensayo.unid = data[3]
         nuevo_ensayo.save()
-        #IDtree = str(self.con.cursor.lastrowid)
         self.vista_ensayos.insert(
             "",
             "end",

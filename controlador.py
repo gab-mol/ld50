@@ -4,9 +4,8 @@ controlador.py:
     :Entrega Diplomatura Python - Nivel Intermedio:
 '''
 
-
-
 from tkinter import Tk
+
 import vista
 
 class Controlador:

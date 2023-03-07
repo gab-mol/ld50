@@ -1,5 +1,7 @@
 '''
-Conexión a base de datos para aplicación ld50 y Creación de tabla.
+conex_bd.py:
+    Conexión a base de datos para aplicación ld50.
+    :Entrega Diplomatura Python - Nivel Intermedio:
 '''
 from peewee import SqliteDatabase, Model, FloatField, \
     IntegerField, CharField
@@ -11,7 +13,7 @@ db = SqliteDatabase(
 )
 
 class BaseModel(Model):
-
+    
     class Meta:
         database = db
 

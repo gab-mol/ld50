@@ -81,7 +81,7 @@ y respuesta (muertos): ",
 
         # Botones
         font_botones1 = (
-            "Arial",11, "bold"
+            "Arial", 11, "bold"
         )
 
         font_botones2 = (
@@ -162,7 +162,7 @@ y respuesta (muertos): ",
         ## GRAFICO Logdosis x probit.
         fig = Figure(
             figsize=(
-            4.2, 4.5
+                4.2, 4.5
             ), 
             dpi=100
         )
