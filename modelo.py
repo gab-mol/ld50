@@ -44,7 +44,6 @@ base de datos.
         lista_probit_un = []
 
         for fila in Ld50.select():
-            print(fila)
             self.treeview.insert(
                 "",
                 0,
@@ -103,7 +102,11 @@ class Grafico(FigureCanvasTkAgg):
             "Log Dosis"
         )
         canvas.draw()
-        ax.plot(array(x), b*array(x)+a)
+        ax.plot(
+            array(x),
+            b*array(x)
+            +a
+        )
         canvas.draw()
 
 
@@ -114,7 +117,7 @@ class Mat():
     def __init__(
             self, 
             vista_ensayos
-            ) -> None:
+        ) -> None:
         self.vista_ensayos = vista_ensayos
         self.arbol = Arbol(vista_ensayos)     
         self.grafico = Grafico()  
@@ -189,9 +192,7 @@ class Crud():
         '''
         Guarda en bd y suma al arbol
         '''
-        data = Verificador(
-            self.vista_ensayos
-            ).verif_campos(
+        data = Verificador().verif_campos(
                 self.dosis_var, 
                 self.muert_var, 
                 self.n_var, 
@@ -203,13 +204,11 @@ class Crud():
         nuevo_ensayo.n = data[2]
         nuevo_ensayo.unid = data[3]
         nuevo_ensayo.save()
-        IDtree = str(
-            self.con.cursor.lastrowid
-        )
+        #IDtree = str(self.con.cursor.lastrowid)
         self.vista_ensayos.insert(
             "",
             "end",
-            text=str(IDtree),
+            text=str(0),
             values=(
                 self.dosis_var.get(),
                 self.muert_var.get(),
@@ -230,9 +229,7 @@ class Crud():
 
             item = self.vista_ensayos.item(selec)
 
-            verf = Verificador(
-                self.vista_ensayos
-            ).verif_campos(
+            verf = Verificador().verif_campos(
                 self.dosis_var, 
                 self.muert_var, 
                 self.n_var, 
@@ -311,7 +308,7 @@ class ver_100_0():
             + str(lista_un[0])
         )
 
-        sal_inter_ld50["text"] = " ".join(
+        sal_inter_ld50["text"] = "".join(
             "SUP: "
             + str(lim_sup)
             + "| INF: "

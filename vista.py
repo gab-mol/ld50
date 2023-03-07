@@ -246,7 +246,8 @@ y respuesta (muertos): ",
         et_int =Label(
             principal,
             text="Intervalo de confianza 95%:",
-            pady=5, padx=4,
+            pady=5, 
+            padx=4,
             bg="#DECDCD",
             justify="center",
             font=font_et_ld50,
@@ -265,7 +266,9 @@ y respuesta (muertos): ",
 
         sal_inter_ld50 = Label(
             principal, 
-            text="<...>", pady=6, padx=4,
+            text="<...>", 
+            pady=6, 
+            padx=4,
             bg="#DECDCD",
             justify="center",
             font=font_et_ld50,
@@ -578,7 +581,7 @@ class Avisos():
     def formato_error():
         messagebox.showwarning(
             "Formato incorrecto",
-            "Solo números(Dosis, muertos, n). Decimales con punto (.)"
+            "Solo números (Dosis, muertos, n). Decimales con punto (.)"
         )
 
     @staticmethod

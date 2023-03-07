@@ -5,9 +5,9 @@ from peewee import SqliteDatabase, Model, FloatField, \
     IntegerField, CharField
 
 
-
+nombre_db = "dosisld50.db"
 db = SqliteDatabase(
-    "dosisld50.db"
+    nombre_db
 )
 
 class BaseModel(Model):
@@ -24,14 +24,14 @@ class Ld50(BaseModel):
     unid = CharField()
 
 
-# Base de datos: Conexion y creacion de tablas.
+# Base de datos: Conexion y/o creacion de tablas.
 try:
     db.connect()
     db.create_tables([Ld50])
     print(
-        "Conexión exitosa"
+        f"Conexión con base de datos '{nombre_db}' exitosa"
     )
 except:
     raise Exception(
-        "Error de Conexión"
+        "Error de Conexión con base de datos"
     )
