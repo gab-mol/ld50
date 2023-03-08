@@ -1,5 +1,5 @@
-modelo module
-=============
+Módulo: modelo
+==============
 
 .. automodule:: modelo
    :members:

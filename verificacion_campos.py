@@ -1,7 +1,5 @@
 '''
-verificacion_campos.py:
-    Modulo con funcionalidad de verificacion de campos para aplicación "ld50".
-    :Entrega Diplomatura Python - Nivel Intermedio:
+    **Módulo con funcionalidad de verificacion de campos correspondiente a aplicación: "Calculadora-LD50".**
 '''
 
 import re

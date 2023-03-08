@@ -1,7 +1,5 @@
 '''
-modelo.py:
-    Este es el modelo correspondiente a ld50_app
-    :Entrega Diplomatura Python - Nivel Intermedio:
+**El 'modelo' (patrón MVC) correspondiente a aplicación: "Calculadora-LD50".**
 '''
 __author__ = "Gabriel Molina"
 __maintainer__ = "Gabriel Molina"
@@ -22,7 +20,9 @@ from conex_bd import Ld50
 
 class Arbol():
     '''
-    Gestiona el treeview con los ensayos.
+    **Gestiona vista de ensayos (objeto treeview de tkinter)**
+
+    :param root: Recibe el objeto Tk.
     '''
     def __init__(self, treeview):
         self.treeview = treeview
@@ -33,7 +33,6 @@ class Arbol():
         '''
         global lista_dosis, lista_logdosis, lista_muertos, lista_n,\
             lista_prop_muer, lista_probit_un, lista_un
-        # limpieza del arbol
         for item in self.treeview.get_children():
             self.treeview.delete(item)
 
@@ -75,7 +74,9 @@ class Arbol():
 
 class Grafico(FigureCanvasTkAgg):
     '''
-    Para crear el grafico de regresion.
+    **Crea el grafico de regresión.**
+
+    :param root: Recibe el objeto Tk (mainloop tkinter).
     '''
     @staticmethod         
     def graf(
@@ -87,7 +88,14 @@ class Grafico(FigureCanvasTkAgg):
             canvas
         ):
         '''
-        
+        **Gráfico PROBIT vs Log(dosis)**
+
+        :param ax: Recibe objeto de ejes (canvas)
+        :param lista_logdosis: Recibe lista de Dosis cargadas (eje x)
+        :param lista_probit_un: Recibe lista de unidades PROBIT calculadas (eje y)
+        :param b: Recibe pendiente de la regresión
+        :param a: Recibe ordenada de la regresión
+        :param canvas: Recibe objeto canvas
         '''
         x = lista_logdosis
         y = lista_probit_un
@@ -117,7 +125,9 @@ class Grafico(FigureCanvasTkAgg):
 
 class Mat():
     '''
-    Realiza los cálculos para obtener la LD50.
+    **Realiza los cálculos para obtener la LD50.**
+
+    :param vista_ensayos: Recibe objeto ttk (treeview tkinter)
     '''    
     def __init__(
             self, 
@@ -135,6 +145,9 @@ class Mat():
         '''
         Modela a partir de los ensayos guardados. 
         Calcula la LD50 y su intervalo de confianza.
+
+        :param ax: Recibe objeto de ejes (canvas)
+        :param canvas: Recibe objeto canvas
         '''
         self.arbol.cargador_bd()
         global ld50, lim_sup, lim_inf, a ,b,lista_dosis, lista_logdosis, \
@@ -160,7 +173,7 @@ class Mat():
             vista.Avisos.error_sin_datos()
             raise Exception(
                 "Error: sin datos para modelar"
-            )
+                )
         
         ld50 = round(
             10**((5-a)/b),
@@ -187,7 +200,13 @@ class Mat():
 
 class Crud(): 
     '''
-    Alta baja y modificacion. Ingresar variables de tkinter
+    **Alta baja y modificacion.**
+
+    :param vista_ensayos: Recibe objeto ttk (treeview tkinter) 
+    :param dosis_var: Recibe objeto StringVar (tkinter) correspondiente a dosis
+    :param muert_var: Recibe objeto StringVar (tkinter) correspondiente a muertos
+    :param n_var: Recibe objeto StringVar (tkinter) correspondiente a n
+    :param uni_var: Recibe objeto StringVar (tkinter) correspondiente a las unidades
     '''
     def __init__(
             self,
@@ -206,7 +225,7 @@ class Crud():
 
     def alta_ensay(self):
         '''
-        Guarda en bd y suma al arbol
+        Guarda en bd y suma al arbol.
         '''
         data = Verificador().verif_campos(
                 self.dosis_var, 
@@ -270,7 +289,7 @@ class Crud():
 
     def borr_ensay(self):
         '''
-        Baja del árbol y de la base
+        Baja del árbol y de la base.
         '''
         selec = self.vista_ensayos.focus()
         item = self.vista_ensayos.item(selec)
@@ -288,6 +307,13 @@ class Crud():
 class ver_100_0():
     '''
     Eventos para el boton "Calcular"
+
+    :param ax: Recibe objeto de ejes (canvas)
+    :param vista_ensayos: Recibe objeto ttk (treeview tkinter) 
+    :param sal_ld50: Recibe variable StringVar (tkinter) para LD50 
+    :param sal_inter_ld50: Recibe variable StringVar (tkinter) para intervalo  conf. de LD50
+    :param equ_reg: Recibe ordenada de la regresión
+    :param canvas: Recibe objeto canvas
     '''
     def __init__(
             self, 

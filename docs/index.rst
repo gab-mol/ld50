@@ -1,14 +1,25 @@
-.. ld50_app documentation master file, created by
-   sphinx-quickstart on Mon Mar  6 11:54:19 2023.
+.. Entrega_NivelIntermedio documentation master file, created by
+   sphinx-quickstart on Tue Mar  7 10:09:10 2023.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to ld50_app's documentation!
-====================================
+Documentación: Entrega Nivel Intermedio. Diplomatura Python UTN
+===============================================================
+
+Aplicacion: "Calculadora-LD50"
+##############################
+
+
+**Alumno: Gabriel Molina**
+
+**Marzo, 2023**
+
+
+
 
 .. toctree::
    :maxdepth: 4
-   :caption: Contents:
+   :caption: Contenido:
 
    conex_bd
    controlador
@@ -17,8 +28,8 @@ Welcome to ld50_app's documentation!
    vista
 
 
-Indices and tables
-==================
+Índices y tablas
+================
 
 * :ref:`genindex`
 * :ref:`modindex`

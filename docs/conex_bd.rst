@@ -1,5 +1,5 @@
-conex\_bd module
-================
+Módulo: conex\_bd
+=================
 
 .. automodule:: conex_bd
    :members:

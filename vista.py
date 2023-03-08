@@ -1,8 +1,5 @@
 '''
-vista.py:
-    Este es la vista correspondiente a ld50_app
-    :Entrega Diplomatura Python - Nivel Intermedio:
-
+    **La 'vista' (patrón MVC) correspondiente a aplicación: "Calculadora-LD50"**
 '''
 
 from tkinter import Label, Entry, StringVar, Button, ttk
@@ -15,11 +12,10 @@ import modelo
 
 class Ventana():
     '''
-    Clase donde se declaran los componentes de la interfaz visual.
-    Modulo empleado: *tkinter*.
+    **Declaración de ventana y componentes de salida de datos de la interfaz visual.**
+    Modulo empleado: *tkinter*
 
-    :param principal: Recibe el objeto tkinter.Tk para el lanzamiento.
-
+    :param principal: Recibe el objeto Tk (tkinter mainloop).
     '''
     def __init__(
             self,
@@ -133,8 +129,12 @@ y respuesta (muertos): ",
             principal,
             text="Borrar",
             font=font_botones2,
-            command=lambda:self.datos.borr_ensay(), padx=30, pady=10, width=10
+            command=lambda:self.datos.borr_ensay(), 
+            padx=30,
+            pady=10,
+            width=10
         )
+
         borr.grid(
             row=6,
             column=2,
@@ -148,7 +148,9 @@ y respuesta (muertos): ",
             text="Modificar",
             font=font_botones2,
             command=lambda:self.datos.modif_ensay(), 
-            padx=30, pady=10, width=10
+            padx=30,
+            pady=10,
+            width=10
         )
 
         modif.grid(
@@ -332,7 +334,9 @@ y respuesta (muertos): ",
 
 class Entr():
     '''
-    Entradas y sus etiquetas
+    Declaracion de entradas de datos para los ensayos, sus variables y sus etiquetas.
+
+    :param principal: Recibe objeto Tk (ventana tkinter).
     '''
     def __init__(self, principal):
         font_etiqs = (
@@ -508,7 +512,9 @@ class Entr():
 
 class Vista_arbol(ttk.Treeview):
     '''
-    Registro dosis (self.vista_ensayos treeview)
+    Árbol donde se listan los ensayos cargados (treeview de tkinter)
+
+    :param principal: Recibe objeto Tk (ventana tkinter).
     '''
     def __init__(self, principal) -> None:
         anch = 110
@@ -579,6 +585,9 @@ class Avisos():
     '''Mensajes emergentes de error y aviso de eventos'''
     @staticmethod
     def formato_error():
+        '''
+        Notifica campo con tipo de dato inválido.
+        '''
         messagebox.showwarning(
             "Formato incorrecto",
             "Solo números (Dosis, muertos, n). Decimales con punto (.)"
@@ -592,6 +601,15 @@ class Avisos():
         item_4,
         verf
     ):
+        '''
+        Notifica modificación a un ensayo.
+
+        :param item_1: Dosis a eliminar
+        :param item_2: Muertos a eliminar
+        :param item_3: n a eliminar
+        :param item_4: Unidad a eliminar
+        :param verf: Lista con valores nuevos
+        '''
         messagebox.showinfo(
             "Aviso. Se Modificó ensayo:",
             f" Dos.: {item_1},\
@@ -601,22 +619,38 @@ Muer.: {verf[1]}, n: {verf[2]}, Uni.: {verf[3]}"
 
     @staticmethod
     def aviso_borr(item_bd, item_bu):
+        '''
+        Notifica eliminación a un ensayo.
+
+        :item_bd item_1: Dosis a eliminar
+        :item_bu item_1: Unidad a eliminar
+        '''
         messagebox.showinfo(
             "Aviso:", f"Se borró Dosis: {item_bd} {item_bu}"
         )
 
     @staticmethod
     def error_estadistico():
+        '''
+        Notifica error por ensayos con 0% y/o 100% \
+de mortalidad (inadmisible).
+        '''
         messagebox.showerror(
             "Error estadístico:",
             "Imposible modelar \
 con mortalidad del 100% y/o 0% (elimine dichos ensayos)"
         )
+        raise Exception(
+        "Ensayo con mortalidad 0 y/o 100 % (Error estadisico)"
+        )
         
     @staticmethod  
     def error_sin_datos():
+        '''
+        Notifica error por ausencia de ensayos cargados.
+        '''
         messagebox.showerror(
-            "Error:", "No se ingresaron datos"
+            "Error:",
+            "No se ingresaron datos"
         )
-
 

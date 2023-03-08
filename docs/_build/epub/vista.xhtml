@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Módulo: vista</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/epub.css" /> 
+  </head><body>
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <section id="module-vista">
+<span id="modulo-vista"></span><h1>Módulo: vista</h1>
+<p><strong>La “vista” (patrón MVC) correspondiente a aplicación: «Calculadora-LD50»</strong></p>
+<dl class="py class">
+<dt class="sig sig-object py" id="vista.Avisos">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">vista.</span></span><span class="sig-name descname"><span class="pre">Avisos</span></span></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Mensajes emergentes de error y aviso de eventos</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="vista.Avisos.aviso_borr">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">aviso_borr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item_bd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">item_bu</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>Notifica eliminación a un ensayo.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Item_bd item_1<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Dosis a eliminar</p>
+</dd>
+<dt class="field-even">Item_bu item_1<span class="colon">:</span></dt>
+<dd class="field-even"><p>Unidad a eliminar</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vista.Avisos.aviso_modif">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">aviso_modif</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">item_2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">item_3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">item_4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verf</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>Notifica modificación a un ensayo.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>item_1</strong> – Dosis a eliminar</p></li>
+<li><p><strong>item_2</strong> – Muertos a eliminar</p></li>
+<li><p><strong>item_3</strong> – n a eliminar</p></li>
+<li><p><strong>item_4</strong> – Unidad a eliminar</p></li>
+<li><p><strong>verf</strong> – Lista con valores nuevos</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vista.Avisos.error_estadistico">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">error_estadistico</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Notifica error por ensayos con 0% y/o 100% de mortalidad (inadmisible).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vista.Avisos.error_sin_datos">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">error_sin_datos</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Notifica error por ausencia de ensayos cargados.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="vista.Avisos.formato_error">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">formato_error</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Notifica campo con tipo de dato inválido.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="vista.Entr">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">vista.</span></span><span class="sig-name descname"><span class="pre">Entr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">principal</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Declaracion de entradas de datos para los ensayos, sus variables y sus etiquetas.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>principal</strong> – Recibe objeto Tk (ventana tkinter).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="vista.Ventana">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">vista.</span></span><span class="sig-name descname"><span class="pre">Ventana</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">principal</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p><strong>Declaración de ventana y componentes de salida de datos de la interfaz visual.</strong>
+Modulo empleado: <em>tkinter</em></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>principal</strong> – Recibe el objeto Tk (tkinter mainloop).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="vista.Vista_arbol">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">vista.</span></span><span class="sig-name descname"><span class="pre">Vista_arbol</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">principal</span></span></em><span class="sig-paren">)</span></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Treeview</span></code></p>
+<p>Árbol donde se listan los ensayos cargados (treeview de tkinter)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>principal</strong> – Recibe objeto Tk (ventana tkinter).</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  </body>
+</html>

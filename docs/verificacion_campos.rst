@@ -1,5 +1,5 @@
-verificacion\_campos module
-===========================
+Módulo: verificacion\_campos
+============================
 
 .. automodule:: verificacion_campos
    :members:

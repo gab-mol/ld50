@@ -1,0 +1,326 @@
+<?xml version="1.0"?>
+<ncx version="2005-1" xmlns="http://www.daisy.org/z3986/2005/ncx/">
+  <head>
+    <meta name="dtb:uid" content="unknown"/>
+    <meta name="dtb:depth" content="3"/>
+    <meta name="dtb:totalPageCount" content="0"/>
+    <meta name="dtb:maxPageNumber" content="0"/>
+  </head>
+  <docTitle>
+    <text>Entrega Nivel intermedio</text>
+  </docTitle>
+  <navMap>    
+    <navPoint id="navPoint1" playOrder="1">
+      <navLabel>
+        <text>Documentación: Entrega Nivel Intermedio. Diplomatura Python UTN</text>
+      </navLabel>
+      <content src="index.xhtml" />  
+    </navPoint>
+    <navPoint id="navPoint2" playOrder="2">
+      <navLabel>
+        <text>Módulo: conex_bd</text>
+      </navLabel>
+      <content src="conex_bd.xhtml" />  
+      <navPoint id="navPoint3" playOrder="2">
+        <navLabel>
+          <text>Módulo: conex_bd</text>
+        </navLabel>
+        <content src="conex_bd.xhtml" />  
+      </navPoint>
+      <navPoint id="navPoint4" playOrder="3">
+        <navLabel>
+          <text>Conexion</text>
+        </navLabel>
+        <content src="conex_bd.xhtml#conex_bd.Conexion" />  
+        <navPoint id="navPoint5" playOrder="3">
+          <navLabel>
+            <text>Conexion</text>
+          </navLabel>
+          <content src="conex_bd.xhtml#conex_bd.Conexion" />  
+        </navPoint>
+        <navPoint id="navPoint6" playOrder="4">
+          <navLabel>
+            <text>Conexion.DoesNotExist</text>
+          </navLabel>
+          <content src="conex_bd.xhtml#conex_bd.Conexion.DoesNotExist" />  
+        </navPoint>
+        <navPoint id="navPoint7" playOrder="5">
+          <navLabel>
+            <text>Conexion.id</text>
+          </navLabel>
+          <content src="conex_bd.xhtml#conex_bd.Conexion.id" />  
+        </navPoint>
+      </navPoint>
+      <navPoint id="navPoint8" playOrder="6">
+        <navLabel>
+          <text>Ld50</text>
+        </navLabel>
+        <content src="conex_bd.xhtml#conex_bd.Ld50" />  
+        <navPoint id="navPoint9" playOrder="6">
+          <navLabel>
+            <text>Ld50</text>
+          </navLabel>
+          <content src="conex_bd.xhtml#conex_bd.Ld50" />  
+        </navPoint>
+        <navPoint id="navPoint10" playOrder="7">
+          <navLabel>
+            <text>Ld50.DoesNotExist</text>
+          </navLabel>
+          <content src="conex_bd.xhtml#conex_bd.Ld50.DoesNotExist" />  
+        </navPoint>
+        <navPoint id="navPoint11" playOrder="8">
+          <navLabel>
+            <text>Ld50.dosis</text>
+          </navLabel>
+          <content src="conex_bd.xhtml#conex_bd.Ld50.dosis" />  
+        </navPoint>
+        <navPoint id="navPoint12" playOrder="9">
+          <navLabel>
+            <text>Ld50.id</text>
+          </navLabel>
+          <content src="conex_bd.xhtml#conex_bd.Ld50.id" />  
+        </navPoint>
+        <navPoint id="navPoint13" playOrder="10">
+          <navLabel>
+            <text>Ld50.muertos</text>
+          </navLabel>
+          <content src="conex_bd.xhtml#conex_bd.Ld50.muertos" />  
+        </navPoint>
+        <navPoint id="navPoint14" playOrder="11">
+          <navLabel>
+            <text>Ld50.n</text>
+          </navLabel>
+          <content src="conex_bd.xhtml#conex_bd.Ld50.n" />  
+        </navPoint>
+        <navPoint id="navPoint15" playOrder="12">
+          <navLabel>
+            <text>Ld50.unid</text>
+          </navLabel>
+          <content src="conex_bd.xhtml#conex_bd.Ld50.unid" />  
+        </navPoint>
+      </navPoint>
+    </navPoint>
+    <navPoint id="navPoint16" playOrder="13">
+      <navLabel>
+        <text>Módulo: controlador</text>
+      </navLabel>
+      <content src="controlador.xhtml" />  
+      <navPoint id="navPoint17" playOrder="13">
+        <navLabel>
+          <text>Módulo: controlador</text>
+        </navLabel>
+        <content src="controlador.xhtml" />  
+      </navPoint>
+      <navPoint id="navPoint18" playOrder="14">
+        <navLabel>
+          <text>Controlador</text>
+        </navLabel>
+        <content src="controlador.xhtml#controlador.Controlador" />  
+      </navPoint>
+    </navPoint>
+    <navPoint id="navPoint19" playOrder="15">
+      <navLabel>
+        <text>Módulo: modelo</text>
+      </navLabel>
+      <content src="modelo.xhtml" />  
+      <navPoint id="navPoint20" playOrder="15">
+        <navLabel>
+          <text>Módulo: modelo</text>
+        </navLabel>
+        <content src="modelo.xhtml" />  
+      </navPoint>
+      <navPoint id="navPoint21" playOrder="16">
+        <navLabel>
+          <text>Arbol</text>
+        </navLabel>
+        <content src="modelo.xhtml#modelo.Arbol" />  
+        <navPoint id="navPoint22" playOrder="16">
+          <navLabel>
+            <text>Arbol</text>
+          </navLabel>
+          <content src="modelo.xhtml#modelo.Arbol" />  
+        </navPoint>
+        <navPoint id="navPoint23" playOrder="17">
+          <navLabel>
+            <text>Arbol.cargador_bd()</text>
+          </navLabel>
+          <content src="modelo.xhtml#modelo.Arbol.cargador_bd" />  
+        </navPoint>
+      </navPoint>
+      <navPoint id="navPoint24" playOrder="18">
+        <navLabel>
+          <text>Crud</text>
+        </navLabel>
+        <content src="modelo.xhtml#modelo.Crud" />  
+        <navPoint id="navPoint25" playOrder="18">
+          <navLabel>
+            <text>Crud</text>
+          </navLabel>
+          <content src="modelo.xhtml#modelo.Crud" />  
+        </navPoint>
+        <navPoint id="navPoint26" playOrder="19">
+          <navLabel>
+            <text>Crud.alta_ensay()</text>
+          </navLabel>
+          <content src="modelo.xhtml#modelo.Crud.alta_ensay" />  
+        </navPoint>
+        <navPoint id="navPoint27" playOrder="20">
+          <navLabel>
+            <text>Crud.borr_ensay()</text>
+          </navLabel>
+          <content src="modelo.xhtml#modelo.Crud.borr_ensay" />  
+        </navPoint>
+        <navPoint id="navPoint28" playOrder="21">
+          <navLabel>
+            <text>Crud.modif_ensay()</text>
+          </navLabel>
+          <content src="modelo.xhtml#modelo.Crud.modif_ensay" />  
+        </navPoint>
+      </navPoint>
+      <navPoint id="navPoint29" playOrder="22">
+        <navLabel>
+          <text>Grafico</text>
+        </navLabel>
+        <content src="modelo.xhtml#modelo.Grafico" />  
+        <navPoint id="navPoint30" playOrder="22">
+          <navLabel>
+            <text>Grafico</text>
+          </navLabel>
+          <content src="modelo.xhtml#modelo.Grafico" />  
+        </navPoint>
+        <navPoint id="navPoint31" playOrder="23">
+          <navLabel>
+            <text>Grafico.graf()</text>
+          </navLabel>
+          <content src="modelo.xhtml#modelo.Grafico.graf" />  
+        </navPoint>
+      </navPoint>
+      <navPoint id="navPoint32" playOrder="24">
+        <navLabel>
+          <text>Mat</text>
+        </navLabel>
+        <content src="modelo.xhtml#modelo.Mat" />  
+        <navPoint id="navPoint33" playOrder="24">
+          <navLabel>
+            <text>Mat</text>
+          </navLabel>
+          <content src="modelo.xhtml#modelo.Mat" />  
+        </navPoint>
+        <navPoint id="navPoint34" playOrder="25">
+          <navLabel>
+            <text>Mat.operaciones()</text>
+          </navLabel>
+          <content src="modelo.xhtml#modelo.Mat.operaciones" />  
+        </navPoint>
+      </navPoint>
+      <navPoint id="navPoint35" playOrder="26">
+        <navLabel>
+          <text>ver_100_0</text>
+        </navLabel>
+        <content src="modelo.xhtml#modelo.ver_100_0" />  
+      </navPoint>
+    </navPoint>
+    <navPoint id="navPoint36" playOrder="27">
+      <navLabel>
+        <text>Módulo: verificacion_campos</text>
+      </navLabel>
+      <content src="verificacion_campos.xhtml" />  
+      <navPoint id="navPoint37" playOrder="27">
+        <navLabel>
+          <text>Módulo: verificacion_campos</text>
+        </navLabel>
+        <content src="verificacion_campos.xhtml" />  
+      </navPoint>
+      <navPoint id="navPoint38" playOrder="28">
+        <navLabel>
+          <text>Verificador</text>
+        </navLabel>
+        <content src="verificacion_campos.xhtml#verificacion_campos.Verificador" />  
+        <navPoint id="navPoint39" playOrder="28">
+          <navLabel>
+            <text>Verificador</text>
+          </navLabel>
+          <content src="verificacion_campos.xhtml#verificacion_campos.Verificador" />  
+        </navPoint>
+        <navPoint id="navPoint40" playOrder="29">
+          <navLabel>
+            <text>Verificador.verif_campos()</text>
+          </navLabel>
+          <content src="verificacion_campos.xhtml#verificacion_campos.Verificador.verif_campos" />  
+        </navPoint>
+      </navPoint>
+    </navPoint>
+    <navPoint id="navPoint41" playOrder="30">
+      <navLabel>
+        <text>Módulo: vista</text>
+      </navLabel>
+      <content src="vista.xhtml" />  
+      <navPoint id="navPoint42" playOrder="30">
+        <navLabel>
+          <text>Módulo: vista</text>
+        </navLabel>
+        <content src="vista.xhtml" />  
+      </navPoint>
+      <navPoint id="navPoint43" playOrder="31">
+        <navLabel>
+          <text>Avisos</text>
+        </navLabel>
+        <content src="vista.xhtml#vista.Avisos" />  
+        <navPoint id="navPoint44" playOrder="31">
+          <navLabel>
+            <text>Avisos</text>
+          </navLabel>
+          <content src="vista.xhtml#vista.Avisos" />  
+        </navPoint>
+        <navPoint id="navPoint45" playOrder="32">
+          <navLabel>
+            <text>Avisos.aviso_borr()</text>
+          </navLabel>
+          <content src="vista.xhtml#vista.Avisos.aviso_borr" />  
+        </navPoint>
+        <navPoint id="navPoint46" playOrder="33">
+          <navLabel>
+            <text>Avisos.aviso_modif()</text>
+          </navLabel>
+          <content src="vista.xhtml#vista.Avisos.aviso_modif" />  
+        </navPoint>
+        <navPoint id="navPoint47" playOrder="34">
+          <navLabel>
+            <text>Avisos.error_estadistico()</text>
+          </navLabel>
+          <content src="vista.xhtml#vista.Avisos.error_estadistico" />  
+        </navPoint>
+        <navPoint id="navPoint48" playOrder="35">
+          <navLabel>
+            <text>Avisos.error_sin_datos()</text>
+          </navLabel>
+          <content src="vista.xhtml#vista.Avisos.error_sin_datos" />  
+        </navPoint>
+        <navPoint id="navPoint49" playOrder="36">
+          <navLabel>
+            <text>Avisos.formato_error()</text>
+          </navLabel>
+          <content src="vista.xhtml#vista.Avisos.formato_error" />  
+        </navPoint>
+      </navPoint>
+      <navPoint id="navPoint50" playOrder="37">
+        <navLabel>
+          <text>Entr</text>
+        </navLabel>
+        <content src="vista.xhtml#vista.Entr" />  
+      </navPoint>
+      <navPoint id="navPoint51" playOrder="38">
+        <navLabel>
+          <text>Ventana</text>
+        </navLabel>
+        <content src="vista.xhtml#vista.Ventana" />  
+      </navPoint>
+      <navPoint id="navPoint52" playOrder="39">
+        <navLabel>
+          <text>Vista_arbol</text>
+        </navLabel>
+        <content src="vista.xhtml#vista.Vista_arbol" />  
+      </navPoint>
+    </navPoint>
+  </navMap>
+</ncx>

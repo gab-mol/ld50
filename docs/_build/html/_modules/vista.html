@@ -1,204 +1,142 @@
 
-<!DOCTYPE html>
 
-<html lang="en">
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xml:lang="" lang="" version="-//W3C//DTD XHTML 1.1//EN" xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <title>vista &mdash; documentación de EntregaFinal - 0.0.1</title>
+  
+
+  
+
+  
+
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'/>
+    <link rel="stylesheet" href="../_static/css/pdj.css" type="text/css" />
+
+  
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../_static/css/pdj.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Índice"
+              href="../genindex.html"/>
+        <link rel="search" title="Búsqueda" href="../search.html"/>
+    <link rel="top" title="documentación de EntregaFinal - 0.0.1" href="../index.html"/>
+        <link rel="up" title="Código de módulo" href="index.html"/>
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="cache-control" content="public" />
+    <meta name="robots" content="follow, all" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <meta name="lang:clipboard.copy" content="Copy to clipboard">
-  <meta name="lang:clipboard.copied" content="Copied to clipboard">
-  <meta name="lang:search.language" content="en">
-  <meta name="lang:search.pipeline.stopwords" content="True">
-  <meta name="lang:search.pipeline.trimmer" content="True">
-  <meta name="lang:search.result.none" content="No matching documents">
-  <meta name="lang:search.result.one" content="1 matching document">
-  <meta name="lang:search.result.other" content="# matching documents">
-  <meta name="lang:search.tokenizer" content="[\s\-]+">
-
-  
-    <link href="https://fonts.gstatic.com/" rel="preconnect" crossorigin>
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700|Roboto:300,400,400i,700&display=fallback" rel="stylesheet">
-
-    <style>
-      body,
-      input {
-        font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif
-      }
-
-      code,
-      kbd,
-      pre {
-        font-family: "Roboto Mono", "Courier New", Courier, monospace
-      }
-    </style>
-  
-
-  <link rel="stylesheet" href="../_static/stylesheets/application.css"/>
-  <link rel="stylesheet" href="../_static/stylesheets/application-palette.css"/>
-  <link rel="stylesheet" href="../_static/stylesheets/application-fixes.css"/>
-  
-  <link rel="stylesheet" href="../_static/fonts/material-icons.css"/>
-  
-  <meta name="theme-color" content="#3f51b5">
-  <script src="../_static/javascripts/modernizr.js"></script>
-  
-  
-  
-    <title>vista &#8212; EntregaFinal 0.0.1 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/material.css" />
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
-    <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-  
-   
+    <!-- Add jQuery library -->
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
 
   </head>
-  <body dir=ltr
-        data-md-color-primary=blue-grey data-md-color-accent=blue>
-  
-  <svg class="md-svg">
-    <defs data-children-count="0">
-      
-      <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
-      
-    </defs>
-  </svg>
-  
-  <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer">
-  <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search">
-  <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
-  <a href="#_modules/vista" tabindex="1" class="md-skip"> Skip to content </a>
-  <header class="md-header" data-md-component="header">
-  <nav class="md-header-nav md-grid">
-    <div class="md-flex navheader">
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../index.html" title="EntregaFinal 0.0.1 documentation"
-           class="md-header-nav__button md-logo">
+
+  <body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="fa fa-home"> EntregaFinal </a>
+        <div role="search">
+	  <form id ="rtd-search-form" class="wy-form"
+		action="../search.html" method="get">
+	    <input type="text" name="q" placeholder="Search docs" />
+	    <input type="hidden" name="check_keywords" value="yes" />
+	    <input type="hidden" name="area" value="default" />
+	  </form>
+	</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	
           
-            &nbsp;
           
-        </a>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
-      </div>
-      <div class="md-flex__cell md-flex__cell--stretch">
-        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">EntregaFinal 0.0.1 documentation</span>
-          <span class="md-header-nav__topic"> vista </span>
-        </div>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+              <p class="caption" role="heading"><span class="caption-text">Contenido:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../conex_bd.html">Módulo: conex_bd</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../conex_bd.html#conex_bd.Conexion"><code class="docutils literal notranslate"><span class="pre">Conexion</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../conex_bd.html#conex_bd.Ld50"><code class="docutils literal notranslate"><span class="pre">Ld50</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../controlador.html">Módulo: controlador</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../controlador.html#controlador.Controlador"><code class="docutils literal notranslate"><span class="pre">Controlador</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../modelo.html">Módulo: modelo</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../modelo.html#modelo.Arbol"><code class="docutils literal notranslate"><span class="pre">Arbol</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modelo.html#modelo.Crud"><code class="docutils literal notranslate"><span class="pre">Crud</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modelo.html#modelo.Grafico"><code class="docutils literal notranslate"><span class="pre">Grafico</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modelo.html#modelo.Mat"><code class="docutils literal notranslate"><span class="pre">Mat</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modelo.html#modelo.ver_100_0"><code class="docutils literal notranslate"><span class="pre">ver_100_0</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../verificacion_campos.html">Módulo: verificacion_campos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../verificacion_campos.html#verificacion_campos.Verificador"><code class="docutils literal notranslate"><span class="pre">Verificador</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../vista.html">Módulo: vista</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../vista.html#vista.Avisos"><code class="docutils literal notranslate"><span class="pre">Avisos</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vista.html#vista.Entr"><code class="docutils literal notranslate"><span class="pre">Entr</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vista.html#vista.Ventana"><code class="docutils literal notranslate"><span class="pre">Ventana</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vista.html#vista.Vista_arbol"><code class="docutils literal notranslate"><span class="pre">Vista_arbol</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+          
         
-<div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" action="../search.html" method="get" name="search">
-      <input type="text" class="md-search__input" name="q" placeholder="Search"
-             autocapitalize="off" autocomplete="off" spellcheck="false"
-             data-md-component="query" data-md-state="active">
-      <label class="md-icon md-search__icon" for="__search"></label>
-      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
-        &#xE5CD;
-      </button>
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="result">
-          <div class="md-search-result__meta">
-            Type to start searching
-          </div>
-          <ol class="md-search-result__list"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 
       </div>
-      
-      
-  
-  <script src="../_static/javascripts/version_dropdown.js"></script>
-  <script>
-    var json_loc = "../"versions.json"",
-        target_loc = "../../",
-        text = "Versions";
-    $( document ).ready( add_version_dropdown(json_loc, target_loc, text));
-  </script>
-  
+      &nbsp;
+    </nav>
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
-    </div>
-  </nav>
-</header>
+      <nav class="wy-nav-top" id="barra-mobile" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="#">Porão do Juca</a>
+      </nav>
 
-  
-  <div class="md-container">
-    
-    
-    
-  <nav class="md-tabs" data-md-component="tabs">
-    <div class="md-tabs__inner md-grid">
-      <ul class="md-tabs__list">
-          <li class="md-tabs__item"><a href="../index.html" class="md-tabs__link">EntregaFinal 0.0.1 documentation</a></li>
-          <li class="md-tabs__item"><a href="index.html" class="md-tabs__link">Module code</a></li>
-      </ul>
-    </div>
-  </nav>
-    <main class="md-main">
-      <div class="md-main__inner md-grid" data-md-component="container">
-        
-          <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
-            <div class="md-sidebar__scrollwrap">
-              <div class="md-sidebar__inner">
-                <nav class="md-nav md-nav--primary" data-md-level="0">
-  <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../index.html" title="EntregaFinal 0.0.1 documentation" class="md-nav__button md-logo">
-      
-        <img src="../_static/" alt=" logo" width="48" height="48">
-      
-    </a>
-    <a href="../index.html"
-       title="EntregaFinal 0.0.1 documentation">EntregaFinal 0.0.1 documentation</a>
-  </label>
-  
+      <div class="wy-nav-content">
+	<div class="fundo-claro">
+	</div>
+	<div class="fundo-escuro">
+	</div>
 
-</nav>
-              </div>
-            </div>
-          </div>
-          <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
-            <div class="md-sidebar__scrollwrap">
-              <div class="md-sidebar__inner">
-                
-<nav class="md-nav md-nav--secondary">
-  <ul class="md-nav__list" data-md-scrollfix="">
-    
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+	    
+	    <!-- <ul class="wy-breadcrumbs"> -->
+	    <!--   <li><a href="#">Docs</a> &raquo;</li> -->
 
-<li id="searchbox" class="md-nav__item"></li>
+	    <!--   <li>Features</li> -->
+	    <!--   <li class="wy-breadcrumbs-aside"> -->
 
-  </ul>
-</nav>
-              </div>
-            </div>
-          </div>
-        
-        <div class="md-content">
-          <article class="md-content__inner md-typeset" role="main">
-            
-  <h1 id="modules-vista--page-root">Source code for vista</h1><div class="highlight"><pre>
-<span></span><span class="sd">'''</span>
-<span class="sd">vista.py:</span>
-<span class="sd">    Este es la vista correspondiente a ld50_app</span>
-<span class="sd">    :Entrega Diplomatura Python - Nivel Intermedio:</span>
+	    <!-- 	<a href="_sources/index.txt" rel="nofollow"> View page source</a> -->
 
-<span class="sd">'''</span>
+	    <!--   </li> -->
+	    <!-- </ul> -->
+	    <!-- <hr/> -->
+	  </div>
+
+          <div role="main" class="">
+
+	    <div id="content" class="hfeed entry-container hentry">
+  <h1>Código fuente para vista</h1><div class="highlight"><pre>
+<span></span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    **La &#39;vista&#39; (patrón MVC) correspondiente a aplicación: &quot;Calculadora-LD50&quot;**</span>
+<span class="sd">&#39;&#39;&#39;</span>
 
 <span class="kn">from</span> <span class="nn">tkinter</span> <span class="kn">import</span> <span class="n">Label</span><span class="p">,</span> <span class="n">Entry</span><span class="p">,</span> <span class="n">StringVar</span><span class="p">,</span> <span class="n">Button</span><span class="p">,</span> <span class="n">ttk</span>
 <span class="kn">from</span> <span class="nn">matplotlib.figure</span> <span class="kn">import</span> <span class="n">Figure</span>
@@ -208,14 +146,13 @@
 <span class="kn">import</span> <span class="nn">modelo</span>
 
 
-<div class="viewcode-block" id="Ventana"><a class="viewcode-back" href="../vista.html#vista.Ventana">[docs]</a><span class="k">class</span> <span class="nc">Ventana</span><span class="p">():</span>
-    <span class="sd">'''</span>
-<span class="sd">    Clase donde se declaran los componentes de la interfaz visual.</span>
-<span class="sd">    Modulo empleado: *tkinter*.</span>
+<div class="viewcode-block" id="Ventana"><a class="viewcode-back" href="../vista.html#vista.Ventana">[documentos]</a><span class="k">class</span> <span class="nc">Ventana</span><span class="p">():</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    **Declaración de ventana y componentes de salida de datos de la interfaz visual.**</span>
+<span class="sd">    Modulo empleado: *tkinter*</span>
 
-<span class="sd">    :param principal: Recibe el objeto tkinter.Tk para el lanzamiento.</span>
-
-<span class="sd">    '''</span>
+<span class="sd">    :param principal: Recibe el objeto Tk (tkinter mainloop).</span>
+<span class="sd">    &#39;&#39;&#39;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
             <span class="bp">self</span><span class="p">,</span>
             <span class="n">principal</span>
@@ -237,9 +174,9 @@
         <span class="p">)</span>
 
         <span class="c1">#Formateo y maquetación de ventana</span>
-        <span class="n">col_fond</span> <span class="o">=</span> <span class="s2">"#BFBFBF"</span>
+        <span class="n">col_fond</span> <span class="o">=</span> <span class="s2">&quot;#BFBFBF&quot;</span>
         <span class="n">principal</span><span class="o">.</span><span class="n">geometry</span><span class="p">(</span>
-            <span class="s2">"1210x620"</span>
+            <span class="s2">&quot;1210x620&quot;</span>
         <span class="p">)</span>
 
         <span class="n">principal</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span>
@@ -247,7 +184,7 @@
         <span class="p">)</span>
 
         <span class="n">principal</span><span class="o">.</span><span class="n">title</span><span class="p">(</span>
-            <span class="s2">"Calculadora de DL50 - Método PROBIT"</span>
+            <span class="s2">&quot;Calculadora de DL50 - Método PROBIT&quot;</span>
         <span class="p">)</span>
 
         <span class="n">principal</span><span class="o">.</span><span class="n">after</span><span class="p">(</span>
@@ -257,35 +194,35 @@
 
         <span class="c1"># Instruccion superior</span>
         <span class="n">font_instrucc</span> <span class="o">=</span> <span class="p">(</span>
-            <span class="s2">"Lucida Console"</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="s2">"underline"</span>
+            <span class="s2">&quot;Lucida Console&quot;</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="s2">&quot;underline&quot;</span>
         <span class="p">)</span>
 
         <span class="n">instrucc</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span>
             <span class="n">principal</span><span class="p">,</span>
-            <span class="n">text</span><span class="o">=</span><span class="s2">"Ingrese dosis ensayada </span><span class="se">\</span>
-<span class="s2">y respuesta (muertos): "</span><span class="p">,</span> 
+            <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Ingrese dosis ensayada </span><span class="se">\</span>
+<span class="s2">y respuesta (muertos): &quot;</span><span class="p">,</span> 
             <span class="n">bd</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="n">font_instrucc</span>
         <span class="p">)</span>
 
         <span class="n">instrucc</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span>
             <span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
             <span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
-            <span class="n">sticky</span><span class="o">=</span><span class="s2">"w"</span><span class="p">,</span>
+            <span class="n">sticky</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">,</span>
             <span class="n">columnspan</span><span class="o">=</span><span class="mi">2</span>
         <span class="p">)</span>
 
         <span class="c1"># Botones</span>
         <span class="n">font_botones1</span> <span class="o">=</span> <span class="p">(</span>
-            <span class="s2">"Arial"</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span> <span class="s2">"bold"</span>
+            <span class="s2">&quot;Arial&quot;</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="s2">&quot;bold&quot;</span>
         <span class="p">)</span>
 
         <span class="n">font_botones2</span> <span class="o">=</span> <span class="p">(</span>
-            <span class="s2">"Arial"</span><span class="p">,</span> <span class="mi">11</span>
+            <span class="s2">&quot;Arial&quot;</span><span class="p">,</span> <span class="mi">11</span>
         <span class="p">)</span>
 
         <span class="n">calcular</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span>
             <span class="n">principal</span><span class="p">,</span> 
-            <span class="n">text</span><span class="o">=</span><span class="s2">"Calcular&gt;&gt;"</span><span class="p">,</span> 
+            <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Calcular&gt;&gt;&quot;</span><span class="p">,</span> 
             <span class="n">font</span><span class="o">=</span><span class="n">font_botones1</span><span class="p">,</span>
             <span class="n">command</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span><span class="n">modelo</span><span class="o">.</span><span class="n">ver_100_0</span><span class="p">(</span>
                 <span class="n">ax</span><span class="p">,</span>
@@ -305,12 +242,12 @@
             <span class="n">column</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
             <span class="n">rowspan</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
             <span class="n">pady</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span>
-            <span class="n">sticky</span><span class="o">=</span><span class="s2">"n"</span>
+            <span class="n">sticky</span><span class="o">=</span><span class="s2">&quot;n&quot;</span>
         <span class="p">)</span>
 
         <span class="n">guard_ensy</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span>
             <span class="n">principal</span><span class="p">,</span>
-            <span class="n">text</span><span class="o">=</span><span class="s2">"&gt;&gt;Guardar ensayo"</span><span class="p">,</span>
+            <span class="n">text</span><span class="o">=</span><span class="s2">&quot;&gt;&gt;Guardar ensayo&quot;</span><span class="p">,</span>
             <span class="n">font</span><span class="o">=</span><span class="n">font_botones2</span><span class="p">,</span>
             <span class="n">command</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">datos</span><span class="o">.</span><span class="n">alta_ensay</span><span class="p">(),</span>
             <span class="n">padx</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
@@ -326,38 +263,44 @@
 
         <span class="n">borr</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span>
             <span class="n">principal</span><span class="p">,</span>
-            <span class="n">text</span><span class="o">=</span><span class="s2">"Borrar"</span><span class="p">,</span>
+            <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Borrar&quot;</span><span class="p">,</span>
             <span class="n">font</span><span class="o">=</span><span class="n">font_botones2</span><span class="p">,</span>
-            <span class="n">command</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">datos</span><span class="o">.</span><span class="n">borr_ensay</span><span class="p">(),</span> <span class="n">padx</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">10</span>
+            <span class="n">command</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">datos</span><span class="o">.</span><span class="n">borr_ensay</span><span class="p">(),</span> 
+            <span class="n">padx</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
+            <span class="n">pady</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+            <span class="n">width</span><span class="o">=</span><span class="mi">10</span>
         <span class="p">)</span>
+
         <span class="n">borr</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span>
             <span class="n">row</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span>
             <span class="n">column</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
             <span class="n">rowspan</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
-            <span class="n">sticky</span><span class="o">=</span><span class="s2">"s"</span><span class="p">,</span>
+            <span class="n">sticky</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">,</span>
             <span class="n">pady</span><span class="o">=</span><span class="mi">7</span>
         <span class="p">)</span>
 
         <span class="n">modif</span> <span class="o">=</span> <span class="n">Button</span><span class="p">(</span>
             <span class="n">principal</span><span class="p">,</span>
-            <span class="n">text</span><span class="o">=</span><span class="s2">"Modificar"</span><span class="p">,</span>
+            <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Modificar&quot;</span><span class="p">,</span>
             <span class="n">font</span><span class="o">=</span><span class="n">font_botones2</span><span class="p">,</span>
             <span class="n">command</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span><span class="bp">self</span><span class="o">.</span><span class="n">datos</span><span class="o">.</span><span class="n">modif_ensay</span><span class="p">(),</span> 
-            <span class="n">padx</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">10</span>
+            <span class="n">padx</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
+            <span class="n">pady</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+            <span class="n">width</span><span class="o">=</span><span class="mi">10</span>
         <span class="p">)</span>
 
         <span class="n">modif</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span>
             <span class="n">row</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span>
             <span class="n">column</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
             <span class="n">rowspan</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
-            <span class="n">sticky</span><span class="o">=</span><span class="s2">"s"</span>
+            <span class="n">sticky</span><span class="o">=</span><span class="s2">&quot;s&quot;</span>
         <span class="p">)</span>
 
         <span class="c1"># Salida de valores ######</span>
         <span class="c1">## GRAFICO Logdosis x probit.</span>
         <span class="n">fig</span> <span class="o">=</span> <span class="n">Figure</span><span class="p">(</span>
             <span class="n">figsize</span><span class="o">=</span><span class="p">(</span>
-            <span class="mf">4.2</span><span class="p">,</span> <span class="mf">4.5</span>
+                <span class="mf">4.2</span><span class="p">,</span> <span class="mf">4.5</span>
             <span class="p">),</span> 
             <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span>
         <span class="p">)</span>
@@ -382,23 +325,23 @@
             <span class="n">columnspan</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
             <span class="n">rowspan</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span>
             <span class="n">padx</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
-            <span class="n">sticky</span><span class="o">=</span><span class="s2">"n"</span>
+            <span class="n">sticky</span><span class="o">=</span><span class="s2">&quot;n&quot;</span>
         <span class="p">)</span>
 
         <span class="c1"># LD50 salida</span>
         <span class="n">font_et_ld50</span> <span class="o">=</span> <span class="p">(</span>
-            <span class="s2">"Lucida Console"</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="s2">"bold"</span>
+            <span class="s2">&quot;Lucida Console&quot;</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="s2">&quot;bold&quot;</span>
         <span class="p">)</span>
 
         <span class="n">font_et_ld502</span> <span class="o">=</span> <span class="p">(</span>
-            <span class="s2">"Lucida Console"</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="s2">"underline"</span>
+            <span class="s2">&quot;Lucida Console&quot;</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="s2">&quot;underline&quot;</span>
         <span class="p">)</span>
 
         <span class="n">et_ld50</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span>
             <span class="n">principal</span><span class="p">,</span>
-            <span class="n">text</span><span class="o">=</span><span class="s2">"Resultado LD50:"</span><span class="p">,</span>
-            <span class="n">justify</span><span class="o">=</span><span class="s2">"center"</span><span class="p">,</span>
-            <span class="n">bg</span><span class="o">=</span><span class="s2">"#857b7b"</span><span class="p">,</span>
+            <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Resultado LD50:&quot;</span><span class="p">,</span>
+            <span class="n">justify</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span>
+            <span class="n">bg</span><span class="o">=</span><span class="s2">&quot;#857b7b&quot;</span><span class="p">,</span>
             <span class="n">font</span><span class="o">=</span><span class="n">font_et_ld502</span><span class="p">,</span>
             <span class="n">pady</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
             <span class="n">padx</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
@@ -412,16 +355,16 @@
             <span class="n">columnspan</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
             <span class="n">rowspan</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
             <span class="n">padx</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
-            <span class="n">sticky</span><span class="o">=</span><span class="s2">"n"</span>
+            <span class="n">sticky</span><span class="o">=</span><span class="s2">&quot;n&quot;</span>
         <span class="p">)</span>
 
         <span class="c1"># salida LD50</span>
         <span class="n">sal_ld50</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span>
             <span class="n">principal</span><span class="p">,</span>
-            <span class="n">text</span><span class="o">=</span><span class="s2">"Dosis Letal 50%: &lt;...&gt;"</span><span class="p">,</span>
+            <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Dosis Letal 50%: &lt;...&gt;&quot;</span><span class="p">,</span>
             <span class="n">padx</span><span class="o">=</span><span class="mi">36</span><span class="p">,</span>
-            <span class="n">bg</span><span class="o">=</span><span class="s2">"#DECDCD"</span><span class="p">,</span>
-            <span class="n">justify</span><span class="o">=</span><span class="s2">"center"</span><span class="p">,</span>
+            <span class="n">bg</span><span class="o">=</span><span class="s2">&quot;#DECDCD&quot;</span><span class="p">,</span>
+            <span class="n">justify</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span>
             <span class="n">font</span><span class="o">=</span><span class="n">font_et_ld50</span><span class="p">,</span>
             <span class="n">pady</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span>
             <span class="n">width</span><span class="o">=</span><span class="mi">43</span><span class="p">,</span>
@@ -434,16 +377,17 @@
             <span class="n">columnspan</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
             <span class="n">rowspan</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
             <span class="n">padx</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
-            <span class="n">sticky</span><span class="o">=</span><span class="s2">"n"</span>
+            <span class="n">sticky</span><span class="o">=</span><span class="s2">&quot;n&quot;</span>
         <span class="p">)</span>
 
         <span class="c1"># Salida intervalo</span>
         <span class="n">et_int</span> <span class="o">=</span><span class="n">Label</span><span class="p">(</span>
             <span class="n">principal</span><span class="p">,</span>
-            <span class="n">text</span><span class="o">=</span><span class="s2">"Intervalo de confianza 95%:"</span><span class="p">,</span>
-            <span class="n">pady</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">padx</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
-            <span class="n">bg</span><span class="o">=</span><span class="s2">"#DECDCD"</span><span class="p">,</span>
-            <span class="n">justify</span><span class="o">=</span><span class="s2">"center"</span><span class="p">,</span>
+            <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Intervalo de confianza 95%:&quot;</span><span class="p">,</span>
+            <span class="n">pady</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> 
+            <span class="n">padx</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+            <span class="n">bg</span><span class="o">=</span><span class="s2">&quot;#DECDCD&quot;</span><span class="p">,</span>
+            <span class="n">justify</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span>
             <span class="n">font</span><span class="o">=</span><span class="n">font_et_ld50</span><span class="p">,</span>
             <span class="n">width</span><span class="o">=</span><span class="mi">51</span><span class="p">,</span>
             <span class="n">height</span><span class="o">=</span><span class="mi">1</span>
@@ -455,14 +399,16 @@
             <span class="n">columnspan</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
             <span class="n">rowspan</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
             <span class="n">padx</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
-            <span class="n">sticky</span><span class="o">=</span><span class="s2">"n"</span>
+            <span class="n">sticky</span><span class="o">=</span><span class="s2">&quot;n&quot;</span>
         <span class="p">)</span>
 
         <span class="n">sal_inter_ld50</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span>
             <span class="n">principal</span><span class="p">,</span> 
-            <span class="n">text</span><span class="o">=</span><span class="s2">"&lt;...&gt;"</span><span class="p">,</span> <span class="n">pady</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">padx</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
-            <span class="n">bg</span><span class="o">=</span><span class="s2">"#DECDCD"</span><span class="p">,</span>
-            <span class="n">justify</span><span class="o">=</span><span class="s2">"center"</span><span class="p">,</span>
+            <span class="n">text</span><span class="o">=</span><span class="s2">&quot;&lt;...&gt;&quot;</span><span class="p">,</span> 
+            <span class="n">pady</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> 
+            <span class="n">padx</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+            <span class="n">bg</span><span class="o">=</span><span class="s2">&quot;#DECDCD&quot;</span><span class="p">,</span>
+            <span class="n">justify</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span>
             <span class="n">font</span><span class="o">=</span><span class="n">font_et_ld50</span><span class="p">,</span>
             <span class="n">width</span><span class="o">=</span><span class="mi">51</span><span class="p">,</span>
             <span class="n">height</span><span class="o">=</span><span class="mi">1</span>
@@ -474,25 +420,25 @@
             <span class="n">columnspan</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
             <span class="n">rowspan</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
             <span class="n">padx</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span>
-            <span class="n">sticky</span><span class="o">=</span><span class="s2">"s"</span>
+            <span class="n">sticky</span><span class="o">=</span><span class="s2">&quot;s&quot;</span>
         <span class="p">)</span>
 
         <span class="c1"># Ecuación regresión</span>
         <span class="n">font_ecu1</span> <span class="o">=</span> <span class="p">(</span>
-            <span class="s2">"Arial"</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="s2">"bold"</span>
+            <span class="s2">&quot;Arial&quot;</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="s2">&quot;bold&quot;</span>
         <span class="p">)</span>
 
         <span class="n">font_ecu2</span> <span class="o">=</span> <span class="p">(</span>
-            <span class="s2">"Arial"</span><span class="p">,</span> <span class="mi">9</span>
+            <span class="s2">&quot;Arial&quot;</span><span class="p">,</span> <span class="mi">9</span>
         <span class="p">)</span>
 
         <span class="n">et_equ_reg</span> <span class="o">=</span><span class="n">Label</span><span class="p">(</span>
             <span class="n">principal</span><span class="p">,</span>
-            <span class="n">text</span><span class="o">=</span><span class="s2">"Línea de regresión:"</span><span class="p">,</span>
+            <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Línea de regresión:&quot;</span><span class="p">,</span>
             <span class="n">pady</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
             <span class="n">padx</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
-            <span class="n">bg</span><span class="o">=</span><span class="s2">"#DECDCD"</span><span class="p">,</span>
-            <span class="n">justify</span><span class="o">=</span><span class="s2">"center"</span><span class="p">,</span>
+            <span class="n">bg</span><span class="o">=</span><span class="s2">&quot;#DECDCD&quot;</span><span class="p">,</span>
+            <span class="n">justify</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span>
             <span class="n">font</span><span class="o">=</span><span class="n">font_ecu1</span><span class="p">,</span>
             <span class="n">width</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span>
             <span class="n">height</span><span class="o">=</span><span class="mi">1</span>
@@ -506,9 +452,9 @@
 
         <span class="n">equ_reg</span> <span class="o">=</span><span class="n">Label</span><span class="p">(</span>
             <span class="n">principal</span><span class="p">,</span> 
-            <span class="n">text</span><span class="o">=</span><span class="s2">"Pendiente= ... | Ordenada= ..."</span><span class="p">,</span>
-            <span class="n">bg</span><span class="o">=</span><span class="s2">"#DECDCD"</span><span class="p">,</span>
-            <span class="n">justify</span><span class="o">=</span><span class="s2">"center"</span><span class="p">,</span>
+            <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Pendiente= ... | Ordenada= ...&quot;</span><span class="p">,</span>
+            <span class="n">bg</span><span class="o">=</span><span class="s2">&quot;#DECDCD&quot;</span><span class="p">,</span>
+            <span class="n">justify</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span>
             <span class="n">font</span><span class="o">=</span><span class="n">font_ecu2</span><span class="p">,</span>
             <span class="n">width</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span>
             <span class="n">height</span><span class="o">=</span><span class="mi">1</span>
@@ -518,30 +464,32 @@
             <span class="n">row</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
             <span class="n">column</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
             <span class="n">rowspan</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-            <span class="n">sticky</span><span class="o">=</span><span class="s2">"e"</span>
+            <span class="n">sticky</span><span class="o">=</span><span class="s2">&quot;e&quot;</span>
         <span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="Entr"><a class="viewcode-back" href="../vista.html#vista.Entr">[docs]</a><span class="k">class</span> <span class="nc">Entr</span><span class="p">():</span>
-    <span class="sd">'''</span>
-<span class="sd">    Entradas y sus etiquetas</span>
-<span class="sd">    '''</span>
+<div class="viewcode-block" id="Entr"><a class="viewcode-back" href="../vista.html#vista.Entr">[documentos]</a><span class="k">class</span> <span class="nc">Entr</span><span class="p">():</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Declaracion de entradas de datos para los ensayos, sus variables y sus etiquetas.</span>
+
+<span class="sd">    :param principal: Recibe objeto Tk (ventana tkinter).</span>
+<span class="sd">    &#39;&#39;&#39;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">principal</span><span class="p">):</span>
         <span class="n">font_etiqs</span> <span class="o">=</span> <span class="p">(</span>
-            <span class="s2">"Arial"</span><span class="p">,</span> <span class="mi">10</span>
+            <span class="s2">&quot;Arial&quot;</span><span class="p">,</span> <span class="mi">10</span>
         <span class="p">)</span>
 
         <span class="n">font_entr</span> <span class="o">=</span> <span class="p">(</span>
-            <span class="s2">"Arial"</span><span class="p">,</span> <span class="mi">11</span>
+            <span class="s2">&quot;Arial&quot;</span><span class="p">,</span> <span class="mi">11</span>
         <span class="p">)</span>
 
-        <span class="c1"># Etiqueta: "dosis"</span>
+        <span class="c1"># Etiqueta: &quot;dosis&quot;</span>
         <span class="n">instrucc_dosis</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span>
             <span class="n">principal</span><span class="p">,</span>
-            <span class="n">text</span><span class="o">=</span><span class="s2">"Dosis:"</span><span class="p">,</span>
+            <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Dosis:&quot;</span><span class="p">,</span>
             <span class="n">pady</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
             <span class="n">padx</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
-            <span class="n">justify</span><span class="o">=</span><span class="s2">"left"</span><span class="p">,</span>
+            <span class="n">justify</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">,</span>
             <span class="n">font</span><span class="o">=</span><span class="n">font_etiqs</span>
         <span class="p">)</span>
         
@@ -552,17 +500,17 @@
             <span class="n">columnspan</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
             <span class="n">rowspan</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
             <span class="n">padx</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
-            <span class="n">sticky</span><span class="o">=</span><span class="s2">"w"</span>
+            <span class="n">sticky</span><span class="o">=</span><span class="s2">&quot;w&quot;</span>
         <span class="p">)</span>
 
-        <span class="c1"># Campo de entrada: "dosis"</span>
+        <span class="c1"># Campo de entrada: &quot;dosis&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">dosis_var</span> <span class="o">=</span> <span class="n">StringVar</span><span class="p">()</span>
 
         <span class="n">dosis_ent</span> <span class="o">=</span> <span class="n">Entry</span><span class="p">(</span>
             <span class="n">principal</span><span class="p">,</span>
             <span class="n">textvariable</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dosis_var</span><span class="p">,</span>
             <span class="n">width</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span>
-            <span class="n">justify</span><span class="o">=</span><span class="s2">"left"</span><span class="p">,</span>
+            <span class="n">justify</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">,</span>
             <span class="n">font</span><span class="o">=</span><span class="n">font_entr</span>
         <span class="p">)</span>
 
@@ -573,16 +521,16 @@
             <span class="n">columnspan</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
             <span class="n">rowspan</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
             <span class="n">padx</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
-            <span class="n">sticky</span><span class="o">=</span><span class="s2">"w"</span>
+            <span class="n">sticky</span><span class="o">=</span><span class="s2">&quot;w&quot;</span>
         <span class="p">)</span>
 
         <span class="c1"># Etiqueta: unidad</span>
         <span class="n">unid</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span>
             <span class="n">principal</span><span class="p">,</span>
-            <span class="n">text</span><span class="o">=</span><span class="s2">"Unidades usadas: "</span><span class="p">,</span>
+            <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Unidades usadas: &quot;</span><span class="p">,</span>
             <span class="n">pady</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
             <span class="n">padx</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
-            <span class="n">justify</span><span class="o">=</span><span class="s2">"left"</span><span class="p">,</span>
+            <span class="n">justify</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">,</span>
             <span class="n">font</span><span class="o">=</span><span class="n">font_etiqs</span>
         <span class="p">)</span>
 
@@ -593,17 +541,17 @@
             <span class="n">columnspan</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
             <span class="n">rowspan</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
             <span class="n">padx</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
-            <span class="n">sticky</span><span class="o">=</span><span class="s2">"sw"</span>
+            <span class="n">sticky</span><span class="o">=</span><span class="s2">&quot;sw&quot;</span>
         <span class="p">)</span>
 
-        <span class="c1"># Campo de entrada: "unidad"</span>
+        <span class="c1"># Campo de entrada: &quot;unidad&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">uni_var</span> <span class="o">=</span> <span class="n">StringVar</span><span class="p">()</span>
 
         <span class="n">uni_var_ent</span> <span class="o">=</span> <span class="n">Entry</span><span class="p">(</span>
             <span class="n">principal</span><span class="p">,</span>
             <span class="n">textvariable</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">uni_var</span><span class="p">,</span>
             <span class="n">width</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span>
-            <span class="n">justify</span><span class="o">=</span><span class="s2">"left"</span><span class="p">,</span>
+            <span class="n">justify</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">,</span>
             <span class="n">font</span><span class="o">=</span><span class="n">font_entr</span>
         <span class="p">)</span>
 
@@ -614,16 +562,16 @@
             <span class="n">columnspan</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
             <span class="n">rowspan</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
             <span class="n">padx</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
-            <span class="n">sticky</span><span class="o">=</span><span class="s2">"w"</span>
+            <span class="n">sticky</span><span class="o">=</span><span class="s2">&quot;w&quot;</span>
         <span class="p">)</span>
 
-        <span class="c1"># Etiqueta: "muertos"</span>
+        <span class="c1"># Etiqueta: &quot;muertos&quot;</span>
         <span class="n">instrucc_muer</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span>
             <span class="n">principal</span><span class="p">,</span>
-            <span class="n">text</span><span class="o">=</span><span class="s2">"Muertos:"</span><span class="p">,</span>
+            <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Muertos:&quot;</span><span class="p">,</span>
             <span class="n">pady</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
             <span class="n">padx</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
-            <span class="n">justify</span><span class="o">=</span><span class="s2">"left"</span><span class="p">,</span>
+            <span class="n">justify</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">,</span>
             <span class="n">font</span><span class="o">=</span><span class="n">font_etiqs</span>
         <span class="p">)</span>
 
@@ -634,17 +582,17 @@
             <span class="n">columnspan</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
             <span class="n">rowspan</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
             <span class="n">padx</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
-            <span class="n">sticky</span><span class="o">=</span><span class="s2">"w"</span>
+            <span class="n">sticky</span><span class="o">=</span><span class="s2">&quot;w&quot;</span>
         <span class="p">)</span>
 
-        <span class="c1"># Campo de entrada: "muertos"</span>
+        <span class="c1"># Campo de entrada: &quot;muertos&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">muert_var</span> <span class="o">=</span> <span class="n">StringVar</span><span class="p">()</span>
 
         <span class="n">muert_ent</span> <span class="o">=</span> <span class="n">Entry</span><span class="p">(</span>
             <span class="n">principal</span><span class="p">,</span>
             <span class="n">textvariable</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">muert_var</span><span class="p">,</span>
             <span class="n">width</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span>
-            <span class="n">justify</span><span class="o">=</span><span class="s2">"left"</span><span class="p">,</span>
+            <span class="n">justify</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">,</span>
             <span class="n">font</span><span class="o">=</span><span class="n">font_entr</span>
         <span class="p">)</span>
 
@@ -655,14 +603,14 @@
             <span class="n">columnspan</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
             <span class="n">rowspan</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
             <span class="n">padx</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
-            <span class="n">sticky</span><span class="o">=</span><span class="s2">"w"</span>
+            <span class="n">sticky</span><span class="o">=</span><span class="s2">&quot;w&quot;</span>
         <span class="p">)</span>
 
-        <span class="c1"># Etiqueta: "n"</span>
+        <span class="c1"># Etiqueta: &quot;n&quot;</span>
         <span class="n">instrucc_n</span> <span class="o">=</span> <span class="n">Label</span><span class="p">(</span>
             <span class="n">principal</span><span class="p">,</span>
-            <span class="n">text</span><span class="o">=</span><span class="s2">"n del ensayo (Dosis):"</span><span class="p">,</span>
-            <span class="n">justify</span><span class="o">=</span><span class="s2">"left"</span><span class="p">,</span>
+            <span class="n">text</span><span class="o">=</span><span class="s2">&quot;n del ensayo (Dosis):&quot;</span><span class="p">,</span>
+            <span class="n">justify</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">,</span>
             <span class="n">font</span><span class="o">=</span><span class="n">font_etiqs</span>
         <span class="p">)</span>
 
@@ -673,17 +621,17 @@
             <span class="n">columnspan</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
             <span class="n">rowspan</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
             <span class="n">padx</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
-            <span class="n">sticky</span><span class="o">=</span><span class="s2">"sw"</span>
+            <span class="n">sticky</span><span class="o">=</span><span class="s2">&quot;sw&quot;</span>
         <span class="p">)</span>
 
-        <span class="c1"># Campo de entrada: "n"</span>
+        <span class="c1"># Campo de entrada: &quot;n&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">n_var</span> <span class="o">=</span> <span class="n">StringVar</span><span class="p">()</span>
 
         <span class="n">n_ent</span> <span class="o">=</span> <span class="n">Entry</span><span class="p">(</span>
             <span class="n">principal</span><span class="p">,</span>
             <span class="n">textvariable</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_var</span><span class="p">,</span>
             <span class="n">width</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span>
-            <span class="n">justify</span><span class="o">=</span><span class="s2">"left"</span><span class="p">,</span>
+            <span class="n">justify</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">,</span>
             <span class="n">font</span><span class="o">=</span><span class="n">font_entr</span>
         <span class="p">)</span>
 
@@ -694,67 +642,69 @@
             <span class="n">columnspan</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
             <span class="n">rowspan</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
             <span class="n">padx</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
-            <span class="n">sticky</span><span class="o">=</span><span class="s2">"w"</span>
+            <span class="n">sticky</span><span class="o">=</span><span class="s2">&quot;w&quot;</span>
         <span class="p">)</span></div>
 
 
-<div class="viewcode-block" id="Vista_arbol"><a class="viewcode-back" href="../vista.html#vista.Vista_arbol">[docs]</a><span class="k">class</span> <span class="nc">Vista_arbol</span><span class="p">(</span><span class="n">ttk</span><span class="o">.</span><span class="n">Treeview</span><span class="p">):</span>
-    <span class="sd">'''</span>
-<span class="sd">    Registro dosis (self.vista_ensayos treeview)</span>
-<span class="sd">    '''</span>
+<div class="viewcode-block" id="Vista_arbol"><a class="viewcode-back" href="../vista.html#vista.Vista_arbol">[documentos]</a><span class="k">class</span> <span class="nc">Vista_arbol</span><span class="p">(</span><span class="n">ttk</span><span class="o">.</span><span class="n">Treeview</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Árbol donde se listan los ensayos cargados (treeview de tkinter)</span>
+
+<span class="sd">    :param principal: Recibe objeto Tk (ventana tkinter).</span>
+<span class="sd">    &#39;&#39;&#39;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">principal</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">anch</span> <span class="o">=</span> <span class="mi">110</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">vista_ensayos</span> <span class="o">=</span> <span class="n">ttk</span><span class="o">.</span><span class="n">Treeview</span><span class="p">(</span>
             <span class="n">principal</span><span class="p">,</span> 
             <span class="n">height</span><span class="o">=</span><span class="mi">18</span>
         <span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">vista_ensayos</span><span class="p">[</span><span class="s2">"columns"</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
-            <span class="s2">"Dosis"</span><span class="p">,</span> 
-            <span class="s2">"Muertos"</span><span class="p">,</span>
-            <span class="s2">"n"</span><span class="p">,</span>
-            <span class="s2">"Unid"</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vista_ensayos</span><span class="p">[</span><span class="s2">&quot;columns&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="s2">&quot;Dosis&quot;</span><span class="p">,</span> 
+            <span class="s2">&quot;Muertos&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;n&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Unid&quot;</span>
         <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">vista_ensayos</span><span class="o">.</span><span class="n">column</span><span class="p">(</span>
-            <span class="s2">"#0"</span><span class="p">,</span>
+            <span class="s2">&quot;#0&quot;</span><span class="p">,</span>
             <span class="n">width</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
             <span class="n">minwidth</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
-            <span class="n">anchor</span><span class="o">=</span><span class="s2">"n"</span>
+            <span class="n">anchor</span><span class="o">=</span><span class="s2">&quot;n&quot;</span>
         <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">vista_ensayos</span><span class="o">.</span><span class="n">heading</span><span class="p">(</span>
-            <span class="s2">"Dosis"</span><span class="p">,</span>
-            <span class="n">text</span><span class="o">=</span><span class="s2">"Dosis"</span>
+            <span class="s2">&quot;Dosis&quot;</span><span class="p">,</span>
+            <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Dosis&quot;</span>
         <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">vista_ensayos</span><span class="o">.</span><span class="n">column</span><span class="p">(</span>
-            <span class="s2">"Dosis"</span><span class="p">,</span>
+            <span class="s2">&quot;Dosis&quot;</span><span class="p">,</span>
             <span class="n">width</span><span class="o">=</span><span class="n">anch</span><span class="p">,</span>
-            <span class="n">anchor</span><span class="o">=</span><span class="s2">"n"</span>
+            <span class="n">anchor</span><span class="o">=</span><span class="s2">&quot;n&quot;</span>
         <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">vista_ensayos</span><span class="o">.</span><span class="n">heading</span><span class="p">(</span>
-            <span class="s2">"Muertos"</span><span class="p">,</span>
-            <span class="n">text</span><span class="o">=</span><span class="s2">"Muertos"</span>
+            <span class="s2">&quot;Muertos&quot;</span><span class="p">,</span>
+            <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Muertos&quot;</span>
         <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">vista_ensayos</span><span class="o">.</span><span class="n">column</span><span class="p">(</span>
-            <span class="s2">"Muertos"</span><span class="p">,</span>
+            <span class="s2">&quot;Muertos&quot;</span><span class="p">,</span>
             <span class="n">width</span><span class="o">=</span><span class="n">anch</span><span class="p">,</span>
-            <span class="n">anchor</span><span class="o">=</span><span class="s2">"n"</span>
+            <span class="n">anchor</span><span class="o">=</span><span class="s2">&quot;n&quot;</span>
         <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">vista_ensayos</span><span class="o">.</span><span class="n">heading</span><span class="p">(</span>
-            <span class="s2">"n"</span><span class="p">,</span>
-            <span class="n">text</span><span class="o">=</span><span class="s2">"n"</span>
+            <span class="s2">&quot;n&quot;</span><span class="p">,</span>
+            <span class="n">text</span><span class="o">=</span><span class="s2">&quot;n&quot;</span>
         <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">vista_ensayos</span><span class="o">.</span><span class="n">column</span><span class="p">(</span>
-            <span class="s2">"n"</span><span class="p">,</span>
+            <span class="s2">&quot;n&quot;</span><span class="p">,</span>
             <span class="n">width</span><span class="o">=</span><span class="n">anch</span><span class="p">,</span>
-            <span class="n">anchor</span><span class="o">=</span><span class="s2">"n"</span>
+            <span class="n">anchor</span><span class="o">=</span><span class="s2">&quot;n&quot;</span>
         <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">vista_ensayos</span><span class="o">.</span><span class="n">heading</span><span class="p">(</span>
-            <span class="s2">"Unid"</span><span class="p">,</span>
-            <span class="n">text</span><span class="o">=</span><span class="s2">"Unid"</span>
+            <span class="s2">&quot;Unid&quot;</span><span class="p">,</span>
+            <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Unid&quot;</span>
         <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">vista_ensayos</span><span class="o">.</span><span class="n">column</span><span class="p">(</span>
-            <span class="s2">"Unid"</span><span class="p">,</span>
+            <span class="s2">&quot;Unid&quot;</span><span class="p">,</span>
             <span class="n">width</span><span class="o">=</span><span class="n">anch</span><span class="p">,</span>
-            <span class="n">anchor</span><span class="o">=</span><span class="s2">"n"</span>
+            <span class="n">anchor</span><span class="o">=</span><span class="s2">&quot;n&quot;</span>
         <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">vista_ensayos</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span>
             <span class="n">row</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span>
@@ -763,20 +713,23 @@
             <span class="n">columnspan</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
             <span class="n">rowspan</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span>
             <span class="n">padx</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
-            <span class="n">sticky</span><span class="o">=</span><span class="s2">"nw"</span>
+            <span class="n">sticky</span><span class="o">=</span><span class="s2">&quot;nw&quot;</span>
         <span class="p">)</span>        </div>
 
 
-<div class="viewcode-block" id="Avisos"><a class="viewcode-back" href="../vista.html#vista.Avisos">[docs]</a><span class="k">class</span> <span class="nc">Avisos</span><span class="p">():</span>
-    <span class="sd">'''Mensajes emergentes de error y aviso de eventos'''</span>
-<div class="viewcode-block" id="Avisos.formato_error"><a class="viewcode-back" href="../vista.html#vista.Avisos.formato_error">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="Avisos"><a class="viewcode-back" href="../vista.html#vista.Avisos">[documentos]</a><span class="k">class</span> <span class="nc">Avisos</span><span class="p">():</span>
+    <span class="sd">&#39;&#39;&#39;Mensajes emergentes de error y aviso de eventos&#39;&#39;&#39;</span>
+<div class="viewcode-block" id="Avisos.formato_error"><a class="viewcode-back" href="../vista.html#vista.Avisos.formato_error">[documentos]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">formato_error</span><span class="p">():</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Notifica campo con tipo de dato inválido.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
         <span class="n">messagebox</span><span class="o">.</span><span class="n">showwarning</span><span class="p">(</span>
-            <span class="s2">"Formato incorrecto"</span><span class="p">,</span>
-            <span class="s2">"Solo números(Dosis, muertos, n). Decimales con punto (.)"</span>
+            <span class="s2">&quot;Formato incorrecto&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Solo números (Dosis, muertos, n). Decimales con punto (.)&quot;</span>
         <span class="p">)</span></div>
 
-<div class="viewcode-block" id="Avisos.aviso_modif"><a class="viewcode-back" href="../vista.html#vista.Avisos.aviso_modif">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="Avisos.aviso_modif"><a class="viewcode-back" href="../vista.html#vista.Avisos.aviso_modif">[documentos]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">aviso_modif</span><span class="p">(</span>
         <span class="n">item_1</span><span class="p">,</span>
         <span class="n">item_2</span><span class="p">,</span>
@@ -784,67 +737,118 @@
         <span class="n">item_4</span><span class="p">,</span>
         <span class="n">verf</span>
     <span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Notifica modificación a un ensayo.</span>
+
+<span class="sd">        :param item_1: Dosis a eliminar</span>
+<span class="sd">        :param item_2: Muertos a eliminar</span>
+<span class="sd">        :param item_3: n a eliminar</span>
+<span class="sd">        :param item_4: Unidad a eliminar</span>
+<span class="sd">        :param verf: Lista con valores nuevos</span>
+<span class="sd">        &#39;&#39;&#39;</span>
         <span class="n">messagebox</span><span class="o">.</span><span class="n">showinfo</span><span class="p">(</span>
-            <span class="s2">"Aviso. Se Modificó ensayo:"</span><span class="p">,</span>
-            <span class="sa">f</span><span class="s2">" Dos.: </span><span class="si">{</span><span class="n">item_1</span><span class="si">}</span><span class="s2">,</span><span class="se">\</span>
+            <span class="s2">&quot;Aviso. Se Modificó ensayo:&quot;</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s2">&quot; Dos.: </span><span class="si">{</span><span class="n">item_1</span><span class="si">}</span><span class="s2">,</span><span class="se">\</span>
 <span class="s2">Muer.: </span><span class="si">{</span><span class="n">item_2</span><span class="si">}</span><span class="s2">, n: </span><span class="si">{</span><span class="n">item_3</span><span class="si">}</span><span class="s2">, Uni.: </span><span class="si">{</span><span class="n">item_4</span><span class="si">}</span><span class="s2">, &gt; A &gt; Dos.: </span><span class="si">{</span><span class="n">verf</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">, </span><span class="se">\</span>
-<span class="s2">Muer.: </span><span class="si">{</span><span class="n">verf</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">, n: </span><span class="si">{</span><span class="n">verf</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="si">}</span><span class="s2">, Uni.: </span><span class="si">{</span><span class="n">verf</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span>
+<span class="s2">Muer.: </span><span class="si">{</span><span class="n">verf</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">, n: </span><span class="si">{</span><span class="n">verf</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="si">}</span><span class="s2">, Uni.: </span><span class="si">{</span><span class="n">verf</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="p">)</span></div>
 
-<div class="viewcode-block" id="Avisos.aviso_borr"><a class="viewcode-back" href="../vista.html#vista.Avisos.aviso_borr">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="Avisos.aviso_borr"><a class="viewcode-back" href="../vista.html#vista.Avisos.aviso_borr">[documentos]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">aviso_borr</span><span class="p">(</span><span class="n">item_bd</span><span class="p">,</span> <span class="n">item_bu</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Notifica eliminación a un ensayo.</span>
+
+<span class="sd">        :item_bd item_1: Dosis a eliminar</span>
+<span class="sd">        :item_bu item_1: Unidad a eliminar</span>
+<span class="sd">        &#39;&#39;&#39;</span>
         <span class="n">messagebox</span><span class="o">.</span><span class="n">showinfo</span><span class="p">(</span>
-            <span class="s2">"Aviso:"</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"Se borró Dosis: </span><span class="si">{</span><span class="n">item_bd</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">item_bu</span><span class="si">}</span><span class="s2">"</span>
+            <span class="s2">&quot;Aviso:&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Se borró Dosis: </span><span class="si">{</span><span class="n">item_bd</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">item_bu</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="p">)</span></div>
 
-<div class="viewcode-block" id="Avisos.error_estadistico"><a class="viewcode-back" href="../vista.html#vista.Avisos.error_estadistico">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="Avisos.error_estadistico"><a class="viewcode-back" href="../vista.html#vista.Avisos.error_estadistico">[documentos]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">error_estadistico</span><span class="p">():</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Notifica error por ensayos con 0% y/o 100% \</span>
+<span class="sd">de mortalidad (inadmisible).</span>
+<span class="sd">        &#39;&#39;&#39;</span>
         <span class="n">messagebox</span><span class="o">.</span><span class="n">showerror</span><span class="p">(</span>
-            <span class="s2">"Error estadístico:"</span><span class="p">,</span>
-            <span class="s2">"Imposible modelar </span><span class="se">\</span>
-<span class="s2">con mortalidad del 100% y/o 0% (elimine dichos ensayos)"</span>
+            <span class="s2">&quot;Error estadístico:&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Imposible modelar </span><span class="se">\</span>
+<span class="s2">con mortalidad del 100% y/o 0% (elimine dichos ensayos)&quot;</span>
+        <span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span>
+        <span class="s2">&quot;Ensayo con mortalidad 0 y/o 100 % (Error estadisico)&quot;</span>
         <span class="p">)</span></div>
         
-<div class="viewcode-block" id="Avisos.error_sin_datos"><a class="viewcode-back" href="../vista.html#vista.Avisos.error_sin_datos">[docs]</a>    <span class="nd">@staticmethod</span>  
+<div class="viewcode-block" id="Avisos.error_sin_datos"><a class="viewcode-back" href="../vista.html#vista.Avisos.error_sin_datos">[documentos]</a>    <span class="nd">@staticmethod</span>  
     <span class="k">def</span> <span class="nf">error_sin_datos</span><span class="p">():</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Notifica error por ausencia de ensayos cargados.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
         <span class="n">messagebox</span><span class="o">.</span><span class="n">showerror</span><span class="p">(</span>
-            <span class="s2">"Error:"</span><span class="p">,</span> <span class="s2">"No se ingresaron datos"</span>
+            <span class="s2">&quot;Error:&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;No se ingresaron datos&quot;</span>
         <span class="p">)</span></div></div>
-
 
 </pre></div>
 
-          </article>
-        </div>
-      </div>
-    </main>
+	    </div>
+            <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2023, Gabriel.
+    </p>
   </div>
-  <footer class="md-footer">
-    <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid">
-          
-          
-        </a>
-        
-      </nav>
-    </div>
-    <div class="md-footer-meta md-typeset">
-      <div class="md-footer-meta__inner md-grid">
-        <div class="md-footer-copyright">
-          <div class="md-footer-copyright__highlight">
-              &#169; Copyright 2023, Gabriel.
-              
-          </div>
-            Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 6.1.3.
-             and
-            <a href="https://github.com/bashtage/sphinx-material/">Material for
-              Sphinx</a>
-        </div>
-      </div>
-    </div>
-  </footer>
-  <script src="../_static/javascripts/application.js"></script>
-  <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/jucacrispim/sphinx_pdj_theme">theme</a> provided by <a href="http://poraodojuca.net">Porão do Juca</a>.
+
+</footer>
+	</div>
+	</div>
+	  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+    <script type="text/javascript" src="../_static/documentation_options.js">
+
+    </script>
+    <script type="text/javascript" src="../_static/doctools.js">
+
+    </script>
+    <script type="text/javascript" src="../_static/sphinx_highlight.js">
+
+    </script>
+    <script type="text/javascript" src="../_static/translations.js">
+
+    </script>
+
+  
+
+   <script type="text/javascript"
+           src="../_static/js/theme.js"></script>
+
+   <script type="text/javascript"
+           src="../_static/js/pdj.js"></script>
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
   </body>
 </html>

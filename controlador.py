@@ -1,7 +1,5 @@
 '''
-controlador.py:
-    Controlador que lanza vista correspondiente a ld50_app
-    :Entrega Diplomatura Python - Nivel Intermedio:
+**El 'controlador' (patrón MVC) correspondiente a aplicación: "Calculadora-LD50".**
 '''
 
 from tkinter import Tk
@@ -10,7 +8,9 @@ import vista
 
 class Controlador:
     '''
-    Instancia la clase importada de la vista
+    **Instancia la clase importada de la vista**
+
+    :param root: Recibe el objeto Tk.
     '''
     def __init__(self, root):
         self.root_controler=root

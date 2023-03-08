@@ -1,25 +1,32 @@
 '''
-conex_bd.py:
-    Conexión a base de datos para aplicación ld50.
-    :Entrega Diplomatura Python - Nivel Intermedio:
+**Módulo de conexión a base de datos correspondiente \
+a aplicación: "Calculadora-LD50".**
 '''
 from peewee import SqliteDatabase, Model, FloatField, \
     IntegerField, CharField
 
 
-nombre_db = "dosisld50.db"
+nombre_db = "ld50.db"
 db = SqliteDatabase(
     nombre_db
 )
 
-class BaseModel(Model):
-    
-    class Meta:
+class Conexion(Model):
+    '''
+    Conexión con base de datos.
+    Depende del módulo peewee (ORM).
+    '''
+    class Meta():
+        '''
+        Clase necesaria para el ORM (peewee).
+        '''
         database = db
 
 
-class Ld50(BaseModel):
-    '''Construccion de tabla'''
+class Ld50(Conexion):
+    '''
+    Construccion de tabla.
+    '''
     dosis = FloatField()
     muertos = FloatField()
     n = IntegerField()
