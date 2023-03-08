@@ -13,7 +13,7 @@ db = SqliteDatabase(
 
 class Conexion(Model):
     '''
-    Conexión con base de datos.
+    **Conexión con base de datos.**
     Depende del módulo peewee (ORM).
     '''
     class Meta():
@@ -25,7 +25,7 @@ class Conexion(Model):
 
 class Ld50(Conexion):
     '''
-    Construccion de tabla.
+    **Construccion de tabla.**
     '''
     dosis = FloatField()
     muertos = FloatField()

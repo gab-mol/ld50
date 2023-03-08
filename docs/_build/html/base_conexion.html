@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   
-  <title>Módulo: conex_bd &mdash; documentación de Entrega Nivel intermedio - 0.0.1</title>
+  <title>Módulo: base_conexion &mdash; documentación de Entrega Nivel intermedio - 0.0.1</title>
   
 
   
@@ -66,7 +66,11 @@
           
               <p class="caption" role="heading"><span class="caption-text">Contenido:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Módulo: conex_bd</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Módulo: base_conexion</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#base_conexion.Conexion"><code class="docutils literal notranslate"><span class="pre">Conexion</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#base_conexion.Ld50"><code class="docutils literal notranslate"><span class="pre">Ld50</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="controlador.html">Módulo: controlador</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="controlador.html#controlador.Controlador"><code class="docutils literal notranslate"><span class="pre">Controlador</span></code></a></li>
 </ul>
@@ -79,10 +83,7 @@
 <li class="toctree-l2"><a class="reference internal" href="modelo.html#modelo.ver_100_0"><code class="docutils literal notranslate"><span class="pre">ver_100_0</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="verificacion_campos.html">Módulo: verificacion_campos</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="verificacion_campos.html#verificacion_campos.Verificador"><code class="docutils literal notranslate"><span class="pre">Verificador</span></code></a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="verificacion_campos.html">Módulo: verificacion_campos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vista.html">Módulo: vista</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="vista.html#vista.Avisos"><code class="docutils literal notranslate"><span class="pre">Avisos</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="vista.html#vista.Entr"><code class="docutils literal notranslate"><span class="pre">Entr</span></code></a></li>
@@ -130,8 +131,66 @@
           <div role="main" class="">
 
 	    <div id="content" class="hfeed entry-container hentry">
-  <section id="modulo-conex-bd">
-<h1>Módulo: conex_bd<a class="headerlink" href="#modulo-conex-bd" title="Enlace permanente a este encabezado">¶</a></h1>
+  <section id="modulo-base-conexion">
+<h1>Módulo: base_conexion<a class="headerlink" href="#modulo-base-conexion" title="Enlace permanente a este encabezado">¶</a></h1>
+<span class="target" id="module-base_conexion"></span><p><strong>Módulo de conexión a base de datos correspondiente a aplicación: «Calculadora-LD50».</strong></p>
+<dl class="py class">
+<dt class="sig sig-object py" id="base_conexion.Conexion">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">base_conexion.</span></span><span class="sig-name descname"><span class="pre">Conexion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/base_conexion.html#Conexion"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#base_conexion.Conexion" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<p>Conexión con base de datos.
+Depende del módulo peewee (ORM).</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="base_conexion.Conexion.DoesNotExist">
+<span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#base_conexion.Conexion.DoesNotExist" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>alias de <code class="xref py py-class docutils literal notranslate"><span class="pre">ConexionDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="base_conexion.Conexion.id">
+<span class="sig-name descname"><span class="pre">id</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;AutoField:</span> <span class="pre">Conexion.id&gt;</span></em><a class="headerlink" href="#base_conexion.Conexion.id" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="base_conexion.Ld50">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">base_conexion.</span></span><span class="sig-name descname"><span class="pre">Ld50</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/base_conexion.html#Ld50"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#base_conexion.Ld50" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#base_conexion.Conexion" title="base_conexion.Conexion"><code class="xref py py-class docutils literal notranslate"><span class="pre">Conexion</span></code></a></p>
+<p>Construccion de tabla.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="base_conexion.Ld50.DoesNotExist">
+<span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#base_conexion.Ld50.DoesNotExist" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>alias de <code class="xref py py-class docutils literal notranslate"><span class="pre">Ld50DoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="base_conexion.Ld50.dosis">
+<span class="sig-name descname"><span class="pre">dosis</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;FloatField:</span> <span class="pre">Ld50.dosis&gt;</span></em><a class="headerlink" href="#base_conexion.Ld50.dosis" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="base_conexion.Ld50.id">
+<span class="sig-name descname"><span class="pre">id</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;AutoField:</span> <span class="pre">Ld50.id&gt;</span></em><a class="headerlink" href="#base_conexion.Ld50.id" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="base_conexion.Ld50.muertos">
+<span class="sig-name descname"><span class="pre">muertos</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;FloatField:</span> <span class="pre">Ld50.muertos&gt;</span></em><a class="headerlink" href="#base_conexion.Ld50.muertos" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="base_conexion.Ld50.n">
+<span class="sig-name descname"><span class="pre">n</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;IntegerField:</span> <span class="pre">Ld50.n&gt;</span></em><a class="headerlink" href="#base_conexion.Ld50.n" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="base_conexion.Ld50.unid">
+<span class="sig-name descname"><span class="pre">unid</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;CharField:</span> <span class="pre">Ld50.unid&gt;</span></em><a class="headerlink" href="#base_conexion.Ld50.unid" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 </section>
 
 

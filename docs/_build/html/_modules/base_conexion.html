@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   
-  <title>Resumen: código de modulo &mdash; documentación de Entrega Nivel intermedio - 0.0.1</title>
+  <title>base_conexion &mdash; documentación de Entrega Nivel intermedio - 0.0.1</title>
   
 
   
@@ -31,6 +31,7 @@
               href="../genindex.html"/>
         <link rel="search" title="Búsqueda" href="../search.html"/>
     <link rel="top" title="documentación de Entrega Nivel intermedio - 0.0.1" href="../index.html"/>
+        <link rel="up" title="Código de módulo" href="index.html"/>
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta http-equiv="cache-control" content="public" />
@@ -64,7 +65,7 @@
           
               <p class="caption" role="heading"><span class="caption-text">Contenido:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../base_conexion.html">Módulo: base_conexion</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../base_conexion.html">Módulo: conex_bd</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../base_conexion.html#base_conexion.Conexion"><code class="docutils literal notranslate"><span class="pre">Conexion</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../base_conexion.html#base_conexion.Ld50"><code class="docutils literal notranslate"><span class="pre">Ld50</span></code></a></li>
 </ul>
@@ -81,7 +82,10 @@
 <li class="toctree-l2"><a class="reference internal" href="../modelo.html#modelo.ver_100_0"><code class="docutils literal notranslate"><span class="pre">ver_100_0</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../verificacion_campos.html">Módulo: verificacion_campos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../verificacion_campos.html">Módulo: verificacion_campos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../verificacion_campos.html#verificacion_campos.Verificador"><code class="docutils literal notranslate"><span class="pre">Verificador</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../vista.html">Módulo: vista</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../vista.html#vista.Avisos"><code class="docutils literal notranslate"><span class="pre">Avisos</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../vista.html#vista.Entr"><code class="docutils literal notranslate"><span class="pre">Entr</span></code></a></li>
@@ -129,12 +133,54 @@
           <div role="main" class="">
 
 	    <div id="content" class="hfeed entry-container hentry">
-  <h1>Todos los módulos para los cuales disponen código</h1>
-<ul><li><a href="base_conexion.html">base_conexion</a></li>
-<li><a href="controlador.html">controlador</a></li>
-<li><a href="modelo.html">modelo</a></li>
-<li><a href="vista.html">vista</a></li>
-</ul>
+  <h1>Código fuente para base_conexion</h1><div class="highlight"><pre>
+<span></span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">**Módulo de conexión a base de datos correspondiente \</span>
+<span class="sd">a aplicación: &quot;Calculadora-LD50&quot;.**</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="kn">from</span> <span class="nn">peewee</span> <span class="kn">import</span> <span class="n">SqliteDatabase</span><span class="p">,</span> <span class="n">Model</span><span class="p">,</span> <span class="n">FloatField</span><span class="p">,</span> \
+    <span class="n">IntegerField</span><span class="p">,</span> <span class="n">CharField</span>
+
+
+<span class="n">nombre_db</span> <span class="o">=</span> <span class="s2">&quot;ld50.db&quot;</span>
+<span class="n">db</span> <span class="o">=</span> <span class="n">SqliteDatabase</span><span class="p">(</span>
+    <span class="n">nombre_db</span>
+<span class="p">)</span>
+
+<div class="viewcode-block" id="Conexion"><a class="viewcode-back" href="../base_conexion.html#base_conexion.Conexion">[documentos]</a><span class="k">class</span> <span class="nc">Conexion</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Conexión con base de datos.</span>
+<span class="sd">    Depende del módulo peewee (ORM).</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">():</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Clase necesaria para el ORM (peewee).</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">database</span> <span class="o">=</span> <span class="n">db</span></div>
+
+
+<div class="viewcode-block" id="Ld50"><a class="viewcode-back" href="../base_conexion.html#base_conexion.Ld50">[documentos]</a><span class="k">class</span> <span class="nc">Ld50</span><span class="p">(</span><span class="n">Conexion</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Construccion de tabla.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">dosis</span> <span class="o">=</span> <span class="n">FloatField</span><span class="p">()</span>
+    <span class="n">muertos</span> <span class="o">=</span> <span class="n">FloatField</span><span class="p">()</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">IntegerField</span><span class="p">()</span>
+    <span class="n">unid</span> <span class="o">=</span> <span class="n">CharField</span><span class="p">()</span></div>
+
+
+<span class="c1"># Base de datos: Conexion y/o creacion de tablas.</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">db</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+    <span class="n">db</span><span class="o">.</span><span class="n">create_tables</span><span class="p">([</span><span class="n">Ld50</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;Conexión con base de datos &#39;</span><span class="si">{</span><span class="n">nombre_db</span><span class="si">}</span><span class="s2">&#39; exitosa&quot;</span>
+    <span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span>
+        <span class="s2">&quot;Error de Conexión con base de datos&quot;</span>
+    <span class="p">)</span>
+</pre></div>
 
 	    </div>
             <footer>

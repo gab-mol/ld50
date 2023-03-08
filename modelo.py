@@ -15,7 +15,7 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 
 import vista
 from verificacion_campos import Verificador
-from conex_bd import Ld50
+from base_conexion import Ld50
 
 
 class Arbol():

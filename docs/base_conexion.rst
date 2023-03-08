@@ -1,7 +1,7 @@
-Módulo: conex\_bd
+Módulo: base\_conexion
 =================
 
-.. automodule:: conex_bd
+.. automodule:: base_conexion
    :members:
    :undoc-members:
    :show-inheritance:

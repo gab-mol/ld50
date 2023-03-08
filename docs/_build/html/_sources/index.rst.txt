@@ -21,7 +21,7 @@ Aplicacion: "Calculadora-LD50"
    :maxdepth: 4
    :caption: Contenido:
 
-   conex_bd
+   base_conexion
    controlador
    modelo
    verificacion_campos
