@@ -227,17 +227,11 @@ class Crud():
         '''
         Guarda en bd y suma al arbol.
         '''
-        data = Verificador().verif_campos(
-                self.dosis_var, 
-                self.muert_var, 
-                self.n_var, 
-                self.uni_var
-            )
         nuevo_ensayo = Ld50()
-        nuevo_ensayo.dosis = data[0]
-        nuevo_ensayo.muertos = data[1]
-        nuevo_ensayo.n = data[2]
-        nuevo_ensayo.unid = data[3]
+        nuevo_ensayo.dosis = self.dosis_var
+        nuevo_ensayo.muertos = self.muert_var
+        nuevo_ensayo.n = self.n_var
+        nuevo_ensayo.unid = self.uni_var
         nuevo_ensayo.save()
         self.vista_ensayos.insert(
             "",

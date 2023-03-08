@@ -14,35 +14,31 @@ class Verificador():
     '''
     @staticmethod
     def verif_campos(
-            dosis_var,
-            muert_var,
-            n_var,
-            uni_var
+            campo,
+            convertir_float
         ):
         '''
         Uso de modulo re para controlar campos.
+
+        :param campo: Campo a verificar (StringVar).
+        :param convertir_float: "True" si se desea \
+convertir a flotante luego de verificar.
         '''
         pat_campos = re.compile(
             "[a-zA-Z,]"
         )
         if pat_campos.search(
-            dosis_var.get(), 
-        ) or pat_campos.search(
-            muert_var.get()
-        ) or pat_campos.search(
-            n_var.get()
-        ):
+            campo.get()
+            ):
             print(
                 "caracter(es) no válido(s)"
             )
             vista.Avisos.formato_error()
         else:
-            data = (
-                float(dosis_var.get()),
-                float(muert_var.get()),
-                float(n_var.get()),
-                uni_var.get(),
-            )
-
-            return data
+            if convertir_float == True:
+                data_verif = float( campo.get())
+                return data_verif
+            else:
+                data_verif = campo.get()
+                return data_verif
         

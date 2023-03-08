@@ -8,6 +8,7 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from tkinter import messagebox
 
 import modelo
+from verificacion_campos import Verificador
 
 
 class Ventana():
@@ -29,6 +30,14 @@ class Ventana():
 
         self.entradas = Entr(principal)
 
+        '''
+        data = verificacion_campos.Verificador().verif_campos(
+            self.entradas.dosis_var, 
+            self.entradas.muert_var, 
+            self.entradas.n_var, 
+            self.entradas.uni_var
+        )'''
+        
         self.datos = modelo.Crud(
             self.vista_ensayos.vista_ensayos, 
             self.entradas.dosis_var, 
@@ -332,6 +341,7 @@ y respuesta (muertos): ",
         )
 
 
+
 class Entr():
     '''
     Declaracion de entradas de datos para los ensayos, sus variables y sus etiquetas.
@@ -508,6 +518,14 @@ class Entr():
             padx=10,
             sticky="w"
         )
+
+class VerificacionCampos(Verificador):
+    def __init__(self, principal) -> None:
+        super().__init__()
+        self.entradas = Entr(principal)
+
+
+
 
 
 class Vista_arbol(ttk.Treeview):
