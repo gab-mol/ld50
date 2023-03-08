@@ -12,9 +12,10 @@ class Verificador():
     Contiene el metodo estatico de verificacion de campos.
     :verif_campos:
     '''
-    @staticmethod
-    def verif_campos(
+    def __init__(            
+            self,
             campo,
+            funcion,
             convertir_float
         ):
         '''
@@ -24,10 +25,10 @@ class Verificador():
         :param convertir_float: "True" si se desea \
 convertir a flotante luego de verificar.
         '''
-        pat_campos = re.compile(
+        pat_campo = re.compile(
             "[a-zA-Z,]"
         )
-        if pat_campos.search(
+        if pat_campo.search(
             campo.get()
             ):
             print(
@@ -36,8 +37,8 @@ convertir a flotante luego de verificar.
             vista.Avisos.formato_error()
         else:
             if convertir_float == True:
-                data_verif = float( campo.get())
-                return data_verif
+                data_verif = float(campo.get())
+                funcion
             else:
                 data_verif = campo.get()
                 return data_verif

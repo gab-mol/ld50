@@ -387,6 +387,7 @@ class Entr():
             justify="left",
             font=font_entr
         )
+        self.dosis_var = Verificador().verif_campos(self.dosis_var, True)
 
         dosis_ent.grid(
             row=2,
@@ -407,7 +408,7 @@ class Entr():
             justify="left",
             font=font_etiqs
         )
-
+        
         unid.grid(
             row=4,
             column=0,
@@ -417,7 +418,7 @@ class Entr():
             padx=10,
             sticky="sw"
         )
-
+        
         # Campo de entrada: "unidad"
         self.uni_var = StringVar()
 
@@ -428,6 +429,7 @@ class Entr():
             justify="left",
             font=font_entr
         )
+        self.uni_var = Verificador().verif_campos(self.uni_var, False)
 
         uni_var_ent.grid(
             row=6,
@@ -469,7 +471,8 @@ class Entr():
             justify="left",
             font=font_entr
         )
-
+        self.muert_var = Verificador().verif_campos(self.muert_var, True)
+        
         muert_ent.grid(
             row=2,
             column=1,
@@ -508,6 +511,8 @@ class Entr():
             justify="left",
             font=font_entr
         )
+        
+        self.n_var = Verificador().VerificacionCampos(self.n_var, True)
 
         n_ent.grid(
             row=6,
@@ -520,8 +525,9 @@ class Entr():
         )
 
 class VerificacionCampos(Verificador):
-    def __init__(self, principal) -> None:
+    def __init__(self, principal, ) -> None:
         super().__init__()
+
         self.entradas = Entr(principal)
 
 
