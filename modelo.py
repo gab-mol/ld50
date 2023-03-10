@@ -14,8 +14,8 @@ from statistics import NormalDist, mean
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 
 import vista
-from verificacion_campos import Verificador
-from base_conexion import Ld50
+from verifcamp import Verificador
+from conexionbd import Ld50
 
 
 class Arbol():
