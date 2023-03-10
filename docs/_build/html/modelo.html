@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   
-  <title>Módulo: modelo &mdash; documentación de Entrega Nivel intermedio - 0.0.1</title>
+  <title>Módulo: modelo &mdash; documentación de Entrega Nivel Intermedio - 0.0.1</title>
   
 
   
@@ -30,8 +30,8 @@
         <link rel="index" title="Índice"
               href="genindex.html"/>
         <link rel="search" title="Búsqueda" href="search.html"/>
-    <link rel="top" title="documentación de Entrega Nivel intermedio - 0.0.1" href="index.html"/>
-        <link rel="next" title="Módulo: verificacion_campos" href="verificacion_campos.html"/>
+    <link rel="top" title="documentación de Entrega Nivel Intermedio - 0.0.1" href="index.html"/>
+        <link rel="next" title="Módulo: verifcamp" href="verifcamp.html"/>
         <link rel="prev" title="Módulo: controlador" href="controlador.html"/>
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -49,7 +49,7 @@
   <div class="wy-grid-for-nav">
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-nav-search">
-        <a href="index.html" class="fa fa-home"> Entrega Nivel intermedio </a>
+        <a href="index.html" class="fa fa-home"> Entrega Nivel Intermedio </a>
         <div role="search">
 	  <form id ="rtd-search-form" class="wy-form"
 		action="search.html" method="get">
@@ -66,7 +66,11 @@
           
               <p class="caption" role="heading"><span class="caption-text">Contenido:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="conex_bd.html">Módulo: conex_bd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conexionbd.html">Módulo: conexionbd</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="conexionbd.html#conexionbd.Conexion"><code class="docutils literal notranslate"><span class="pre">Conexion</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="conexionbd.html#conexionbd.Ld50"><code class="docutils literal notranslate"><span class="pre">Ld50</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="controlador.html">Módulo: controlador</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="controlador.html#controlador.Controlador"><code class="docutils literal notranslate"><span class="pre">Controlador</span></code></a></li>
 </ul>
@@ -79,8 +83,8 @@
 <li class="toctree-l2"><a class="reference internal" href="#modelo.ver_100_0"><code class="docutils literal notranslate"><span class="pre">ver_100_0</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="verificacion_campos.html">Módulo: verificacion_campos</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="verificacion_campos.html#verificacion_campos.Verificador"><code class="docutils literal notranslate"><span class="pre">Verificador</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="verifcamp.html">Módulo: verifcamp</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="verifcamp.html#verifcamp.Verificador"><code class="docutils literal notranslate"><span class="pre">Verificador</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="vista.html">Módulo: vista</a><ul>
@@ -200,7 +204,7 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="modelo.Grafico.graf">
 <em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">graf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lista_logdosis</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lista_probit_un</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">canvas</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo.html#Grafico.graf"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#modelo.Grafico.graf" title="Enlazar permanentemente con esta definición">¶</a></dt>
-<dd><p><strong>Gráfico PROBIT vs Log(dosis)</strong></p>
+<dd><p>Grafica PROBIT vs Log(dosis).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -248,7 +252,7 @@ Calcula la LD50 y su intervalo de confianza.</p>
 <dt class="sig sig-object py" id="modelo.ver_100_0">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">modelo.</span></span><span class="sig-name descname"><span class="pre">ver_100_0</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vista_ensayos</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sal_ld50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sal_inter_ld50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">equ_reg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">canvas</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo.html#ver_100_0"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#modelo.ver_100_0" title="Enlazar permanentemente con esta definición">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Eventos para el boton «Calcular»</p>
+<p><strong>Eventos para el boton «Calcular».</strong></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parámetros<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -271,7 +275,7 @@ Calcula la LD50 y su intervalo de confianza.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="verificacion_campos.html" class="btn btn-neutral float-right" title="Módulo: verificacion_campos">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="verifcamp.html" class="btn btn-neutral float-right" title="Módulo: verifcamp">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="controlador.html" class="btn btn-neutral" title="Módulo: controlador"><span class="fa fa-arrow-circle-left"></span> Previous</a>

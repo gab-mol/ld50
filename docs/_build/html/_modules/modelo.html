@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   
-  <title>modelo &mdash; documentación de Entrega Nivel intermedio - 0.0.1</title>
+  <title>modelo &mdash; documentación de Entrega Nivel Intermedio - 0.0.1</title>
   
 
   
@@ -30,7 +30,7 @@
         <link rel="index" title="Índice"
               href="../genindex.html"/>
         <link rel="search" title="Búsqueda" href="../search.html"/>
-    <link rel="top" title="documentación de Entrega Nivel intermedio - 0.0.1" href="../index.html"/>
+    <link rel="top" title="documentación de Entrega Nivel Intermedio - 0.0.1" href="../index.html"/>
         <link rel="up" title="Código de módulo" href="index.html"/>
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -48,7 +48,7 @@
   <div class="wy-grid-for-nav">
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-nav-search">
-        <a href="../index.html" class="fa fa-home"> Entrega Nivel intermedio </a>
+        <a href="../index.html" class="fa fa-home"> Entrega Nivel Intermedio </a>
         <div role="search">
 	  <form id ="rtd-search-form" class="wy-form"
 		action="../search.html" method="get">
@@ -65,7 +65,11 @@
           
               <p class="caption" role="heading"><span class="caption-text">Contenido:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../conex_bd.html">Módulo: conex_bd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../conexionbd.html">Módulo: conexionbd</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../conexionbd.html#conexionbd.Conexion"><code class="docutils literal notranslate"><span class="pre">Conexion</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../conexionbd.html#conexionbd.Ld50"><code class="docutils literal notranslate"><span class="pre">Ld50</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../controlador.html">Módulo: controlador</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../controlador.html#controlador.Controlador"><code class="docutils literal notranslate"><span class="pre">Controlador</span></code></a></li>
 </ul>
@@ -78,8 +82,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../modelo.html#modelo.ver_100_0"><code class="docutils literal notranslate"><span class="pre">ver_100_0</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../verificacion_campos.html">Módulo: verificacion_campos</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../verificacion_campos.html#verificacion_campos.Verificador"><code class="docutils literal notranslate"><span class="pre">Verificador</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../verifcamp.html">Módulo: verifcamp</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../verifcamp.html#verifcamp.Verificador"><code class="docutils literal notranslate"><span class="pre">Verificador</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../vista.html">Módulo: vista</a><ul>
@@ -131,7 +135,8 @@
 	    <div id="content" class="hfeed entry-container hentry">
   <h1>Código fuente para modelo</h1><div class="highlight"><pre>
 <span></span><span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">**El &#39;modelo&#39; (patrón MVC) correspondiente a aplicación: &quot;Calculadora-LD50&quot;.**</span>
+<span class="sd">**El &#39;modelo&#39; (patrón MVC) correspondiente a aplicación: \</span>
+<span class="sd">&quot;Calculadora-LD50&quot;.**</span>
 <span class="sd">&#39;&#39;&#39;</span>
 <span class="n">__author__</span> <span class="o">=</span> <span class="s2">&quot;Gabriel Molina&quot;</span>
 <span class="n">__maintainer__</span> <span class="o">=</span> <span class="s2">&quot;Gabriel Molina&quot;</span>
@@ -146,8 +151,8 @@
 <span class="kn">from</span> <span class="nn">matplotlib.backends.backend_tkagg</span> <span class="kn">import</span> <span class="n">FigureCanvasTkAgg</span>
 
 <span class="kn">import</span> <span class="nn">vista</span>
-<span class="kn">from</span> <span class="nn">verificacion_campos</span> <span class="kn">import</span> <span class="n">Verificador</span>
-<span class="kn">from</span> <span class="nn">base_conexion</span> <span class="kn">import</span> <span class="n">Ld50</span>
+<span class="kn">from</span> <span class="nn">verifcamp</span> <span class="kn">import</span> <span class="n">Verificador</span>
+<span class="kn">from</span> <span class="nn">conexionbd</span> <span class="kn">import</span> <span class="n">Ld50</span>
 
 
 <div class="viewcode-block" id="Arbol"><a class="viewcode-back" href="../modelo.html#modelo.Arbol">[documentos]</a><span class="k">class</span> <span class="nc">Arbol</span><span class="p">():</span>
@@ -220,11 +225,12 @@
             <span class="n">canvas</span>
         <span class="p">):</span>
         <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">        **Gráfico PROBIT vs Log(dosis)**</span>
+<span class="sd">        Grafica PROBIT vs Log(dosis).</span>
 
 <span class="sd">        :param ax: Recibe objeto de ejes (canvas)</span>
 <span class="sd">        :param lista_logdosis: Recibe lista de Dosis cargadas (eje x)</span>
-<span class="sd">        :param lista_probit_un: Recibe lista de unidades PROBIT calculadas (eje y)</span>
+<span class="sd">        :param lista_probit_un: Recibe lista de unidades \</span>
+<span class="sd">PROBIT calculadas (eje y)</span>
 <span class="sd">        :param b: Recibe pendiente de la regresión</span>
 <span class="sd">        :param a: Recibe ordenada de la regresión</span>
 <span class="sd">        :param canvas: Recibe objeto canvas</span>
@@ -335,10 +341,13 @@
 <span class="sd">    **Alta baja y modificacion.**</span>
 
 <span class="sd">    :param vista_ensayos: Recibe objeto ttk (treeview tkinter) </span>
-<span class="sd">    :param dosis_var: Recibe objeto StringVar (tkinter) correspondiente a dosis</span>
-<span class="sd">    :param muert_var: Recibe objeto StringVar (tkinter) correspondiente a muertos</span>
+<span class="sd">    :param dosis_var: Recibe objeto StringVar (tkinter) \</span>
+<span class="sd">correspondiente a dosis</span>
+<span class="sd">    :param muert_var: Recibe objeto StringVar (tkinter) \</span>
+<span class="sd">correspondiente a muertos</span>
 <span class="sd">    :param n_var: Recibe objeto StringVar (tkinter) correspondiente a n</span>
-<span class="sd">    :param uni_var: Recibe objeto StringVar (tkinter) correspondiente a las unidades</span>
+<span class="sd">    :param uni_var: Recibe objeto StringVar (tkinter) \</span>
+<span class="sd">correspondiente a las unidades</span>
 <span class="sd">    &#39;&#39;&#39;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
             <span class="bp">self</span><span class="p">,</span>
@@ -438,7 +447,7 @@
  
 <div class="viewcode-block" id="ver_100_0"><a class="viewcode-back" href="../modelo.html#modelo.ver_100_0">[documentos]</a><span class="k">class</span> <span class="nc">ver_100_0</span><span class="p">():</span>
     <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    Eventos para el boton &quot;Calcular&quot;</span>
+<span class="sd">    **Eventos para el boton &quot;Calcular&quot;.**</span>
 
 <span class="sd">    :param ax: Recibe objeto de ejes (canvas)</span>
 <span class="sd">    :param vista_ensayos: Recibe objeto ttk (treeview tkinter) </span>

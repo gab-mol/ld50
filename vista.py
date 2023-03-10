@@ -12,7 +12,8 @@ import modelo
 
 class Ventana():
     '''
-    **Declaración de ventana y componentes de salida de datos de la interfaz visual.**
+    **Declaración de ventana y componentes de salida \
+de datos de la interfaz visual.**
     Modulo empleado: *tkinter*
 
     :param principal: Recibe el objeto Tk (tkinter mainloop).
@@ -334,7 +335,8 @@ y respuesta (muertos): ",
 
 class Entr():
     '''
-    Declaracion de entradas de datos para los ensayos, sus variables y sus etiquetas.
+    **Declaracion de entradas de datos para los \
+ensayos, sus variables y sus etiquetas.**
 
     :param principal: Recibe objeto Tk (ventana tkinter).
     '''
@@ -512,7 +514,8 @@ class Entr():
 
 class Vista_arbol(ttk.Treeview):
     '''
-    Árbol donde se listan los ensayos cargados (treeview de tkinter)
+    **Árbol donde se listan los ensayos cargados \
+(treeview de tkinter).**
 
     :param principal: Recibe objeto Tk (ventana tkinter).
     '''
@@ -582,7 +585,9 @@ class Vista_arbol(ttk.Treeview):
 
 
 class Avisos():
-    '''Mensajes emergentes de error y aviso de eventos'''
+    '''
+    **Mensajes emergentes de error y aviso de eventos**
+    '''
     @staticmethod
     def formato_error():
         '''
@@ -622,8 +627,8 @@ Muer.: {verf[1]}, n: {verf[2]}, Uni.: {verf[3]}"
         '''
         Notifica eliminación a un ensayo.
 
-        :item_bd item_1: Dosis a eliminar
-        :item_bu item_1: Unidad a eliminar
+        :param item_bd: Dosis a eliminar
+        :param item_bu: Unidad a eliminar
         '''
         messagebox.showinfo(
             "Aviso:", f"Se borró Dosis: {item_bd} {item_bu}"

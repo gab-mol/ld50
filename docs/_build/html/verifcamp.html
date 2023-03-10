@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   
-  <title>Módulo: controlador &mdash; documentación de Entrega Nivel Intermedio - 0.0.1</title>
+  <title>Módulo: verifcamp &mdash; documentación de Entrega Nivel Intermedio - 0.0.1</title>
   
 
   
@@ -31,8 +31,8 @@
               href="genindex.html"/>
         <link rel="search" title="Búsqueda" href="search.html"/>
     <link rel="top" title="documentación de Entrega Nivel Intermedio - 0.0.1" href="index.html"/>
-        <link rel="next" title="Módulo: modelo" href="modelo.html"/>
-        <link rel="prev" title="Módulo: conexionbd" href="conexionbd.html"/>
+        <link rel="next" title="Módulo: vista" href="vista.html"/>
+        <link rel="prev" title="Módulo: modelo" href="modelo.html"/>
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta http-equiv="cache-control" content="public" />
@@ -71,8 +71,8 @@
 <li class="toctree-l2"><a class="reference internal" href="conexionbd.html#conexionbd.Ld50"><code class="docutils literal notranslate"><span class="pre">Ld50</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Módulo: controlador</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#controlador.Controlador"><code class="docutils literal notranslate"><span class="pre">Controlador</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlador.html">Módulo: controlador</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="controlador.html#controlador.Controlador"><code class="docutils literal notranslate"><span class="pre">Controlador</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="modelo.html">Módulo: modelo</a><ul>
@@ -83,8 +83,8 @@
 <li class="toctree-l2"><a class="reference internal" href="modelo.html#modelo.ver_100_0"><code class="docutils literal notranslate"><span class="pre">ver_100_0</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="verifcamp.html">Módulo: verifcamp</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="verifcamp.html#verifcamp.Verificador"><code class="docutils literal notranslate"><span class="pre">Verificador</span></code></a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Módulo: verifcamp</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#verifcamp.Verificador"><code class="docutils literal notranslate"><span class="pre">Verificador</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="vista.html">Módulo: vista</a><ul>
@@ -134,19 +134,20 @@
           <div role="main" class="">
 
 	    <div id="content" class="hfeed entry-container hentry">
-  <section id="module-controlador">
-<span id="modulo-controlador"></span><h1>Módulo: controlador<a class="headerlink" href="#module-controlador" title="Enlace permanente a este encabezado">¶</a></h1>
-<p><strong>El “controlador” (patrón MVC) correspondiente a aplicación: «Calculadora-LD50».</strong></p>
+  <section id="module-verifcamp">
+<span id="modulo-verifcamp"></span><h1>Módulo: verifcamp<a class="headerlink" href="#module-verifcamp" title="Enlace permanente a este encabezado">¶</a></h1>
+<p><strong>Módulo con funcionalidad de verificacion de campos correspondiente a aplicación: «Calculadora-LD50».</strong></p>
 <dl class="py class">
-<dt class="sig sig-object py" id="controlador.Controlador">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">controlador.</span></span><span class="sig-name descname"><span class="pre">Controlador</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/controlador.html#Controlador"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#controlador.Controlador" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dt class="sig sig-object py" id="verifcamp.Verificador">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">verifcamp.</span></span><span class="sig-name descname"><span class="pre">Verificador</span></span><a class="reference internal" href="_modules/verifcamp.html#Verificador"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#verifcamp.Verificador" title="Enlazar permanentemente con esta definición">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p><strong>Instancia la clase importada de la vista</strong></p>
-<dl class="field-list simple">
-<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>root</strong> – Recibe el objeto Tk.</p>
-</dd>
-</dl>
+<p><strong>Contiene el metodo estatico de verificacion de campos.</strong></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="verifcamp.Verificador.verif_campos">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">verif_campos</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dosis_var</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">muert_var</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_var</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uni_var</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/verifcamp.html#Verificador.verif_campos"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#verifcamp.Verificador.verif_campos" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Uso de modulo re para controlar campos.</p>
+</dd></dl>
+
 </dd></dl>
 
 </section>
@@ -157,10 +158,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="modelo.html" class="btn btn-neutral float-right" title="Módulo: modelo">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="vista.html" class="btn btn-neutral float-right" title="Módulo: vista">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="conexionbd.html" class="btn btn-neutral" title="Módulo: conexionbd"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="modelo.html" class="btn btn-neutral" title="Módulo: modelo"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

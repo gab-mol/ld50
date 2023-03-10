@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   
-  <title>vista &mdash; documentación de Entrega Nivel intermedio - 0.0.1</title>
+  <title>vista &mdash; documentación de Entrega Nivel Intermedio - 0.0.1</title>
   
 
   
@@ -30,7 +30,7 @@
         <link rel="index" title="Índice"
               href="../genindex.html"/>
         <link rel="search" title="Búsqueda" href="../search.html"/>
-    <link rel="top" title="documentación de Entrega Nivel intermedio - 0.0.1" href="../index.html"/>
+    <link rel="top" title="documentación de Entrega Nivel Intermedio - 0.0.1" href="../index.html"/>
         <link rel="up" title="Código de módulo" href="index.html"/>
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -48,7 +48,7 @@
   <div class="wy-grid-for-nav">
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-nav-search">
-        <a href="../index.html" class="fa fa-home"> Entrega Nivel intermedio </a>
+        <a href="../index.html" class="fa fa-home"> Entrega Nivel Intermedio </a>
         <div role="search">
 	  <form id ="rtd-search-form" class="wy-form"
 		action="../search.html" method="get">
@@ -65,7 +65,11 @@
           
               <p class="caption" role="heading"><span class="caption-text">Contenido:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../conex_bd.html">Módulo: conex_bd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../conexionbd.html">Módulo: conexionbd</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../conexionbd.html#conexionbd.Conexion"><code class="docutils literal notranslate"><span class="pre">Conexion</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../conexionbd.html#conexionbd.Ld50"><code class="docutils literal notranslate"><span class="pre">Ld50</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../controlador.html">Módulo: controlador</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../controlador.html#controlador.Controlador"><code class="docutils literal notranslate"><span class="pre">Controlador</span></code></a></li>
 </ul>
@@ -78,8 +82,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../modelo.html#modelo.ver_100_0"><code class="docutils literal notranslate"><span class="pre">ver_100_0</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../verificacion_campos.html">Módulo: verificacion_campos</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../verificacion_campos.html#verificacion_campos.Verificador"><code class="docutils literal notranslate"><span class="pre">Verificador</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../verifcamp.html">Módulo: verifcamp</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../verifcamp.html#verifcamp.Verificador"><code class="docutils literal notranslate"><span class="pre">Verificador</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../vista.html">Módulo: vista</a><ul>
@@ -144,7 +148,8 @@
 
 <div class="viewcode-block" id="Ventana"><a class="viewcode-back" href="../vista.html#vista.Ventana">[documentos]</a><span class="k">class</span> <span class="nc">Ventana</span><span class="p">():</span>
     <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    **Declaración de ventana y componentes de salida de datos de la interfaz visual.**</span>
+<span class="sd">    **Declaración de ventana y componentes de salida \</span>
+<span class="sd">de datos de la interfaz visual.**</span>
 <span class="sd">    Modulo empleado: *tkinter*</span>
 
 <span class="sd">    :param principal: Recibe el objeto Tk (tkinter mainloop).</span>
@@ -466,7 +471,8 @@
 
 <div class="viewcode-block" id="Entr"><a class="viewcode-back" href="../vista.html#vista.Entr">[documentos]</a><span class="k">class</span> <span class="nc">Entr</span><span class="p">():</span>
     <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    Declaracion de entradas de datos para los ensayos, sus variables y sus etiquetas.</span>
+<span class="sd">    **Declaracion de entradas de datos para los \</span>
+<span class="sd">ensayos, sus variables y sus etiquetas.**</span>
 
 <span class="sd">    :param principal: Recibe objeto Tk (ventana tkinter).</span>
 <span class="sd">    &#39;&#39;&#39;</span>
@@ -644,7 +650,8 @@
 
 <div class="viewcode-block" id="Vista_arbol"><a class="viewcode-back" href="../vista.html#vista.Vista_arbol">[documentos]</a><span class="k">class</span> <span class="nc">Vista_arbol</span><span class="p">(</span><span class="n">ttk</span><span class="o">.</span><span class="n">Treeview</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    Árbol donde se listan los ensayos cargados (treeview de tkinter)</span>
+<span class="sd">    **Árbol donde se listan los ensayos cargados \</span>
+<span class="sd">(treeview de tkinter).**</span>
 
 <span class="sd">    :param principal: Recibe objeto Tk (ventana tkinter).</span>
 <span class="sd">    &#39;&#39;&#39;</span>
@@ -714,7 +721,9 @@
 
 
 <div class="viewcode-block" id="Avisos"><a class="viewcode-back" href="../vista.html#vista.Avisos">[documentos]</a><span class="k">class</span> <span class="nc">Avisos</span><span class="p">():</span>
-    <span class="sd">&#39;&#39;&#39;Mensajes emergentes de error y aviso de eventos&#39;&#39;&#39;</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    **Mensajes emergentes de error y aviso de eventos**</span>
+<span class="sd">    &#39;&#39;&#39;</span>
 <div class="viewcode-block" id="Avisos.formato_error"><a class="viewcode-back" href="../vista.html#vista.Avisos.formato_error">[documentos]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">formato_error</span><span class="p">():</span>
         <span class="sd">&#39;&#39;&#39;</span>
@@ -754,8 +763,8 @@
         <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">        Notifica eliminación a un ensayo.</span>
 
-<span class="sd">        :item_bd item_1: Dosis a eliminar</span>
-<span class="sd">        :item_bu item_1: Unidad a eliminar</span>
+<span class="sd">        :param item_bd: Dosis a eliminar</span>
+<span class="sd">        :param item_bu: Unidad a eliminar</span>
 <span class="sd">        &#39;&#39;&#39;</span>
         <span class="n">messagebox</span><span class="o">.</span><span class="n">showinfo</span><span class="p">(</span>
             <span class="s2">&quot;Aviso:&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Se borró Dosis: </span><span class="si">{</span><span class="n">item_bd</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">item_bu</span><span class="si">}</span><span class="s2">&quot;</span>

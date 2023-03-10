@@ -9,8 +9,7 @@ import vista
 
 class Verificador():
     '''
-    Contiene el metodo estatico de verificacion de campos.
-    :verif_campos:
+    **Contiene el metodo estatico de verificacion de campos.**
     '''
     @staticmethod
     def verif_campos(

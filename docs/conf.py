@@ -10,7 +10,7 @@ sys.path.insert(0, os.path.abspath('../'))
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'Entrega Nivel intermedio'
+project = 'Entrega Nivel Intermedio'
 copyright = '2023, Gabriel'
 author = 'Gabriel'
 
@@ -37,9 +37,6 @@ language = 'es'
 import sphinx_pdj_theme
 html_theme = 'sphinx_pdj_theme'
 html_theme_path = [sphinx_pdj_theme.get_html_theme_path()]
-
-#html_theme = 'insegel'
-#html_static_path = ['_static']
 
 # -- Options for todo extension ----------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/extensions/todo.html#configuration

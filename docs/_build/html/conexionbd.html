@@ -1,0 +1,268 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xml:lang="" lang="" version="-//W3C//DTD XHTML 1.1//EN" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <title>Módulo: conexionbd &mdash; documentación de Entrega Nivel Intermedio - 0.0.1</title>
+  
+
+  
+
+  
+
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'/>
+    <link rel="stylesheet" href="_static/css/pdj.css" type="text/css" />
+
+  
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  
+    <link rel="stylesheet" href="_static/css/pdj.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Índice"
+              href="genindex.html"/>
+        <link rel="search" title="Búsqueda" href="search.html"/>
+    <link rel="top" title="documentación de Entrega Nivel Intermedio - 0.0.1" href="index.html"/>
+        <link rel="next" title="Módulo: controlador" href="controlador.html"/>
+        <link rel="prev" title="Documentación: Entrega Nivel Intermedio. Diplomatura Python UTN" href="index.html"/>
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="cache-control" content="public" />
+    <meta name="robots" content="follow, all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Add jQuery library -->
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+  </head>
+
+  <body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="index.html" class="fa fa-home"> Entrega Nivel Intermedio </a>
+        <div role="search">
+	  <form id ="rtd-search-form" class="wy-form"
+		action="search.html" method="get">
+	    <input type="text" name="q" placeholder="Search docs" />
+	    <input type="hidden" name="check_keywords" value="yes" />
+	    <input type="hidden" name="area" value="default" />
+	  </form>
+	</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	
+          
+          
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Módulo: conexionbd</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#conexionbd.Conexion"><code class="docutils literal notranslate"><span class="pre">Conexion</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#conexionbd.Ld50"><code class="docutils literal notranslate"><span class="pre">Ld50</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="controlador.html">Módulo: controlador</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="controlador.html#controlador.Controlador"><code class="docutils literal notranslate"><span class="pre">Controlador</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="modelo.html">Módulo: modelo</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="modelo.html#modelo.Arbol"><code class="docutils literal notranslate"><span class="pre">Arbol</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="modelo.html#modelo.Crud"><code class="docutils literal notranslate"><span class="pre">Crud</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="modelo.html#modelo.Grafico"><code class="docutils literal notranslate"><span class="pre">Grafico</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="modelo.html#modelo.Mat"><code class="docutils literal notranslate"><span class="pre">Mat</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="modelo.html#modelo.ver_100_0"><code class="docutils literal notranslate"><span class="pre">ver_100_0</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="verifcamp.html">Módulo: verifcamp</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="verifcamp.html#verifcamp.Verificador"><code class="docutils literal notranslate"><span class="pre">Verificador</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="vista.html">Módulo: vista</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="vista.html#vista.Avisos"><code class="docutils literal notranslate"><span class="pre">Avisos</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="vista.html#vista.Entr"><code class="docutils literal notranslate"><span class="pre">Entr</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="vista.html#vista.Ventana"><code class="docutils literal notranslate"><span class="pre">Ventana</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="vista.html#vista.Vista_arbol"><code class="docutils literal notranslate"><span class="pre">Vista_arbol</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+
+      </div>
+      &nbsp;
+    </nav>
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      <nav class="wy-nav-top" id="barra-mobile" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="#">Porão do Juca</a>
+      </nav>
+
+      <div class="wy-nav-content">
+	<div class="fundo-claro">
+	</div>
+	<div class="fundo-escuro">
+	</div>
+
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+	    
+	    <!-- <ul class="wy-breadcrumbs"> -->
+	    <!--   <li><a href="#">Docs</a> &raquo;</li> -->
+
+	    <!--   <li>Features</li> -->
+	    <!--   <li class="wy-breadcrumbs-aside"> -->
+
+	    <!-- 	<a href="_sources/index.txt" rel="nofollow"> View page source</a> -->
+
+	    <!--   </li> -->
+	    <!-- </ul> -->
+	    <!-- <hr/> -->
+	  </div>
+
+          <div role="main" class="">
+
+	    <div id="content" class="hfeed entry-container hentry">
+  <section id="module-conexionbd">
+<span id="modulo-conexionbd"></span><h1>Módulo: conexionbd<a class="headerlink" href="#module-conexionbd" title="Enlace permanente a este encabezado">¶</a></h1>
+<p><strong>Módulo de conexión a base de datos correspondiente a aplicación: «Calculadora-LD50».</strong></p>
+<dl class="py class">
+<dt class="sig sig-object py" id="conexionbd.Conexion">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">conexionbd.</span></span><span class="sig-name descname"><span class="pre">Conexion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/conexionbd.html#Conexion"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#conexionbd.Conexion" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<p><strong>Conexión con base de datos.</strong>
+Depende del módulo peewee (ORM).</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="conexionbd.Conexion.DoesNotExist">
+<span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#conexionbd.Conexion.DoesNotExist" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>alias de <code class="xref py py-class docutils literal notranslate"><span class="pre">ConexionDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="conexionbd.Conexion.id">
+<span class="sig-name descname"><span class="pre">id</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;AutoField:</span> <span class="pre">Conexion.id&gt;</span></em><a class="headerlink" href="#conexionbd.Conexion.id" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="conexionbd.Ld50">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">conexionbd.</span></span><span class="sig-name descname"><span class="pre">Ld50</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/conexionbd.html#Ld50"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#conexionbd.Ld50" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#conexionbd.Conexion" title="conexionbd.Conexion"><code class="xref py py-class docutils literal notranslate"><span class="pre">Conexion</span></code></a></p>
+<p><strong>Construccion de tabla.</strong></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="conexionbd.Ld50.DoesNotExist">
+<span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#conexionbd.Ld50.DoesNotExist" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>alias de <code class="xref py py-class docutils literal notranslate"><span class="pre">Ld50DoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="conexionbd.Ld50.dosis">
+<span class="sig-name descname"><span class="pre">dosis</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;FloatField:</span> <span class="pre">Ld50.dosis&gt;</span></em><a class="headerlink" href="#conexionbd.Ld50.dosis" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="conexionbd.Ld50.id">
+<span class="sig-name descname"><span class="pre">id</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;AutoField:</span> <span class="pre">Ld50.id&gt;</span></em><a class="headerlink" href="#conexionbd.Ld50.id" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="conexionbd.Ld50.muertos">
+<span class="sig-name descname"><span class="pre">muertos</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;FloatField:</span> <span class="pre">Ld50.muertos&gt;</span></em><a class="headerlink" href="#conexionbd.Ld50.muertos" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="conexionbd.Ld50.n">
+<span class="sig-name descname"><span class="pre">n</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;IntegerField:</span> <span class="pre">Ld50.n&gt;</span></em><a class="headerlink" href="#conexionbd.Ld50.n" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="conexionbd.Ld50.unid">
+<span class="sig-name descname"><span class="pre">unid</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;CharField:</span> <span class="pre">Ld50.unid&gt;</span></em><a class="headerlink" href="#conexionbd.Ld50.unid" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+	    </div>
+            <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="controlador.html" class="btn btn-neutral float-right" title="Módulo: controlador">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Documentación: Entrega Nivel Intermedio. Diplomatura Python UTN"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2023, Gabriel.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/jucacrispim/sphinx_pdj_theme">theme</a> provided by <a href="http://poraodojuca.net">Porão do Juca</a>.
+
+</footer>
+	</div>
+	</div>
+	  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+    <script type="text/javascript" src="_static/documentation_options.js">
+
+    </script>
+    <script type="text/javascript" src="_static/doctools.js">
+
+    </script>
+    <script type="text/javascript" src="_static/sphinx_highlight.js">
+
+    </script>
+    <script type="text/javascript" src="_static/translations.js">
+
+    </script>
+
+  
+
+   <script type="text/javascript"
+           src="_static/js/theme.js"></script>
+
+   <script type="text/javascript"
+           src="_static/js/pdj.js"></script>
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+  </body>
+</html>

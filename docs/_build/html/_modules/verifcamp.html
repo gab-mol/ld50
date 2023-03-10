@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   
-  <title>controlador &mdash; documentación de Entrega Nivel Intermedio - 0.0.1</title>
+  <title>verifcamp &mdash; documentación de Entrega Nivel Intermedio - 0.0.1</title>
   
 
   
@@ -133,30 +133,54 @@
           <div role="main" class="">
 
 	    <div id="content" class="hfeed entry-container hentry">
-  <h1>Código fuente para controlador</h1><div class="highlight"><pre>
+  <h1>Código fuente para verifcamp</h1><div class="highlight"><pre>
 <span></span><span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">**El &#39;controlador&#39; (patrón MVC) correspondiente a aplicación: &quot;Calculadora-LD50&quot;.**</span>
+<span class="sd">    **Módulo con funcionalidad de verificacion de campos correspondiente a aplicación: &quot;Calculadora-LD50&quot;.**</span>
 <span class="sd">&#39;&#39;&#39;</span>
 
-<span class="kn">from</span> <span class="nn">tkinter</span> <span class="kn">import</span> <span class="n">Tk</span>
+<span class="kn">import</span> <span class="nn">re</span>
 
 <span class="kn">import</span> <span class="nn">vista</span>
 
-<div class="viewcode-block" id="Controlador"><a class="viewcode-back" href="../controlador.html#controlador.Controlador">[documentos]</a><span class="k">class</span> <span class="nc">Controlador</span><span class="p">:</span>
+
+<div class="viewcode-block" id="Verificador"><a class="viewcode-back" href="../verifcamp.html#verifcamp.Verificador">[documentos]</a><span class="k">class</span> <span class="nc">Verificador</span><span class="p">():</span>
     <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">    **Instancia la clase importada de la vista**</span>
-
-<span class="sd">    :param root: Recibe el objeto Tk.</span>
+<span class="sd">    **Contiene el metodo estatico de verificacion de campos.**</span>
 <span class="sd">    &#39;&#39;&#39;</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">root_controler</span><span class="o">=</span><span class="n">root</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">objeto_vista</span><span class="o">=</span><span class="n">vista</span><span class="o">.</span><span class="n">Ventana</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">root_controler</span><span class="p">)</span></div>
+<div class="viewcode-block" id="Verificador.verif_campos"><a class="viewcode-back" href="../verifcamp.html#verifcamp.Verificador.verif_campos">[documentos]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">verif_campos</span><span class="p">(</span>
+            <span class="n">dosis_var</span><span class="p">,</span>
+            <span class="n">muert_var</span><span class="p">,</span>
+            <span class="n">n_var</span><span class="p">,</span>
+            <span class="n">uni_var</span>
+        <span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Uso de modulo re para controlar campos.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="n">pat_campos</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span>
+            <span class="s2">&quot;[a-zA-Z,]&quot;</span>
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="n">pat_campos</span><span class="o">.</span><span class="n">search</span><span class="p">(</span>
+            <span class="n">dosis_var</span><span class="o">.</span><span class="n">get</span><span class="p">(),</span> 
+        <span class="p">)</span> <span class="ow">or</span> <span class="n">pat_campos</span><span class="o">.</span><span class="n">search</span><span class="p">(</span>
+            <span class="n">muert_var</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+        <span class="p">)</span> <span class="ow">or</span> <span class="n">pat_campos</span><span class="o">.</span><span class="n">search</span><span class="p">(</span>
+            <span class="n">n_var</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+        <span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span>
+                <span class="s2">&quot;caracter(es) no válido(s)&quot;</span>
+            <span class="p">)</span>
+            <span class="n">vista</span><span class="o">.</span><span class="n">Avisos</span><span class="o">.</span><span class="n">formato_error</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="nb">float</span><span class="p">(</span><span class="n">dosis_var</span><span class="o">.</span><span class="n">get</span><span class="p">()),</span>
+                <span class="nb">float</span><span class="p">(</span><span class="n">muert_var</span><span class="o">.</span><span class="n">get</span><span class="p">()),</span>
+                <span class="nb">float</span><span class="p">(</span><span class="n">n_var</span><span class="o">.</span><span class="n">get</span><span class="p">()),</span>
+                <span class="n">uni_var</span><span class="o">.</span><span class="n">get</span><span class="p">(),</span>
+            <span class="p">)</span>
 
-
-<span class="k">if</span> <span class="vm">__name__</span><span class="o">==</span><span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="n">main</span><span class="o">=</span><span class="n">Tk</span><span class="p">()</span>
-    <span class="n">aplicacion</span><span class="o">=</span><span class="n">Controlador</span><span class="p">(</span><span class="n">main</span><span class="p">)</span>
-    <span class="n">main</span><span class="o">.</span><span class="n">mainloop</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">data</span></div></div>
+        
 </pre></div>
 
 	    </div>

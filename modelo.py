@@ -1,5 +1,6 @@
 '''
-**El 'modelo' (patrón MVC) correspondiente a aplicación: "Calculadora-LD50".**
+**El 'modelo' (patrón MVC) correspondiente a aplicación: \
+"Calculadora-LD50".**
 '''
 __author__ = "Gabriel Molina"
 __maintainer__ = "Gabriel Molina"
@@ -88,11 +89,12 @@ class Grafico(FigureCanvasTkAgg):
             canvas
         ):
         '''
-        **Gráfico PROBIT vs Log(dosis)**
+        Grafica PROBIT vs Log(dosis).
 
         :param ax: Recibe objeto de ejes (canvas)
         :param lista_logdosis: Recibe lista de Dosis cargadas (eje x)
-        :param lista_probit_un: Recibe lista de unidades PROBIT calculadas (eje y)
+        :param lista_probit_un: Recibe lista de unidades \
+PROBIT calculadas (eje y)
         :param b: Recibe pendiente de la regresión
         :param a: Recibe ordenada de la regresión
         :param canvas: Recibe objeto canvas
@@ -203,10 +205,13 @@ class Crud():
     **Alta baja y modificacion.**
 
     :param vista_ensayos: Recibe objeto ttk (treeview tkinter) 
-    :param dosis_var: Recibe objeto StringVar (tkinter) correspondiente a dosis
-    :param muert_var: Recibe objeto StringVar (tkinter) correspondiente a muertos
+    :param dosis_var: Recibe objeto StringVar (tkinter) \
+correspondiente a dosis
+    :param muert_var: Recibe objeto StringVar (tkinter) \
+correspondiente a muertos
     :param n_var: Recibe objeto StringVar (tkinter) correspondiente a n
-    :param uni_var: Recibe objeto StringVar (tkinter) correspondiente a las unidades
+    :param uni_var: Recibe objeto StringVar (tkinter) \
+correspondiente a las unidades
     '''
     def __init__(
             self,
@@ -306,7 +311,7 @@ class Crud():
  
 class ver_100_0():
     '''
-    Eventos para el boton "Calcular"
+    **Eventos para el boton "Calcular".**
 
     :param ax: Recibe objeto de ejes (canvas)
     :param vista_ensayos: Recibe objeto ttk (treeview tkinter) 
