@@ -6,7 +6,7 @@ __author__ = "Gabriel Molina"
 __maintainer__ = "Gabriel Molina"
 __email__ = "gabrielmolina149@gmail.com"
 __copyright__ = "Copyright 2023"
-__version__ = "0.0.1"
+__version__ = "0.2.0"
 
 
 from math import log10, sqrt
@@ -199,6 +199,26 @@ class Mat():
             canvas
         )
         
+# Decoradores de aviso CRUD
+
+def nuevo_registro(func):
+    def env(*args):
+        func(*args)
+        print("Un nuevo registro ")
+    return env
+
+def elim_registro(func):
+    def env(*args):
+        func(*args)
+        print("Un registro eliminado")
+    return env
+
+def actualiz_registro(func):
+    def env(*args):
+        func(*args)
+        print("Un registro modificado")
+    return env
+
 
 class Crud(): 
     '''
@@ -229,6 +249,7 @@ correspondiente a las unidades
         self.uni_var = uni_var
         self.arbol = Arbol(vista_ensayos)
 
+    @nuevo_registro
     def alta_ensay(self):
         '''
         Guarda en bd y suma al arbol.
@@ -262,7 +283,7 @@ correspondiente a las unidades
             self.uni_var.get()
         )
 
-
+    @actualiz_registro
     def modif_ensay(self):
             '''
             Modifica el item seleccionado en arbol y bd.
@@ -295,6 +316,7 @@ correspondiente a las unidades
                 verf
             )
 
+    @elim_registro
     def borr_ensay(self):
         '''
         Baja del árbol y de la base.
