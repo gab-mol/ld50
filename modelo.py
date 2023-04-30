@@ -17,7 +17,7 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import vista
 from verifcamp import Verificador
 from conexionbd import Ld50
-
+from observador import Sujeto
 
 class Arbol():
     '''
@@ -199,7 +199,7 @@ class Mat():
             canvas
         )
         
-# Decoradores de aviso CRUD
+# Decoradores de aviso CRUD (no aplicados en esta rama)
 
 def nuevo_registro(func):
     def env(*args):
@@ -220,7 +220,7 @@ def actualiz_registro(func):
     return env
 
 
-class Crud(): 
+class Crud(Sujeto): 
     '''
     **Alta baja y modificacion.**
 
@@ -249,7 +249,7 @@ correspondiente a las unidades
         self.uni_var = uni_var
         self.arbol = Arbol(vista_ensayos)
 
-    @nuevo_registro
+    #@nuevo_registro
     def alta_ensay(self):
         '''
         Guarda en bd y suma al arbol.
@@ -282,8 +282,9 @@ correspondiente a las unidades
             self.dosis_var.get(),
             self.uni_var.get()
         )
+        self.informar_registro_obs("alta")
 
-    @actualiz_registro
+    #@actualiz_registro
     def modif_ensay(self):
             '''
             Modifica el item seleccionado en arbol y bd.
@@ -315,8 +316,10 @@ correspondiente a las unidades
                 verf[3],
                 verf
             )
+            self.informar_registro_obs("modif")
+            
 
-    @elim_registro
+    #@elim_registro
     def borr_ensay(self):
         '''
         Baja del árbol y de la base.
@@ -332,6 +335,7 @@ correspondiente a las unidades
             item_bd,
             item_bu
         )
+        self.informar_registro_obs("baja")
 
  
 class Ver_100_0():
