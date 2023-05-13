@@ -1,3 +1,5 @@
+
+
 class Sujeto:
     registro_observadores = []
     registro_referencias = []
