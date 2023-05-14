@@ -3,7 +3,7 @@ Para registrar log a la aplicación
 '''
 import socket
 import logging
-
+import pickle
 
 class Servidor_log:
     '''
@@ -19,16 +19,23 @@ class Servidor_log:
         sock.listen()
         print("escuchando...")
         conn, addr = sock.accept()
+        logging.basicConfig(filename='app_ld50.log', level="INFO")
 
         with conn:
             print(f"Conectado a observador.py: {addr}")
             while True: # recibe los datos. loop infinito
                 data = conn.recv(1024)
-                print("Inicio sesión: ", str(data))
+                data_deser= pickle.loads(data)
+                print("Inicio sesión: ", str(data_deser))
+                logging.info(str(data_deser))
+
+
+# archivo de log
+
 
 
 # Ejecución
 try:
     Servidor_log.conectar()
 except ConnectionError:
-    print("Error: Servidor_log no se pudo establecer una conexión.")
+    print("Servidor_log no pudo establecer conexión. O se cerró la aplicación")

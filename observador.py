@@ -3,14 +3,6 @@
 el servidor de logging. | "Calculadora-LD50".**
 '''
 
-import socket
-import threading
-import subprocess
-import sys
-import os
-from pathlib import Path
-
-
 class Sujeto:
     registro_observadores = []
     registro_referencias = []

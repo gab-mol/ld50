@@ -16,11 +16,13 @@ class Cliente:
         soc = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         soc.connect((cls.HOST, cls.PORT))
         sesion = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time.time()))
-        soc.send(bytes(sesion, "utf-8"))
-        print("cliente a la espera", type(cola))
+        sesion_ser = pickle.dumps(sesion)
+        soc.send(sesion_ser)
+        print("cliente a la espera")
         
         while True:
             item = cola.get()
+            print("en el while cliente: ", item, type(item))
             item_serial = pickle.dumps(item)
             soc.sendall(item_serial)
 
@@ -36,10 +38,13 @@ class Cliente:
 def enviar_log(id_item:str, cola):
     def _cliente_log(func):
         def env(*args):
-            cola.put((id_item, args,))
-            print((id_item, args,))
+            consulta = args[0].__dict__
+            paquete = [id_item, consulta["dosis_var"].get(), consulta["muert_var"].get()]
+
+            cola.put(paquete)
+            print("Llega a decorador:", paquete)
             func(*args)
-            return env
+        return env
     return _cliente_log
     
 

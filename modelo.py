@@ -21,6 +21,9 @@ from conexionbd import Ld50
 from observador import Sujeto
 from cliente_logging import Cliente, enviar_log
 
+global cola_log
+cola_log = Queue()
+
 class Arbol():
     '''
     **Gestiona vista de ensayos (objeto treeview de tkinter)**
@@ -235,7 +238,6 @@ correspondiente a muertos
     :param uni_var: Recibe objeto StringVar (tkinter) \
 correspondiente a las unidades
     '''
-
     def __init__(
             self,
             vista_ensayos,
@@ -251,11 +253,9 @@ correspondiente a las unidades
         self.uni_var = uni_var
         self.arbol = Arbol(vista_ensayos)
         # Conexión con sistema de log
-        global cola_log
-        cola_log = Queue()
         Cliente.lanzar_cliente(cola_log)
 
-    """@enviar_log("alta", cola_log)"""
+    @enviar_log("alta", cola_log)
     def alta_ensay(self):
         '''
         Guarda en bd y suma al arbol.
