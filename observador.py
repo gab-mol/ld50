@@ -1,3 +1,16 @@
+'''
+**Módulo encargado de seguir el CRUD de la aplicación y conectarse con \
+el servidor de logging. | "Calculadora-LD50".**
+'''
+
+import socket
+import threading
+import subprocess
+import sys
+import os
+from pathlib import Path
+
+
 class Sujeto:
     registro_observadores = []
     registro_referencias = []
@@ -60,11 +73,39 @@ class ObservadorCrudModificacion(Observador):
         self.referencia_metodo = "modif"
         self.obj_observado.agregar_obs(self, self.referencia_metodo)
 
-
-
     def actualizacion(self):
         print("<<<Modificación de ensayo>>>")
         print(f"Nuevos datos: Dosis= {self.obj_observado.dosis_var.get()} \
 Muertos= {self.obj_observado.muert_var.get()} \
 n= {self.obj_observado.n_var.get()} \
 Unidad= {self.obj_observado.uni_var.get()}")
+
+
+"""# Decorador logging
+class Cliente_log:
+    '''
+    **Conexión con servidor de logging.**
+    '''
+    HOST = "127.0.0.1"
+    PORT = 8080
+
+    @classmethod
+    def conectar(cls):
+        print("ejecución: Cliente_log.conectar()")
+        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+            s.connect((cls.HOST, cls.PORT))
+            for i in range(10):
+                s.sendall(b"Hola mundo")
+
+                data = s.recv(1024) # espera la devolución
+                print("Recibido", repr(data)) # repr muestra data literalmente como llega
+
+
+def cliente_log(func):
+    '''
+    **Vincula el método con el servidor de log.**
+    '''
+    def env(*args):
+        func(*args)
+        threading.Thread(target=Cliente_log.conectar, daemon=True).start()
+    return env"""

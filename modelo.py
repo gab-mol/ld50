@@ -6,18 +6,20 @@ __author__ = "Gabriel Molina"
 __maintainer__ = "Gabriel Molina"
 __email__ = "gabrielmolina149@gmail.com"
 __copyright__ = "Copyright 2023"
-__version__ = "0.2.0"
+__version__ = "0.3.0"
 
 
 from math import log10, sqrt
 from numpy import polyfit, array
 from statistics import NormalDist, mean
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+from queue import Queue
 
 import vista
 from verifcamp import Verificador
 from conexionbd import Ld50
 from observador import Sujeto
+from cliente_logging import Cliente, enviar_log
 
 class Arbol():
     '''
@@ -248,8 +250,12 @@ correspondiente a las unidades
         self.n_var = n_var
         self.uni_var = uni_var
         self.arbol = Arbol(vista_ensayos)
+        # Conexión con sistema de log
+        global cola_log
+        cola_log = Queue()
+        Cliente.lanzar_cliente(cola_log)
 
-    #@nuevo_registro
+    """@enviar_log("alta", cola_log)"""
     def alta_ensay(self):
         '''
         Guarda en bd y suma al arbol.
