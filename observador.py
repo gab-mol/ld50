@@ -41,6 +41,7 @@ class ObservadorCrudAlta(Observador):
 
     def actualizacion(self):
         print("<<<Alta de ensayo>>>")
+        print(self.obj_observado)
         print(f"Dosis= {self.obj_observado.dosis_var.get()} \
 Muertos= {self.obj_observado.muert_var.get()} \
 n= {self.obj_observado.n_var.get()} \
@@ -55,6 +56,7 @@ class ObservadorCrudBaja(Observador):
 
     def actualizacion(self):
         print("<<<Baja de ensayo>>>")
+        print(self.obj_observado)
         print(f"Eliminado => Dosis: {self.obj_observado.dosis_var.get()} \
 (muertos: {self.obj_observado.muert_var.get()})")
 
@@ -71,33 +73,3 @@ class ObservadorCrudModificacion(Observador):
 Muertos= {self.obj_observado.muert_var.get()} \
 n= {self.obj_observado.n_var.get()} \
 Unidad= {self.obj_observado.uni_var.get()}")
-
-
-"""# Decorador logging
-class Cliente_log:
-    '''
-    **Conexión con servidor de logging.**
-    '''
-    HOST = "127.0.0.1"
-    PORT = 8080
-
-    @classmethod
-    def conectar(cls):
-        print("ejecución: Cliente_log.conectar()")
-        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-            s.connect((cls.HOST, cls.PORT))
-            for i in range(10):
-                s.sendall(b"Hola mundo")
-
-                data = s.recv(1024) # espera la devolución
-                print("Recibido", repr(data)) # repr muestra data literalmente como llega
-
-
-def cliente_log(func):
-    '''
-    **Vincula el método con el servidor de log.**
-    '''
-    def env(*args):
-        func(*args)
-        threading.Thread(target=Cliente_log.conectar, daemon=True).start()
-    return env"""

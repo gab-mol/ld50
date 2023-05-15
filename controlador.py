@@ -41,10 +41,10 @@ class LanzServ:
         if proce_serv != "":
             proce_serv.kill()
             threading.Thread(target=LanzServ.subrutina_servidor, daemon=True).start()
-            print("Proceso del servidor iniciado. (if)")
+            print("Proceso del servidor iniciado.")
         else:
             threading.Thread(target=LanzServ.subrutina_servidor, daemon=True).start()
-            print("Proceso del servidor iniciado. (else)")
+            print("Proceso del servidor iniciado.")
 
     @staticmethod
     def subrutina_servidor():

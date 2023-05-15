@@ -1,18 +1,16 @@
-INFO:root:2023-05-14 12:17:15
-INFO:root:2023-05-14 16:55:05
-INFO:root:2023-05-14 17:25:34
-INFO:root:2023-05-14 17:42:40
-INFO:root:2023-05-14 17:47:01
-INFO:root:2023-05-14 17:48:16
-INFO:root:2023-05-14 18:15:35
-INFO:root:2023-05-14 18:32:04
-INFO:root:2023-05-14 18:38:30
-INFO:root:2023-05-14 18:39:35
-INFO:root:2023-05-14 18:43:48
-INFO:root:2023-05-14 19:17:20
-INFO:root:2023-05-14 19:23:06
-INFO:root:2023-05-14 19:32:22
-INFO:root:2023-05-14 19:34:33
-INFO:root:['alta', '7', '8']
-INFO:root:2023-05-14 19:37:16
-INFO:root:['alta', '1', '1']
+INFO:root:b"\x80\x04\x95'\x00\x00\x00\x00\x00\x00\x00\x8c#inicio sesi\xc3\xb3n: 2023-05-15 07:41:40\x94."
+INFO:root:b'<Alta> Dosis: 7, Muertos: 8 | 2023-05-15 07:42:06'
+INFO:root:inicio sesión: 2023-05-15 07:51:46
+INFO:root:<Baja> Dosis: 5.2, Muertos: 6.1 | 2023-05-15 07:51:50
+INFO:root:---- INICIO SESION: 2023-05-15 07:55:40 ----
+INFO:root:---- FIN DE SESION 2023-05-15 07:55:42 ----
+INFO:root:---- INICIO SESION: 2023-05-15 07:58:08 ----
+INFO:root:<Baja> Dosis: 4.0, Muertos: 2.8 | 2023-05-15 07:58:17
+INFO:root:---- FIN DE SESION 2023-05-15 07:58:20 ----
+INFO:root:---- INICIO SESION: 2023-05-15 08:04:53 ----
+INFO:root:<Alta> Dosis: 1, Muertos: 1 | 2023-05-15 08:04:59
+INFO:root:<Baja> Dosis: 1.0, Muertos: 1.0 | 2023-05-15 08:05:02
+INFO:root:---- FIN DE SESION 2023-05-15 08:05:05 ----
+INFO:root:---- INICIO SESION: 2023-05-15 08:07:30 ----
+INFO:root:<Baja> Dosis: 3.0, Muertos: 2.0 | 2023-05-15 08:07:41
+INFO:root:---- FIN DE SESION 2023-05-15 08:07:46 ----

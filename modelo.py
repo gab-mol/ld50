@@ -290,7 +290,7 @@ correspondiente a las unidades
         )
         self.informar_registro_obs("alta")
 
-    #@actualiz_registro
+    @enviar_log("modif", cola_log)
     def modif_ensay(self):
             '''
             Modifica el item seleccionado en arbol y bd.
@@ -325,7 +325,7 @@ correspondiente a las unidades
             self.informar_registro_obs("modif")
             
 
-    #@elim_registro
+    @enviar_log("baja", cola_log)
     def borr_ensay(self):
         '''
         Baja del árbol y de la base.

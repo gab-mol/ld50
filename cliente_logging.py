@@ -6,6 +6,13 @@ import time
 
 # La cola compartida se declara en el hilo principal
 
+def hora() -> str:
+    '''
+    *Imprime hora y fecha para logs*
+    '''
+    h = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time.time()))
+    return h
+
 class Cliente:
     HOST = "127.0.0.1"
     PORT = 8080    
@@ -15,15 +22,21 @@ class Cliente:
         print("ejecución: Cliente_log")
         soc = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         soc.connect((cls.HOST, cls.PORT))
-        sesion = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(time.time()))
-        sesion_ser = pickle.dumps(sesion)
+        sesion = f"---- INICIO SESION: {hora()} ----"
+        sesion_ser = bytes(sesion, "utf-8")
         soc.send(sesion_ser)
         print("cliente a la espera")
         
         while True:
             item = cola.get()
             print("en el while cliente: ", item, type(item))
-            item_serial = pickle.dumps(item)
+            if item[0] == "alta":
+                mensaje = f"<Alta> Dosis: {item[1]}, Muertos: {item[2]} | {hora()}"
+            elif item[0] == "baja":
+                mensaje = f"<Baja> Dosis: {item[1]}, Muertos: {item[2]} | {hora()}"
+            elif item[0] == "modif":
+                ...
+            item_serial = bytes(mensaje, "utf-8")
             soc.sendall(item_serial)
 
     @staticmethod
@@ -39,10 +52,18 @@ def enviar_log(id_item:str, cola):
     def _cliente_log(func):
         def env(*args):
             consulta = args[0].__dict__
-            paquete = [id_item, consulta["dosis_var"].get(), consulta["muert_var"].get()]
-
+            if id_item == "alta":
+                paquete = [id_item, consulta["dosis_var"].get(), consulta["muert_var"].get()]
+            elif id_item == "baja":
+                selec = consulta["vista_ensayos"].focus()
+                item = consulta["vista_ensayos"].item(selec)
+                paquete = [id_item, item["values"][0], item["values"][1]]
+                print("\nDecorador:")
+                print(paquete)
+                print("\n")
+            elif id_item == "modif":
+                ...
             cola.put(paquete)
-            print("Llega a decorador:", paquete)
             func(*args)
         return env
     return _cliente_log
