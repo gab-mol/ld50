@@ -1,6 +1,5 @@
 import socket
 import threading
-import pickle
 import time
 
 
@@ -35,8 +34,8 @@ class Cliente:
             elif item[0] == "baja":
                 mensaje = f"<Baja> Dosis: {item[1]}, Muertos: {item[2]} | {hora()}"
             elif item[0] == "modif":
-                mensaje = f"<Modificacion>  (Dosis: {item[1]}, \
-Muertos: {item[2]}) => (Dosis: {item[3]}, Muertos: {item[4]})"
+                mensaje = f"<Modificacion>  (Dosis: {item[3]}, \
+Muertos: {item[4]}) => (Dosis: {item[1]}, Muertos: {item[2]})"
             item_serial = bytes(mensaje, "utf-8")
             soc.sendall(item_serial)
 

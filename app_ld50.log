@@ -104,3 +104,10 @@ INFO:root:---- INICIO SESION: 2023-05-16 07:49:01 ----
 INFO:root:<Alta> Dosis: 1, Muertos: 1 | 2023-05-16 07:49:05
 INFO:root:<Baja> Dosis: 1.0, Muertos: 1.0 | 2023-05-16 07:49:06
 INFO:root:---- FIN DE SESION 2023-05-16 07:49:10 ----
+INFO:root:---- INICIO SESION: 2023-05-16 07:50:38 ----
+INFO:root:<Alta> Dosis: 1, Muertos: 1 | 2023-05-16 07:50:44
+INFO:root:<Modificacion>  (Dosis: 7, Muertos: 8) => (Dosis: 1.0, Muertos: 1.0)
+INFO:root:---- FIN DE SESION 2023-05-16 07:51:07 ----
+INFO:root:---- INICIO SESION: 2023-05-16 07:52:26 ----
+INFO:root:<Modificacion>  (Dosis: 7.0, Muertos: 8.0) => (Dosis: 7.1, Muertos: 8.1)
+INFO:root:---- FIN DE SESION 2023-05-16 07:52:45 ----
