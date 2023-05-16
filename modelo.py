@@ -341,7 +341,7 @@ correspondiente a las unidades
             item_bd,
             item_bu
         )
-        self.informar_registro_obs("baja")
+        self.informar_registro_obs("baja", item)
 
  
 class Ver_100_0():

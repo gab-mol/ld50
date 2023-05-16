@@ -12,7 +12,7 @@ class Sujeto:
         self.registro_referencias.append(referencia)
 
 
-    def informar_registro_obs(self, ref_met:str):
+    def informar_registro_obs(self, ref_met:str, *args):
         '''
         Metodo que decide que notificación debe activase según el método.\n
         Para notificar (argumento):
@@ -23,7 +23,7 @@ class Sujeto:
         if ref_met == self.registro_referencias[0]:
             self.registro_observadores[0].actualizacion()
         if ref_met == self.registro_referencias[1]:
-            self.registro_observadores[1].actualizacion()
+            self.registro_observadores[1].actualizacion(*args)
         if ref_met == self.registro_referencias[2]:
             self.registro_observadores[2].actualizacion()
 
@@ -54,11 +54,11 @@ class ObservadorCrudBaja(Observador):
         self.referencia_metodo = "baja"
         self.obj_observado.agregar_obs(self, self.referencia_metodo)
 
-    def actualizacion(self):
+    def actualizacion(self, borrado):
         print("<<<Baja de ensayo>>>")
-        print(self.obj_observado)
-        print(f"Eliminado => Dosis: {self.obj_observado.dosis_var.get()} \
-(muertos: {self.obj_observado.muert_var.get()})")
+        item = borrado['values']
+        print(f"Eliminado => Dosis: {item[0]} \
+(muertos: {item[1]})")
 
 
 class ObservadorCrudModificacion(Observador):
