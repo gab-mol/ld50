@@ -7,6 +7,7 @@ from tkinter import Label, Entry, StringVar, Button, ttk
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from tkinter import messagebox
+from tktooltip import ToolTip
 
 import modelo
 
@@ -381,6 +382,9 @@ ensayos, sus variables y sus etiquetas.**
             font=font_entr
         )
 
+        AyudaUs(dosis_ent, "Decimales con punto. \
+NO alfabéticos.").mostrar()
+
         dosis_ent.grid(
             row=2,
             column=0,
@@ -421,6 +425,8 @@ ensayos, sus variables y sus etiquetas.**
             justify="left",
             font=font_entr
         )
+
+        AyudaUs(uni_var_ent, "Alfanuméricos.").mostrar()
 
         uni_var_ent.grid(
             row=6,
@@ -463,6 +469,9 @@ ensayos, sus variables y sus etiquetas.**
             font=font_entr
         )
 
+        AyudaUs(muert_ent, "Decimales con punto. \
+NO alfabéticos.").mostrar()
+
         muert_ent.grid(
             row=2,
             column=1,
@@ -501,6 +510,8 @@ ensayos, sus variables y sus etiquetas.**
             justify="left",
             font=font_entr
         )
+
+        AyudaUs(n_ent, "Entero. NO alfabéticos.").mostrar()
 
         n_ent.grid(
             row=6,
@@ -661,3 +672,18 @@ con mortalidad del 100% y/o 0% (elimine dichos ensayos)"
             "No se ingresaron datos"
         )
 
+
+class AyudaUs:
+    '''
+    **Cuadro de texto emergente para indicar formato de datos.**
+
+    :param objeto: widget que recibe el cuadrode texto.
+    :param texto: texto que se quiere mostrar.
+    '''
+    def __init__(self, objeto, texto):
+        self.objeto = objeto
+        self.texto = texto
+    
+    def mostrar(cls):
+        ToolTip(cls.objeto, msg=cls.texto, delay=0,
+        fg="#181815", bg="#FCFCE2", padx=7, pady=7)

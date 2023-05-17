@@ -111,3 +111,30 @@ INFO:root:---- FIN DE SESION 2023-05-16 07:51:07 ----
 INFO:root:---- INICIO SESION: 2023-05-16 07:52:26 ----
 INFO:root:<Modificacion>  (Dosis: 7.0, Muertos: 8.0) => (Dosis: 7.1, Muertos: 8.1)
 INFO:root:---- FIN DE SESION 2023-05-16 07:52:45 ----
+INFO:root:---- INICIO SESION: 2023-05-17 07:08:43 ----
+INFO:root:---- FIN DE SESION 2023-05-17 07:08:59 ----
+INFO:root:---- INICIO SESION: 2023-05-17 07:13:18 ----
+INFO:root:---- FIN DE SESION 2023-05-17 07:13:47 ----
+INFO:root:---- INICIO SESION: 2023-05-17 07:13:51 ----
+INFO:root:---- FIN DE SESION 2023-05-17 07:13:56 ----
+INFO:root:---- INICIO SESION: 2023-05-17 07:16:37 ----
+INFO:root:---- FIN DE SESION 2023-05-17 07:17:04 ----
+INFO:root:---- INICIO SESION: 2023-05-17 07:20:37 ----
+INFO:root:---- FIN DE SESION 2023-05-17 07:25:37 ----
+INFO:root:---- INICIO SESION: 2023-05-17 07:25:40 ----
+INFO:root:---- FIN DE SESION 2023-05-17 07:26:03 ----
+INFO:root:---- INICIO SESION: 2023-05-17 07:29:56 ----
+INFO:root:---- FIN DE SESION 2023-05-17 07:30:10 ----
+INFO:root:---- INICIO SESION: 2023-05-17 07:32:26 ----
+INFO:root:---- FIN DE SESION 2023-05-17 07:32:43 ----
+INFO:root:---- INICIO SESION: 2023-05-17 07:57:36 ----
+INFO:root:<Alta> Dosis: 1, Muertos: 1 | 2023-05-17 07:57:50
+INFO:root:<Modificacion>  (Dosis: 7.1, Muertos: 8.1) => (Dosis: 1, Muertos: 1)
+INFO:root:<Modificacion>  (Dosis: 1.0, Muertos: 1.0) => (Dosis: 1, Muertos: 1)
+INFO:root:<Baja> Dosis: 1.0, Muertos: 1.0 | 2023-05-17 07:58:14
+INFO:root:---- FIN DE SESION 2023-05-17 07:58:24 ----
+INFO:root:---- INICIO SESION: 2023-05-17 07:59:57 ----
+INFO:root:<Modificacion>  (Dosis: 1.0, Muertos: 1.0) => (Dosis: 1, Muertos: 1) | 2023-05-17 08:00:05
+INFO:root:---- FIN DE SESION 2023-05-17 08:00:09 ----
+INFO:root:---- INICIO SESION: 2023-05-17 08:07:33 ----
+INFO:root:---- FIN DE SESION: 2023-05-17 08:07:38 ----

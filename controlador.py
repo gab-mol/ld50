@@ -31,19 +31,25 @@ class Controlador:
 
 class LanzServ:
     '''
-    Ejecuta "servidor_logging.py" en supropio hilo.
+    **Ejecuta "servidor_logging.py" en supropio hilo**
     '''
     @staticmethod
     def lanzar_servidor():
         '''
-        Lanzar Servidor de log como proceso independiente.
+        Lanzar Servidor de log como subproceso en un hilo en segundo plano.
         '''
         if proce_serv != "":
             proce_serv.kill()
-            threading.Thread(target=LanzServ.subrutina_servidor, daemon=True).start()
+            threading.Thread(
+                target=LanzServ.subrutina_servidor, 
+                daemon=True
+            ).start()
             print("Proceso del servidor iniciado.")
         else:
-            threading.Thread(target=LanzServ.subrutina_servidor, daemon=True).start()
+            threading.Thread(
+                target=LanzServ.subrutina_servidor, 
+                daemon=True
+            ).start()
             print("Proceso del servidor iniciado.")
 
     @staticmethod
